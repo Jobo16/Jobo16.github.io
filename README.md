@@ -46,6 +46,7 @@
 仓库的 `scripts/generate_manifest.py` 已包含兜底逻辑：
 - 会自动扫描项目 HTML
 - 若发现 `src="/assets/..."`、`href="/static/..."` 这类根路径且文件实际在当前项目目录下，会自动改为 `./assets/...`、`./static/...`
+- 若发现打包产物里 `history: createWebHashHistory("/")` / `history: createWebHistory("/")`（或压缩后的同类写法），会自动改为 `history: xxx()`，避免在子目录预览时跳到站点根路径
 
 ## 页面行为说明
 
