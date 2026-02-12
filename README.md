@@ -42,6 +42,30 @@
 - 右上角“新窗口打开”：独立标签页打开当前预览
 - URL hash 会记录当前预览路径，刷新后可恢复
 
+## 读取策略（已加兜底）
+
+页面会按顺序读取：
+1. GitHub API 仓库文件树
+2. `projects.manifest.json`（当 API 失败时兜底）
+
+如果你新增了很多项目，且遇到 API 受限，可在仓库根目录执行下面命令更新清单后再推送：
+
+```powershell
+$root = (Get-Location).Path
+$htmlPaths = Get-ChildItem -Recurse -File |
+  Where-Object { $_.Extension -match '^\.html?$' } |
+  ForEach-Object { $_.FullName.Substring($root.Length + 1) -replace '\\','/' } |
+  Where-Object { ($_ -split '/').Length -ge 3 } |
+  Sort-Object -Unique
+
+$manifest = [ordered]@{
+  generatedAt = (Get-Date).ToString('yyyy-MM-ddTHH:mm:ssK')
+  htmlPaths = @($htmlPaths)
+}
+
+$manifest | ConvertTo-Json -Depth 4 | Set-Content -Path projects.manifest.json -Encoding UTF8
+```
+
 ## 自定义域名说明
 
 默认会在 `*.github.io` 域名下自动推断仓库。
@@ -50,9 +74,9 @@
 
 ```js
 const CONFIG = {
-  owner: "你的 GitHub 用户名",
-  repo: "你的仓库名",
-  branch: "",    // 可留空，自动读取默认分支
-  rootPath: ""   // 可留空；如需手动指定可填 "/" 或 "/repo-name/"
+  owner: "Jobo16",
+  repo: "Jobo16.github.io",
+  branch: "main",
+  rootPath: "/"
 };
 ```

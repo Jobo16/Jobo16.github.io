@@ -235,10 +235,10 @@
 
   <script>
     const CONFIG = {
-      owner: "",
-      repo: "",
-      branch: "",
-      rootPath: ""
+      owner: "Jobo16",
+      repo: "Jobo16.github.io",
+      branch: "main",
+      rootPath: "/"
     };
 
     const state = {
@@ -510,6 +510,18 @@
       return paths;
     }
 
+    async function getHtmlPathsFromManifest() {
+      const data = await fetchJson("projects.manifest.json");
+      if (!Array.isArray(data.htmlPaths)) {
+        return [];
+      }
+
+      return data.htmlPaths
+        .filter((path) => typeof path === "string")
+        .filter(isHtmlFile)
+        .filter((path) => path.split("/").length >= 3);
+    }
+
     async function init() {
       const repoInfo = inferRepoFromLocation();
       if (!repoInfo) {
@@ -521,37 +533,49 @@
 
       const { owner, repo } = repoInfo;
       const rootPath = inferRootPath(owner, repo);
+      let htmlPaths = [];
+      let loadError = null;
 
       try {
         const branch = await getBranch(owner, repo);
-        const htmlPaths = await getHtmlPathsFromGitHub(owner, repo, branch);
-
-        if (htmlPaths.length === 0) {
-          setEmptyMessage(
-            "未发现可预览项目。\n\n请按结构添加文件：\n成员名/项目名/index.html\n\n也支持：成员名/项目名/xxx.html + css/js"
-          );
-          return;
-        }
-
-        const memberTree = buildMemberProjectTree(htmlPaths);
-        if (memberTree.length === 0) {
-          setEmptyMessage(
-            "已发现 HTML 文件，但未匹配到成员/项目层级。\n\n请至少使用两级目录：成员名/项目名/*.html"
-          );
-          return;
-        }
-
-        renderTree(memberTree, rootPath);
-
-        if (!tryOpenFromHash(rootPath)) {
-          const first = memberTree[0].projects[0];
-          activatePath(first.entry, `${memberTree[0].name} / ${first.name}`, rootPath);
-        }
+        htmlPaths = await getHtmlPathsFromGitHub(owner, repo, branch);
       } catch (error) {
         console.error(error);
+        loadError = error;
+      }
+
+      if (htmlPaths.length === 0) {
+        try {
+          htmlPaths = await getHtmlPathsFromManifest();
+        } catch (manifestError) {
+          console.error(manifestError);
+          if (!loadError) {
+            loadError = manifestError;
+          }
+        }
+      }
+
+      if (htmlPaths.length === 0) {
+        const details = loadError && loadError.message ? `\n\n错误详情：${loadError.message}` : "";
         setEmptyMessage(
-          "读取 GitHub 仓库失败。\n\n可能原因：\n1. 仓库私有或 API 访问受限。\n2. GitHub API 速率限制。\n3. owner/repo 推断错误。\n\n请打开控制台查看错误详情。"
+          "未发现可预览项目，或读取目录失败。\n\n请确认：\n1. 仓库里已有 成员名/项目名/*.html\n2. 仓库为公开仓库或 API 可访问\n3. projects.manifest.json 已存在且包含 htmlPaths" + details
         );
+        return;
+      }
+
+      const memberTree = buildMemberProjectTree(htmlPaths);
+      if (memberTree.length === 0) {
+        setEmptyMessage(
+          "已发现 HTML 文件，但未匹配到成员/项目层级。\n\n请至少使用两级目录：成员名/项目名/*.html"
+        );
+        return;
+      }
+
+      renderTree(memberTree, rootPath);
+
+      if (!tryOpenFromHash(rootPath)) {
+        const first = memberTree[0].projects[0];
+        activatePath(first.entry, `${memberTree[0].name} / ${first.name}`, rootPath);
       }
     }
 
