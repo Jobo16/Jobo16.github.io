@@ -554,6 +554,10 @@
             return `#/${base}/${toSafePath(suffix)}`;
         }
 
+        function buildViewerPageLink(path, routeSuffix = "") {
+            return `${window.location.pathname}${window.location.search}${buildViewerHash(path, routeSuffix)}`;
+        }
+
         function buildPreviewUrl(path, rootPath) {
             const safePath = toSafePath(path);
             if (rootPath.endsWith("/")) {
@@ -574,8 +578,8 @@
             return `${previewUrl}/${toSafePath(suffix)}`;
         }
 
-        function updateViewerLink(href) {
-            viewerLinkEl.href = href;
+        function updateViewerLink(path, routeSuffix = "") {
+            viewerLinkEl.href = buildViewerPageLink(path, routeSuffix);
         }
 
         function parseHashSelection() {
@@ -672,8 +676,6 @@
             }
 
             if (frameLocation) {
-                updateViewerLink(`${frameLocation.pathname}${frameLocation.search}${frameLocation.hash}`);
-
                 const frameRelativePath = toRelativePathFromPathname(frameLocation.pathname, state.rootPath);
                 if (
                     frameRelativePath &&
@@ -693,6 +695,7 @@
 
             state.routeModeByPath.set(state.activePath, routeInfo.mode);
             state.activeRouteSuffix = routeInfo.suffix;
+            updateViewerLink(state.activePath, state.activeRouteSuffix);
             const targetHash = buildViewerHash(state.activePath, routeInfo.suffix);
             if (window.location.hash !== targetHash) {
                 history.replaceState(null, "", targetHash);
@@ -728,7 +731,7 @@
                 frameEl.src = src;
             }
             viewerTitleEl.textContent = title;
-            updateViewerLink(src);
+            updateViewerLink(path, state.activeRouteSuffix);
             viewerLinkEl.hidden = false;
             emptyEl.hidden = true;
 
