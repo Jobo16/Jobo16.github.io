@@ -58,6 +58,84 @@
       font-size: 13px;
     }
 
+    .tools {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .search-input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 13px;
+      background: #fff;
+      color: var(--text);
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tool-btn {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--text);
+      font-size: 12px;
+      padding: 6px 8px;
+      cursor: pointer;
+    }
+
+    .tool-btn:hover {
+      background: #f6f6f6;
+    }
+
+    .hidden-box {
+      margin: 0 0 10px;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 8px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .hidden-title {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hidden-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .hidden-chip {
+      border: 1px solid #d7d7d7;
+      border-radius: 999px;
+      padding: 4px 8px;
+      background: #fff;
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .chip-btn {
+      border: 0;
+      background: transparent;
+      color: var(--accent);
+      cursor: pointer;
+      font-size: 12px;
+      padding: 0;
+    }
+
     .tree {
       display: grid;
       gap: 8px;
@@ -88,36 +166,113 @@
       display: none;
     }
 
-    .project-list,
-    .file-list {
+    summary.node-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    summary.node-summary::before {
+      content: "▸";
+      display: inline-block;
+      margin-right: 8px;
+      color: #6b7280;
+      transition: transform .15s ease;
+    }
+
+    details[open] > summary.node-summary::before {
+      transform: rotate(90deg);
+    }
+
+    .summary-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .node-name {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .node-meta {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .summary-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .node-btn {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 6px;
+      font-size: 12px;
+      color: #3c4547;
+      padding: 4px 7px;
+      cursor: pointer;
+    }
+
+    .node-btn:hover {
+      background: #f7f7f7;
+    }
+
+    .node-btn.active {
+      background: var(--accent-soft);
+      border-color: #b5d8cf;
+      color: #0b5a4b;
+      font-weight: 600;
+    }
+
+    .member-content {
+      padding: 8px;
       display: grid;
       gap: 6px;
-      padding: 8px;
+    }
+
+    details.project-node {
+      margin-left: 10px;
+    }
+
+    details.project-node > summary {
+      background: #fcfcfc;
+      padding: 8px 10px;
+      border-radius: 8px;
     }
 
     .file-list {
-      margin-top: 4px;
-      border-top: 1px dashed var(--line);
-      padding-top: 8px;
+      display: grid;
+      gap: 5px;
+      margin: 4px 0 0 26px;
+      padding: 7px 0 2px 10px;
+      border-left: 2px dashed #d9d9d9;
     }
 
-    button.tree-item {
+    .tree-item {
       width: 100%;
       text-align: left;
       border: 1px solid transparent;
       background: transparent;
-      padding: 8px 10px;
+      padding: 7px 9px;
       border-radius: 8px;
       cursor: pointer;
       color: inherit;
-      font-size: 14px;
+      font-size: 13px;
     }
 
-    button.tree-item:hover {
+    .tree-item:hover {
       background: #f6f6f6;
     }
 
-    button.tree-item.active {
+    .tree-item.active {
       background: var(--accent-soft);
       border-color: #b5d8cf;
       color: #0b5a4b;
@@ -125,9 +280,19 @@
     }
 
     .file-btn {
-      font-size: 13px;
+      font-size: 12px;
       color: #354245;
-      padding-left: 14px;
+      padding-left: 10px;
+    }
+
+    .tree-empty {
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--muted);
+      padding: 12px;
+      font-size: 13px;
+      line-height: 1.5;
     }
 
     .main {
@@ -218,6 +383,18 @@
     <aside class="sidebar">
       <h1 class="brand">团队静态项目</h1>
       <p class="hint">按目录放文件：`成员名/项目名/静态文件`。点击左侧项目后，右侧直接渲染页面。</p>
+      <div class="tools">
+        <input id="memberSearch" class="search-input" type="search" placeholder="搜索成员名称..." />
+        <div class="toolbar">
+          <button id="expandAllBtn" type="button" class="tool-btn">全部展开</button>
+          <button id="collapseAllBtn" type="button" class="tool-btn">全部折叠</button>
+          <button id="resetHiddenBtn" type="button" class="tool-btn">显示全部目录</button>
+        </div>
+      </div>
+      <div id="hiddenBox" class="hidden-box" hidden>
+        <p class="hidden-title">已隐藏目录</p>
+        <div id="hiddenList" class="hidden-list"></div>
+      </div>
       <div id="tree" class="tree"></div>
     </aside>
 
@@ -238,19 +415,33 @@
       owner: "Jobo16",
       repo: "Jobo16.github.io",
       branch: "main",
-      rootPath: "/"
+      rootPath: "/",
+      hiddenMembers: [],
+      hiddenProjects: []
     };
 
     const state = {
       itemsByPath: new Map(),
-      activePath: ""
+      activePath: "",
+      activeTitle: "",
+      memberTreeRaw: [],
+      rootPath: "/",
+      hiddenDirs: new Set(),
+      searchKeyword: ""
     };
 
+    const HIDDEN_KEY = "team_showcase_hidden_dirs_v1";
     const treeEl = document.getElementById("tree");
     const frameEl = document.getElementById("viewerFrame");
     const emptyEl = document.getElementById("empty");
     const viewerTitleEl = document.getElementById("viewerTitle");
     const viewerLinkEl = document.getElementById("viewerLink");
+    const memberSearchEl = document.getElementById("memberSearch");
+    const expandAllBtn = document.getElementById("expandAllBtn");
+    const collapseAllBtn = document.getElementById("collapseAllBtn");
+    const resetHiddenBtn = document.getElementById("resetHiddenBtn");
+    const hiddenBoxEl = document.getElementById("hiddenBox");
+    const hiddenListEl = document.getElementById("hiddenList");
 
     function normalizeRootPath(path) {
       if (!path) return "";
@@ -405,6 +596,7 @@
 
       item.classList.add("active");
       state.activePath = path;
+      state.activeTitle = title;
 
       const src = buildPreviewUrl(path, rootPath);
       frameEl.src = src;
@@ -427,30 +619,228 @@
       return btn;
     }
 
+    function buildDirectoryKey(memberName, projectName) {
+      if (!projectName) return `member:${memberName}`;
+      return `project:${memberName}/${projectName}`;
+    }
+
+    function parseDirectoryKey(key) {
+      if (key.startsWith("member:")) {
+        return { type: "member", label: key.slice("member:".length) };
+      }
+      if (key.startsWith("project:")) {
+        return { type: "project", label: key.slice("project:".length) };
+      }
+      return { type: "unknown", label: key };
+    }
+
+    function saveHiddenDirs() {
+      try {
+        localStorage.setItem(HIDDEN_KEY, JSON.stringify([...state.hiddenDirs]));
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    function loadHiddenDirs() {
+      const merged = new Set();
+      for (const memberName of CONFIG.hiddenMembers || []) {
+        merged.add(buildDirectoryKey(memberName));
+      }
+      for (const projectPath of CONFIG.hiddenProjects || []) {
+        merged.add(`project:${projectPath}`);
+      }
+
+      try {
+        const raw = localStorage.getItem(HIDDEN_KEY);
+        const parsed = raw ? JSON.parse(raw) : [];
+        if (Array.isArray(parsed)) {
+          for (const key of parsed) {
+            if (typeof key === "string") {
+              merged.add(key);
+            }
+          }
+        }
+      } catch (error) {
+        console.error(error);
+      }
+
+      state.hiddenDirs = merged;
+    }
+
+    function isDirectoryHidden(memberName, projectName) {
+      return state.hiddenDirs.has(buildDirectoryKey(memberName, projectName));
+    }
+
+    function hideDirectory(memberName, projectName) {
+      state.hiddenDirs.add(buildDirectoryKey(memberName, projectName));
+      saveHiddenDirs();
+      renderByCurrentState();
+    }
+
+    function unhideDirectory(key) {
+      state.hiddenDirs.delete(key);
+      saveHiddenDirs();
+      renderByCurrentState();
+    }
+
+    function resetAllHiddenDirectories() {
+      state.hiddenDirs.clear();
+      saveHiddenDirs();
+      renderByCurrentState();
+    }
+
+    function renderHiddenDirectories() {
+      const keys = [...state.hiddenDirs].sort((a, b) => a.localeCompare(b, "zh-CN"));
+      hiddenListEl.innerHTML = "";
+      hiddenBoxEl.hidden = keys.length === 0;
+
+      for (const key of keys) {
+        const chip = document.createElement("span");
+        chip.className = "hidden-chip";
+        const data = parseDirectoryKey(key);
+        const prefix = data.type === "project" ? "项目" : "成员";
+        const label = document.createElement("span");
+        label.textContent = `${prefix}: ${data.label}`;
+
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "chip-btn";
+        btn.textContent = "恢复";
+        btn.addEventListener("click", () => unhideDirectory(key));
+
+        chip.appendChild(label);
+        chip.appendChild(btn);
+        hiddenListEl.appendChild(chip);
+      }
+    }
+
+    function filterMemberTree(memberTree) {
+      const keyword = state.searchKeyword.trim();
+      const filtered = [];
+
+      for (const member of memberTree) {
+        if (isDirectoryHidden(member.name)) {
+          continue;
+        }
+
+        const visibleProjects = member.projects.filter((project) => !isDirectoryHidden(member.name, project.name));
+        if (visibleProjects.length === 0) {
+          continue;
+        }
+
+        if (keyword && !member.name.includes(keyword)) {
+          continue;
+        }
+
+        filtered.push({ ...member, projects: visibleProjects });
+      }
+
+      return filtered;
+    }
+
+    function setAllTreeNodes(open) {
+      for (const node of treeEl.querySelectorAll("details")) {
+        node.open = open;
+      }
+    }
+
+    function createNodeAction(label, onClick, className = "") {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `node-btn ${className}`.trim();
+      btn.textContent = label;
+      btn.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        onClick();
+      });
+      return btn;
+    }
+
     function renderTree(memberTree, rootPath) {
       treeEl.innerHTML = "";
       state.itemsByPath.clear();
 
+      if (memberTree.length === 0) {
+        const msg = document.createElement("div");
+        msg.className = "tree-empty";
+        msg.textContent = state.searchKeyword
+          ? `没有匹配成员：${state.searchKeyword}`
+          : "当前没有可展示的目录（可能都被隐藏了）。";
+        treeEl.appendChild(msg);
+        return;
+      }
+
       for (const member of memberTree) {
         const memberDetails = document.createElement("details");
+        memberDetails.className = "member-node";
         memberDetails.open = true;
 
         const memberSummary = document.createElement("summary");
-        memberSummary.textContent = member.name;
+        memberSummary.className = "node-summary";
+
+        const memberLeft = document.createElement("span");
+        memberLeft.className = "summary-left";
+        const memberName = document.createElement("span");
+        memberName.className = "node-name";
+        memberName.textContent = member.name;
+        const memberMeta = document.createElement("span");
+        memberMeta.className = "node-meta";
+        memberMeta.textContent = `${member.projects.length} 项目`;
+        memberLeft.appendChild(memberName);
+        memberLeft.appendChild(memberMeta);
+
+        const memberActions = document.createElement("span");
+        memberActions.className = "summary-actions";
+        memberActions.appendChild(
+          createNodeAction("隐藏", () => hideDirectory(member.name))
+        );
+
+        memberSummary.appendChild(memberLeft);
+        memberSummary.appendChild(memberActions);
         memberDetails.appendChild(memberSummary);
 
-        const projectList = document.createElement("div");
-        projectList.className = "project-list";
+        const memberContent = document.createElement("div");
+        memberContent.className = "member-content";
 
         for (const project of member.projects) {
-          const wrap = document.createElement("div");
+          const projectDetails = document.createElement("details");
+          projectDetails.className = "project-node";
+          projectDetails.open = false;
 
-          const projectBtn = createButton(project.name, "project-btn");
-          projectBtn.addEventListener("click", () => {
+          const projectSummary = document.createElement("summary");
+          projectSummary.className = "node-summary";
+
+          const projectLeft = document.createElement("span");
+          projectLeft.className = "summary-left";
+          const projectName = document.createElement("span");
+          projectName.className = "node-name";
+          projectName.textContent = project.name;
+          const projectMeta = document.createElement("span");
+          projectMeta.className = "node-meta";
+          projectMeta.textContent = `${project.files.length} 页面`;
+          projectLeft.appendChild(projectName);
+          projectLeft.appendChild(projectMeta);
+
+          const projectActions = document.createElement("span");
+          projectActions.className = "summary-actions";
+          const entryBtn = createNodeAction(
+            "打开",
+            () => {
             activatePath(project.entry, `${member.name} / ${project.name}`, rootPath);
-          });
-          state.itemsByPath.set(project.entry, projectBtn);
-          wrap.appendChild(projectBtn);
+            },
+            "entry-btn"
+          );
+          state.itemsByPath.set(project.entry, entryBtn);
+          projectActions.appendChild(entryBtn);
+          projectActions.appendChild(
+            createNodeAction("隐藏", () => hideDirectory(member.name, project.name))
+          );
+
+          projectSummary.appendChild(projectLeft);
+          projectSummary.appendChild(projectActions);
+          projectDetails.appendChild(projectSummary);
 
           const extraFiles = project.files.filter((file) => file !== project.entry);
           if (extraFiles.length > 0) {
@@ -468,15 +858,33 @@
               fileList.appendChild(fileBtn);
             }
 
-            wrap.appendChild(fileList);
+            projectDetails.appendChild(fileList);
           }
 
-          projectList.appendChild(wrap);
+          memberContent.appendChild(projectDetails);
         }
 
-        memberDetails.appendChild(projectList);
+        memberDetails.appendChild(memberContent);
         treeEl.appendChild(memberDetails);
       }
+    }
+
+    function renderByCurrentState() {
+      const filteredTree = filterMemberTree(state.memberTreeRaw);
+      renderHiddenDirectories();
+      renderTree(filteredTree, state.rootPath);
+
+      if (filteredTree.length === 0) {
+        return;
+      }
+
+      if (state.activePath && state.itemsByPath.has(state.activePath)) {
+        activatePath(state.activePath, state.activeTitle || state.activePath.split("/").join(" / "), state.rootPath);
+        return;
+      }
+
+      const first = filteredTree[0].projects[0];
+      activatePath(first.entry, `${filteredTree[0].name} / ${first.name}`, state.rootPath);
     }
 
     function tryOpenFromHash(rootPath) {
@@ -571,13 +979,31 @@
         return;
       }
 
-      renderTree(memberTree, rootPath);
+      loadHiddenDirs();
+      state.memberTreeRaw = memberTree;
+      state.rootPath = rootPath;
+      renderByCurrentState();
 
       if (!tryOpenFromHash(rootPath)) {
-        const first = memberTree[0].projects[0];
-        activatePath(first.entry, `${memberTree[0].name} / ${first.name}`, rootPath);
+        const visibleTree = filterMemberTree(memberTree);
+        if (visibleTree.length > 0) {
+          const first = visibleTree[0].projects[0];
+          activatePath(first.entry, `${visibleTree[0].name} / ${first.name}`, rootPath);
+        }
       }
     }
+
+    memberSearchEl.addEventListener("input", () => {
+      state.searchKeyword = memberSearchEl.value || "";
+      renderByCurrentState();
+      if (state.searchKeyword.trim()) {
+        setAllTreeNodes(true);
+      }
+    });
+
+    expandAllBtn.addEventListener("click", () => setAllTreeNodes(true));
+    collapseAllBtn.addEventListener("click", () => setAllTreeNodes(false));
+    resetHiddenBtn.addEventListener("click", () => resetAllHiddenDirectories());
 
     init();
   </script>
