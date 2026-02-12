@@ -1,0 +1,1 @@
+import{_ as t,r,o as a,d as s,e as n,b as c}from"../index-DYxDfolO.js";const m={};function _(o,l){const e=r("CommonTopRight");return a(),s(e,{class:"BaFormBar"},{default:n(()=>[c(o.$slots,"default")]),_:3})}const p=t(m,[["render",_]]);export{p as default};

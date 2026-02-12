@@ -1,0 +1,1 @@
+import{H as e}from"../index-DYxDfolO.js";const{get:o,post:a,put:d,delt:r}=e,s="/category",n=t=>o(`${s}/findCategory`,{mediaType:t}),g=t=>a(`${s}/saveOrUpdate`,t),p=t=>r(`${s}/${t}`);export{p as d,n as g,g as s};

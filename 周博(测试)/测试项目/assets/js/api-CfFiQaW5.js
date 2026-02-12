@@ -1,0 +1,1 @@
+import{H as t}from"../index-DYxDfolO.js";const{get:n,post:s,put:g,del:r}=t,o="/sys",f=e=>s(`${o}/login`,e),L=()=>n(`${o}/threeLogin/findThreeLoginInfo`),c=e=>n(`${o}/threeLogin/giteeLogin/${e}`);export{L as f,c as g,f as l};

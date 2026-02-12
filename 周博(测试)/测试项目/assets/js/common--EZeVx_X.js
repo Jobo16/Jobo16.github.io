@@ -1,0 +1,1 @@
+import{H as o}from"../index-DYxDfolO.js";const{get:r,post:n,put:u,delt:d}=o,c=t=>n("/file/upload",t),f=t=>r("/user/findUser",t).then(s=>{var a;return s.code==200&&((a=s.data)==null||a.forEach(e=>{e.id=e.userId})),s}),g=t=>r("/tag/findTag",t);function p(){return o({url:"/common/findRemarksType"})}export{p as a,g as b,f as g,c as u};

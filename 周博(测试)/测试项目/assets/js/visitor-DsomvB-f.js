@@ -1,0 +1,1 @@
+import{_ as e,c as t,j as s,C as o,o as a,W as c}from"../index-DYxDfolO.js";const r={class:"visitor"},_={name:"",components:{},data(){return{}},computed:{},watch:{},created(){},mounted(){},methods:{}},n=Object.assign(_,{setup(d){return(i,p)=>(a(),t("div",r,[s(o(c))]))}}),m=e(n,[["__scopeId","data-v-a9777417"]]);export{m as default};

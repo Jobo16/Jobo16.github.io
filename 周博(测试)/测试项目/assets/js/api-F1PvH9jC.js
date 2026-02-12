@@ -1,0 +1,1 @@
+import{H as s}from"../index-DYxDfolO.js";const{get:a,post:n,put:o,del:d}=s,e="/h5Market",c=t=>a(`${e}/findH5Markets`,t),i=t=>a(`${e}/findWeH5MarketById/${t}`),$=t=>n(`${e}/addOrUpdate`,t),g=t=>d(`${e}/${t}`),f=t=>a(`${e}/findH5MarketTab`,t),k=t=>a(`${e}/findH5MarketTrend`,t),l=t=>a(`${e}/findH5MarketTable`,t);export{i as a,f as b,k as c,g as d,l as e,c as g,$ as s};

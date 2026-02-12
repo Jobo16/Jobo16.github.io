@@ -1,0 +1,1 @@
+import{_ as t,r as o,o as a,d as c,e as n,b as r}from"../index-DYxDfolO.js";const _={};function l(s,p){const e=o("el-steps");return a(),c(e,{class:"BaSteps","finish-status":"success"},{default:n(()=>[r(s.$slots,"default")]),_:3})}const d=t(_,[["render",l]]);export{d as default};

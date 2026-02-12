@@ -1,0 +1,1 @@
+import{H as a}from"../index-DYxDfolO.js";const{get:n,post:i,put:o,delt:p}=a,s="/complaint",c=t=>n(`${s}/findComplaintByPage`,t),d=t=>n(`${s}/distributeHandle/${t}`),l=t=>i(`${s}/setComplaintTip`,t),r=()=>n(`${s}/findComplaintTips`),m=t=>n(`${s}/countTotalTab`,{svipGroupId:t}),T=t=>n(`${s}/countTrend`,t);export{m as a,T as b,d,r as f,c as g,l as s};

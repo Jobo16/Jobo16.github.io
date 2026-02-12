@@ -1,0 +1,1 @@
+import{_ as t,r as a,o,c as r,j as n,n as c,g as p}from"../index-DYxDfolO.js";const _={props:{},data(){return{}}},l={class:"BaEmpty"};function d(e,m,i,f,u,y){const s=a("el-empty");return o(),r("div",l,[n(s,c(p(Object.assign({},e.$attrs,{style:"",class:"",id:""}))),null,16)])}const v=t(_,[["render",d],["__scopeId","data-v-6a4afb00"]]);export{v as default};

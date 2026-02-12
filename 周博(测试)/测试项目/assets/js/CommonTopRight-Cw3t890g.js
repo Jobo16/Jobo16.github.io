@@ -1,0 +1,1 @@
+import{_ as o,o as t,c,b as s}from"../index-DYxDfolO.js";const n={},r={class:"common-top-right"};function a(e,_){return t(),c("div",r,[s(e.$slots,"default",{},void 0,!0)])}const f=o(n,[["render",a],["__scopeId","data-v-e937c568"]]);export{f as default};
