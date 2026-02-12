@@ -16,8 +16,8 @@ ASSET_ATTR_RE = re.compile(
     r'(?P<prefix>\b(?:src|href)\s*=\s*)(?P<quote>["\'])(?P<url>/[^"\']+)(?P=quote)',
     re.IGNORECASE,
 )
-ROUTER_HISTORY_BASE_RE = re.compile(
-    r"history\s*:\s*(?P<fn>[A-Za-z_$][\w$]*)\(\s*(?P<quote>['\"])\/(?P=quote)\s*\)",
+ROUTER_HISTORY_CONFIG_RE = re.compile(
+    r"history\s*:\s*(?P<fn>[A-Za-z_$][\w$]*)\(\s*(?:(?P<quote>['\"])\/(?P=quote)|import\.meta\.env\.BASE_URL)?\s*\)\s*,\s*routes\s*:",
 )
 
 
@@ -125,8 +125,8 @@ def rewrite_router_history_base(file_path: Path) -> bool:
     if "history" not in content:
         return False
 
-    updated = ROUTER_HISTORY_BASE_RE.sub(
-        lambda m: f'history:{m.group("fn")}()',
+    updated = ROUTER_HISTORY_CONFIG_RE.sub(
+        lambda m: f'history:{m.group("fn")}(location.pathname),routes:',
         content,
     )
     if updated == content:
@@ -170,7 +170,7 @@ def main() -> None:
         )
     if normalized_router_bases:
         print(
-            "Normalized router history base in "
+            "Normalized router history config in "
             f"{normalized_router_bases} JavaScript files."
         )
     write_manifest(html_paths)

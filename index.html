@@ -381,6 +381,7 @@
             itemsByPath: new Map(),
             activePath: "",
             activeTitle: "",
+            activeRouteSuffix: "",
             memberTreeRaw: [],
             rootPath: "/",
             searchKeyword: "",
@@ -525,12 +526,124 @@
             return path.split("/").map(encodeURIComponent).join("/");
         }
 
+        function fromSafePath(path) {
+            return path
+                .split("/")
+                .map((part) => {
+                    try {
+                        return decodeURIComponent(part);
+                    } catch {
+                        return part;
+                    }
+                })
+                .join("/");
+        }
+
+        function normalizeRouteSuffix(routeSuffix) {
+            return String(routeSuffix || "").replace(/^\/+|\/+$/g, "");
+        }
+
+        function buildViewerHash(path, routeSuffix = "") {
+            const base = toSafePath(path);
+            const suffix = normalizeRouteSuffix(routeSuffix);
+            if (!suffix) {
+                return `#/${base}`;
+            }
+            return `#/${base}/${toSafePath(suffix)}`;
+        }
+
         function buildPreviewUrl(path, rootPath) {
             const safePath = toSafePath(path);
             if (rootPath.endsWith("/")) {
                 return `${rootPath}${safePath}`;
             }
             return `${rootPath}/${safePath}`;
+        }
+
+        function buildFrameSource(path, rootPath, routeSuffix = "") {
+            const previewUrl = buildPreviewUrl(path, rootPath);
+            const suffix = normalizeRouteSuffix(routeSuffix);
+            if (!suffix) {
+                return previewUrl;
+            }
+            return `${previewUrl}#/${toSafePath(suffix)}`;
+        }
+
+        function updateViewerLink(path, routeSuffix = "") {
+            const hash = buildViewerHash(path, routeSuffix);
+            viewerLinkEl.href = `${window.location.pathname}${window.location.search}${hash}`;
+        }
+
+        function parseHashSelection() {
+            if (!window.location.hash.startsWith("#/")) {
+                return null;
+            }
+
+            const encoded = window.location.hash.slice(2);
+            if (!encoded) {
+                return null;
+            }
+
+            const decoded = fromSafePath(encoded);
+            const candidates = [...state.itemsByPath.keys()].sort((a, b) => b.length - a.length);
+            for (const path of candidates) {
+                if (decoded === path) {
+                    return { path, routeSuffix: "" };
+                }
+
+                if (decoded.startsWith(`${path}/`)) {
+                    const suffix = decoded.slice(path.length + 1);
+                    return { path, routeSuffix: normalizeRouteSuffix(suffix) };
+                }
+            }
+
+            return null;
+        }
+
+        function readRouteSuffixFromFrame(path, rootPath) {
+            if (!path || !frameEl.contentWindow) {
+                return "";
+            }
+
+            let frameLocation;
+            try {
+                frameLocation = frameEl.contentWindow.location;
+            } catch {
+                return state.activeRouteSuffix;
+            }
+
+            const expectedPathname = new URL(buildPreviewUrl(path, rootPath), window.location.origin).pathname;
+            if (frameLocation.pathname === expectedPathname) {
+                if (!frameLocation.hash.startsWith("#/")) {
+                    return "";
+                }
+                return normalizeRouteSuffix(fromSafePath(frameLocation.hash.slice(2)));
+            }
+
+            if (frameLocation.pathname.startsWith(`${expectedPathname}/`)) {
+                const encodedSuffix = frameLocation.pathname.slice(expectedPathname.length + 1);
+                return normalizeRouteSuffix(fromSafePath(encodedSuffix));
+            }
+
+            return state.activeRouteSuffix;
+        }
+
+        function syncHashFromFrameLocation() {
+            if (!state.activePath) {
+                return;
+            }
+
+            const routeSuffix = readRouteSuffixFromFrame(state.activePath, state.rootPath);
+            if (routeSuffix === state.activeRouteSuffix) {
+                return;
+            }
+
+            state.activeRouteSuffix = routeSuffix;
+            updateViewerLink(state.activePath, routeSuffix);
+            const targetHash = buildViewerHash(state.activePath, routeSuffix);
+            if (window.location.hash !== targetHash) {
+                history.replaceState(null, "", targetHash);
+            }
         }
 
         function setEmptyMessage(text) {
@@ -541,7 +654,7 @@
             viewerLinkEl.hidden = true;
         }
 
-        function activatePath(path, title, rootPath) {
+        function activatePath(path, title, rootPath, routeSuffix = "") {
             const item = state.itemsByPath.get(path);
             if (!item) return;
 
@@ -552,17 +665,21 @@
             item.classList.add("active");
             state.activePath = path;
             state.activeTitle = title;
+            state.activeRouteSuffix = normalizeRouteSuffix(routeSuffix);
 
-            const src = buildPreviewUrl(path, rootPath);
-            frameEl.src = src;
+            const src = buildFrameSource(path, rootPath, state.activeRouteSuffix);
+            const targetSrc = new URL(src, window.location.href).href;
+            if (frameEl.src !== targetSrc) {
+                frameEl.src = src;
+            }
             viewerTitleEl.textContent = title;
-            viewerLinkEl.href = src;
+            updateViewerLink(path, state.activeRouteSuffix);
             viewerLinkEl.hidden = false;
             emptyEl.hidden = true;
 
-            const hashPath = toSafePath(path);
-            if (window.location.hash !== `#/${hashPath}`) {
-                history.replaceState(null, "", `#/${hashPath}`);
+            const targetHash = buildViewerHash(path, state.activeRouteSuffix);
+            if (window.location.hash !== targetHash) {
+                history.replaceState(null, "", targetHash);
             }
         }
 
@@ -701,7 +818,12 @@
             }
 
             if (state.activePath && state.itemsByPath.has(state.activePath)) {
-                activatePath(state.activePath, state.activeTitle || state.activePath.split("/").join(" / "), state.rootPath);
+                activatePath(
+                    state.activePath,
+                    state.activeTitle || state.activePath.split("/").join(" / "),
+                    state.rootPath,
+                    state.activeRouteSuffix
+                );
                 return;
             }
 
@@ -710,22 +832,13 @@
         }
 
         function tryOpenFromHash(rootPath) {
-            if (!window.location.hash.startsWith("#/")) {
+            const selection = parseHashSelection();
+            if (!selection || !state.itemsByPath.has(selection.path)) {
                 return false;
             }
 
-            const encoded = window.location.hash.slice(2);
-            if (!encoded) {
-                return false;
-            }
-
-            const path = encoded.split("/").map((part) => decodeURIComponent(part)).join("/");
-            if (!state.itemsByPath.has(path)) {
-                return false;
-            }
-
-            const title = path.split("/").join(" / ");
-            activatePath(path, title, rootPath);
+            const title = selection.path.split("/").join(" / ");
+            activatePath(selection.path, title, rootPath, selection.routeSuffix);
             return true;
         }
 
@@ -821,6 +934,29 @@
                 setAllTreeNodes(true);
             }
         });
+
+        frameEl.addEventListener("load", () => {
+            syncHashFromFrameLocation();
+        });
+
+        window.addEventListener("hashchange", () => {
+            const selection = parseHashSelection();
+            if (!selection || !state.itemsByPath.has(selection.path)) {
+                return;
+            }
+
+            const routeSuffix = normalizeRouteSuffix(selection.routeSuffix);
+            if (selection.path === state.activePath && routeSuffix === state.activeRouteSuffix) {
+                return;
+            }
+
+            const title = selection.path.split("/").join(" / ");
+            activatePath(selection.path, title, state.rootPath, routeSuffix);
+        });
+
+        setInterval(() => {
+            syncHashFromFrameLocation();
+        }, 350);
 
         expandAllBtn.addEventListener("click", () => setAllTreeNodes(true));
         collapseAllBtn.addEventListener("click", () => setAllTreeNodes(false));
