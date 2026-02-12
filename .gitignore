@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.vite/
+*.log
+scripts/__pycache__/
+playwright-report/
+test-results/

@@ -1,0 +1,36 @@
+{
+  "name": "team-static-portal",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint \"src/portal/**/*.js\" \"*.js\"",
+    "format:check": "prettier --check \"src/**/*.{js,css}\" \"README.md\" \"方案.md\" \"docs/**/*.md\" \".github/workflows/*.yml\" \"*.js\"",
+    "format": "prettier --write \"src/**/*.{js,css}\" \"README.md\" \"方案.md\" \"docs/**/*.md\" \".github/workflows/*.yml\" \"*.js\"",
+    "test": "vitest run src/portal",
+    "test:e2e": "playwright test",
+    "typecheck": "tsc --noEmit",
+    "typecheck:portal": "tsc --project tsconfig.services.json --noEmit",
+    "typecheck:services": "npm run typecheck:portal",
+    "manifest:validate": "node tools/validate-projects.mjs",
+    "quality": "npm run lint && npm run test && npm run typecheck && npm run typecheck:portal && npm run manifest:validate && npm run build",
+    "quality:ci": "npm run lint && npm run test && npm run typecheck && npm run typecheck:portal && npm run manifest:validate && npm run test:e2e && npm run build",
+    "manifest:generate": "python scripts/generate_manifest.py"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^24.3.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "eslint": "^9.34.0",
+    "globals": "^16.3.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5",
+    "vitest": "^3.2.4"
+  }
+}

@@ -1,5 +1,6 @@
 {
-  "generatedAt": "2026-02-12T09:38:01.179450+00:00",
+  "generatedAt": "2026-02-12T14:55:09.757250+00:00",
+  "version": 3,
   "htmlPaths": [
     "周博(测试)/react项目/index.html",
     "周博(测试)/博客/index.html",
@@ -14,5 +15,316 @@
     "陈墨/博客样例/index.html",
     "陈墨/博客样例/post.html",
     "陈墨/图文展示/gallery.html"
-  ]
+  ],
+  "members": [
+    {
+      "name": "周博(测试)",
+      "projectCount": 3,
+      "projects": [
+        {
+          "id": "周博(测试)/react项目",
+          "member": "周博(测试)",
+          "name": "react项目",
+          "entry": "周博(测试)/react项目/index.html",
+          "pages": [
+            "周博(测试)/react项目/index.html"
+          ],
+          "pageCount": 1,
+          "routeMode": "path"
+        },
+        {
+          "id": "周博(测试)/博客",
+          "member": "周博(测试)",
+          "name": "博客",
+          "entry": "周博(测试)/博客/index.html",
+          "pages": [
+            "周博(测试)/博客/index.html"
+          ],
+          "pageCount": 1,
+          "routeMode": "path"
+        },
+        {
+          "id": "周博(测试)/测试项目",
+          "member": "周博(测试)",
+          "name": "测试项目",
+          "entry": "周博(测试)/测试项目/index.html",
+          "pages": [
+            "周博(测试)/测试项目/index.html"
+          ],
+          "pageCount": 1,
+          "routeMode": "path"
+        }
+      ]
+    },
+    {
+      "name": "周雨",
+      "projectCount": 2,
+      "projects": [
+        {
+          "id": "周雨/品牌介绍",
+          "member": "周雨",
+          "name": "品牌介绍",
+          "entry": "周雨/品牌介绍/index.html",
+          "pages": [
+            "周雨/品牌介绍/index.html"
+          ],
+          "pageCount": 1,
+          "routeMode": "path"
+        },
+        {
+          "id": "周雨/待办清单",
+          "member": "周雨",
+          "name": "待办清单",
+          "entry": "周雨/待办清单/index.html",
+          "pages": [
+            "周雨/待办清单/index.html"
+          ],
+          "pageCount": 1,
+          "routeMode": "path"
+        }
+      ]
+    },
+    {
+      "name": "新成员",
+      "projectCount": 1,
+      "projects": [
+        {
+          "id": "新成员/新的项目",
+          "member": "新成员",
+          "name": "新的项目",
+          "entry": "新成员/新的项目/index.html",
+          "pages": [
+            "新成员/新的项目/index.html"
+          ],
+          "pageCount": 1,
+          "routeMode": "path"
+        }
+      ]
+    },
+    {
+      "name": "林夏",
+      "projectCount": 2,
+      "projects": [
+        {
+          "id": "林夏/个人简历",
+          "member": "林夏",
+          "name": "个人简历",
+          "entry": "林夏/个人简历/resume.html",
+          "pages": [
+            "林夏/个人简历/resume.html"
+          ],
+          "pageCount": 1,
+          "routeMode": "path"
+        },
+        {
+          "id": "林夏/数据面板",
+          "member": "林夏",
+          "name": "数据面板",
+          "entry": "林夏/数据面板/index.html",
+          "pages": [
+            "林夏/数据面板/index.html"
+          ],
+          "pageCount": 1,
+          "routeMode": "path"
+        }
+      ]
+    },
+    {
+      "name": "赵星河",
+      "projectCount": 2,
+      "projects": [
+        {
+          "id": "赵星河/作品集卡片",
+          "member": "赵星河",
+          "name": "作品集卡片",
+          "entry": "赵星河/作品集卡片/index.html",
+          "pages": [
+            "赵星河/作品集卡片/index.html"
+          ],
+          "pageCount": 1,
+          "routeMode": "path"
+        },
+        {
+          "id": "赵星河/活动落地页",
+          "member": "赵星河",
+          "name": "活动落地页",
+          "entry": "赵星河/活动落地页/landing.html",
+          "pages": [
+            "赵星河/活动落地页/landing.html"
+          ],
+          "pageCount": 1,
+          "routeMode": "path"
+        }
+      ]
+    },
+    {
+      "name": "陈墨",
+      "projectCount": 2,
+      "projects": [
+        {
+          "id": "陈墨/博客样例",
+          "member": "陈墨",
+          "name": "博客样例",
+          "entry": "陈墨/博客样例/index.html",
+          "pages": [
+            "陈墨/博客样例/index.html",
+            "陈墨/博客样例/post.html"
+          ],
+          "pageCount": 2,
+          "routeMode": "path"
+        },
+        {
+          "id": "陈墨/图文展示",
+          "member": "陈墨",
+          "name": "图文展示",
+          "entry": "陈墨/图文展示/gallery.html",
+          "pages": [
+            "陈墨/图文展示/gallery.html"
+          ],
+          "pageCount": 1,
+          "routeMode": "path"
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "id": "周博(测试)/react项目",
+      "member": "周博(测试)",
+      "name": "react项目",
+      "entry": "周博(测试)/react项目/index.html",
+      "pages": [
+        "周博(测试)/react项目/index.html"
+      ],
+      "pageCount": 1,
+      "routeMode": "path"
+    },
+    {
+      "id": "周博(测试)/博客",
+      "member": "周博(测试)",
+      "name": "博客",
+      "entry": "周博(测试)/博客/index.html",
+      "pages": [
+        "周博(测试)/博客/index.html"
+      ],
+      "pageCount": 1,
+      "routeMode": "path"
+    },
+    {
+      "id": "周博(测试)/测试项目",
+      "member": "周博(测试)",
+      "name": "测试项目",
+      "entry": "周博(测试)/测试项目/index.html",
+      "pages": [
+        "周博(测试)/测试项目/index.html"
+      ],
+      "pageCount": 1,
+      "routeMode": "path"
+    },
+    {
+      "id": "周雨/品牌介绍",
+      "member": "周雨",
+      "name": "品牌介绍",
+      "entry": "周雨/品牌介绍/index.html",
+      "pages": [
+        "周雨/品牌介绍/index.html"
+      ],
+      "pageCount": 1,
+      "routeMode": "path"
+    },
+    {
+      "id": "周雨/待办清单",
+      "member": "周雨",
+      "name": "待办清单",
+      "entry": "周雨/待办清单/index.html",
+      "pages": [
+        "周雨/待办清单/index.html"
+      ],
+      "pageCount": 1,
+      "routeMode": "path"
+    },
+    {
+      "id": "新成员/新的项目",
+      "member": "新成员",
+      "name": "新的项目",
+      "entry": "新成员/新的项目/index.html",
+      "pages": [
+        "新成员/新的项目/index.html"
+      ],
+      "pageCount": 1,
+      "routeMode": "path"
+    },
+    {
+      "id": "林夏/个人简历",
+      "member": "林夏",
+      "name": "个人简历",
+      "entry": "林夏/个人简历/resume.html",
+      "pages": [
+        "林夏/个人简历/resume.html"
+      ],
+      "pageCount": 1,
+      "routeMode": "path"
+    },
+    {
+      "id": "林夏/数据面板",
+      "member": "林夏",
+      "name": "数据面板",
+      "entry": "林夏/数据面板/index.html",
+      "pages": [
+        "林夏/数据面板/index.html"
+      ],
+      "pageCount": 1,
+      "routeMode": "path"
+    },
+    {
+      "id": "赵星河/作品集卡片",
+      "member": "赵星河",
+      "name": "作品集卡片",
+      "entry": "赵星河/作品集卡片/index.html",
+      "pages": [
+        "赵星河/作品集卡片/index.html"
+      ],
+      "pageCount": 1,
+      "routeMode": "path"
+    },
+    {
+      "id": "赵星河/活动落地页",
+      "member": "赵星河",
+      "name": "活动落地页",
+      "entry": "赵星河/活动落地页/landing.html",
+      "pages": [
+        "赵星河/活动落地页/landing.html"
+      ],
+      "pageCount": 1,
+      "routeMode": "path"
+    },
+    {
+      "id": "陈墨/博客样例",
+      "member": "陈墨",
+      "name": "博客样例",
+      "entry": "陈墨/博客样例/index.html",
+      "pages": [
+        "陈墨/博客样例/index.html",
+        "陈墨/博客样例/post.html"
+      ],
+      "pageCount": 2,
+      "routeMode": "path"
+    },
+    {
+      "id": "陈墨/图文展示",
+      "member": "陈墨",
+      "name": "图文展示",
+      "entry": "陈墨/图文展示/gallery.html",
+      "pages": [
+        "陈墨/图文展示/gallery.html"
+      ],
+      "pageCount": 1,
+      "routeMode": "path"
+    }
+  ],
+  "stats": {
+    "memberCount": 6,
+    "projectCount": 12,
+    "pageCount": 13
+  }
 }

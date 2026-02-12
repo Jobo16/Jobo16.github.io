@@ -1,0 +1,47 @@
+name: Quality Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Quality (CI)
+        run: npm run quality:ci
+
+      - name: Verify generated files are up-to-date
+        run: |
+          python scripts/generate_manifest.py
+          if git diff --quiet; then
+            echo "Generated files are up-to-date."
+            exit 0
+          fi
+          echo "::error::Generated files are out-of-date. Run: python scripts/generate_manifest.py and commit changes."
+          git status --short
+          git diff --name-only
+          exit 1

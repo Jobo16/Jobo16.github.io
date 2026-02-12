@@ -1,0 +1,158 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jobo16.github.io/projects.schema.json",
+  "title": "Team Projects Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "generatedAt",
+    "version",
+    "htmlPaths",
+    "members",
+    "projects",
+    "stats"
+  ],
+  "$defs": {
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "member", "name", "entry", "pages", "pageCount", "routeMode"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "member": {
+          "type": "string",
+          "minLength": 1
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entry": {
+          "type": "string",
+          "minLength": 1
+        },
+        "pages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "pageCount": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "routeMode": {
+          "type": "string",
+          "enum": ["path", "hash"]
+        },
+        "order": {
+          "type": "integer"
+        },
+        "hiddenPages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "member": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "projectCount", "projects"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "displayName": {
+          "type": "string",
+          "minLength": 1
+        },
+        "projectCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/project"
+          }
+        }
+      }
+    }
+  },
+  "properties": {
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "htmlPaths": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/member"
+      }
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/project"
+      }
+    },
+    "stats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["memberCount", "projectCount", "pageCount"],
+      "properties": {
+        "memberCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "projectCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "pageCount": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

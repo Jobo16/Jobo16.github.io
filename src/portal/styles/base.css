@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-family:
+    "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei",
+    sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 0% 0%, #fff7e9 0%, transparent 40%),
+    radial-gradient(circle at 100% 100%, #def0ec 0%, transparent 45%),
+    linear-gradient(140deg, var(--bg-start), var(--bg-end));
+  overflow: hidden;
+}
