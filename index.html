@@ -1,829 +1,833 @@
 <!doctype html>
 <html lang="zh-CN">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>团队项目展示</title>
-  <style>
-    :root {
-      --bg-start: #f5efe4;
-      --bg-end: #e6f0ee;
-      --panel: #ffffffcc;
-      --line: #d8d0bf;
-      --text: #1f2528;
-      --muted: #5f6668;
-      --accent: #0f6c5b;
-      --accent-soft: #e4f1ee;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      min-height: 100%;
-      font-family: "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
-      color: var(--text);
-      background: radial-gradient(circle at 0% 0%, #fff7e9 0%, transparent 40%),
-                  radial-gradient(circle at 100% 100%, #def0ec 0%, transparent 45%),
-                  linear-gradient(140deg, var(--bg-start), var(--bg-end));
-    }
-
-    .layout {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      backdrop-filter: blur(2px);
-      transition: grid-template-columns .2s ease;
-    }
-
-    .layout.sidebar-collapsed {
-      grid-template-columns: 0 1fr;
-    }
-
-    .sidebar {
-      border-right: 1px solid var(--line);
-      padding: 20px 14px 16px;
-      background: var(--panel);
-      overflow: auto;
-      transition: opacity .2s ease, padding .2s ease;
-    }
-
-    .layout.sidebar-collapsed .sidebar {
-      opacity: 0;
-      pointer-events: none;
-      padding-left: 0;
-      padding-right: 0;
-      border-right: 0;
-    }
-
-    .brand {
-      margin: 0 0 14px;
-      font-size: 20px;
-      letter-spacing: 0.04em;
-    }
-
-    .hint {
-      margin: 0 0 18px;
-      color: var(--muted);
-      line-height: 1.5;
-      font-size: 13px;
-    }
-
-    .tools {
-      display: grid;
-      gap: 8px;
-      margin-bottom: 10px;
-    }
-
-    .search-input {
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 8px 10px;
-      font-size: 13px;
-      background: #fff;
-      color: var(--text);
-    }
-
-    .toolbar {
-      display: flex;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .tool-btn {
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: #fff;
-      color: var(--text);
-      font-size: 12px;
-      padding: 6px 8px;
-      cursor: pointer;
-    }
-
-    .tool-btn:hover {
-      background: #f6f6f6;
-    }
-
-    .tree {
-      display: grid;
-      gap: 8px;
-    }
-
-    details {
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: #fff;
-      overflow: hidden;
-    }
-
-    summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 10px 12px;
-      font-weight: 600;
-      user-select: none;
-      border-bottom: 1px solid transparent;
-    }
-
-    details[open] summary {
-      border-bottom-color: var(--line);
-      background: #faf8f1;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary.node-summary {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-    }
-
-    summary.node-summary::before {
-      content: "▸";
-      display: inline-block;
-      margin-right: 8px;
-      color: #6b7280;
-      transition: transform .15s ease;
-    }
-
-    details[open] > summary.node-summary::before {
-      transform: rotate(90deg);
-    }
-
-    .summary-left {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      min-width: 0;
-    }
-
-    .node-name {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .node-meta {
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    .node-summary.active {
-      background: var(--accent-soft);
-      border-color: #b5d8cf;
-      color: #0b5a4b;
-      font-weight: 600;
-    }
-
-    .member-content {
-      padding: 8px;
-      display: grid;
-      gap: 6px;
-    }
-
-    details.project-node {
-      margin-left: 10px;
-    }
-
-    details.project-node > summary {
-      background: #fcfcfc;
-      padding: 8px 10px;
-      border-radius: 8px;
-    }
-
-    .file-list {
-      display: grid;
-      gap: 5px;
-      margin: 4px 0 0 26px;
-      padding: 7px 0 2px 10px;
-      border-left: 2px dashed #d9d9d9;
-    }
-
-    .tree-item {
-      width: 100%;
-      text-align: left;
-      border: 1px solid transparent;
-      background: transparent;
-      padding: 7px 9px;
-      border-radius: 8px;
-      cursor: pointer;
-      color: inherit;
-      font-size: 13px;
-    }
-
-    .tree-item:hover {
-      background: #f6f6f6;
-    }
-
-    .tree-item.active {
-      background: var(--accent-soft);
-      border-color: #b5d8cf;
-      color: #0b5a4b;
-      font-weight: 600;
-    }
-
-    .file-btn {
-      font-size: 12px;
-      color: #354245;
-      padding-left: 10px;
-    }
-
-    .tree-empty {
-      border: 1px dashed var(--line);
-      border-radius: 8px;
-      background: #fff;
-      color: var(--muted);
-      padding: 12px;
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    .main {
-      min-width: 0;
-      padding: 16px;
-      display: grid;
-      grid-template-rows: auto 1fr;
-      gap: 10px;
-    }
-
-    .viewer-header {
-      padding: 10px 14px;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      background: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .viewer-tools {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-shrink: 0;
-    }
-
-    .viewer-title {
-      margin: 0;
-      font-size: 14px;
-      font-weight: 600;
-      word-break: break-all;
-    }
-
-    .viewer-link {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 13px;
-      white-space: nowrap;
-    }
-
-    .viewer-link:hover {
-      text-decoration: underline;
-    }
-
-    .frame-wrap {
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      overflow: hidden;
-      background: #fff;
-      min-height: 0;
-      position: relative;
-    }
-
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: 0;
-      display: block;
-    }
-
-    .empty {
-      margin: 18vh auto 0;
-      width: min(560px, calc(100% - 20px));
-      padding: 18px;
-      border: 1px dashed var(--line);
-      border-radius: 12px;
-      background: #fff;
-      color: var(--muted);
-      line-height: 1.6;
-      white-space: pre-line;
-    }
-
-    @media (max-width: 900px) {
-      .layout {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto 1fr;
-      }
-
-      .sidebar {
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-        max-height: 44vh;
-      }
-
-      .main {
-        min-height: 56vh;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="layout">
-    <aside class="sidebar">
-      <h1 class="brand">团队静态项目</h1>
-      <p class="hint">按目录放文件：`成员名/项目名/静态文件`。点击左侧项目后，右侧直接渲染页面。</p>
-      <div class="tools">
-        <input id="memberSearch" class="search-input" type="search" placeholder="搜索成员名称..." />
-        <div class="toolbar">
-          <button id="expandAllBtn" type="button" class="tool-btn">全部展开</button>
-          <button id="collapseAllBtn" type="button" class="tool-btn">全部折叠</button>
-        </div>
-      </div>
-      <div id="tree" class="tree"></div>
-    </aside>
-
-    <main class="main">
-      <div class="viewer-header">
-        <h2 id="viewerTitle" class="viewer-title">未选择项目</h2>
-        <div class="viewer-tools">
-          <button id="toggleSidebarBtn" type="button" class="tool-btn">收起侧边栏</button>
-          <a id="viewerLink" class="viewer-link" href="#" target="_blank" rel="noopener noreferrer" hidden>新窗口打开</a>
-        </div>
-      </div>
-      <div class="frame-wrap">
-        <iframe id="viewerFrame" title="项目预览"></iframe>
-        <div id="empty" class="empty">正在读取仓库文件树...</div>
-      </div>
-    </main>
-  </div>
-
-  <script>
-    const CONFIG = {
-      owner: "Jobo16",
-      repo: "Jobo16.github.io",
-      branch: "main",
-      rootPath: "/"
-    };
-
-    const state = {
-      itemsByPath: new Map(),
-      activePath: "",
-      activeTitle: "",
-      memberTreeRaw: [],
-      rootPath: "/",
-      searchKeyword: "",
-      sidebarCollapsed: false
-    };
-
-    const layoutEl = document.querySelector(".layout");
-    const treeEl = document.getElementById("tree");
-    const frameEl = document.getElementById("viewerFrame");
-    const emptyEl = document.getElementById("empty");
-    const viewerTitleEl = document.getElementById("viewerTitle");
-    const viewerLinkEl = document.getElementById("viewerLink");
-    const memberSearchEl = document.getElementById("memberSearch");
-    const expandAllBtn = document.getElementById("expandAllBtn");
-    const collapseAllBtn = document.getElementById("collapseAllBtn");
-    const toggleSidebarBtn = document.getElementById("toggleSidebarBtn");
-
-    function normalizeRootPath(path) {
-      if (!path) return "";
-      let p = path.trim();
-      if (!p.startsWith("/")) p = "/" + p;
-      if (!p.endsWith("/")) p = p + "/";
-      return p;
-    }
-
-    function inferRepoFromLocation() {
-      const host = window.location.hostname;
-      const pathParts = window.location.pathname.split("/").filter(Boolean);
-
-      if (CONFIG.owner && CONFIG.repo) {
-        return { owner: CONFIG.owner, repo: CONFIG.repo };
-      }
-
-      if (!host.endsWith(".github.io")) {
-        return null;
-      }
-
-      const owner = host.split(".")[0];
-      const userSiteRepo = `${owner}.github.io`;
-      const repo = pathParts.length === 0 ? userSiteRepo : pathParts[0];
-      return { owner, repo };
-    }
-
-    function inferRootPath(owner, repo) {
-      if (CONFIG.rootPath) {
-        return normalizeRootPath(CONFIG.rootPath);
-      }
-
-      const host = window.location.hostname;
-      if (!host.endsWith(".github.io")) {
-        return "/";
-      }
-
-      const userSiteRepo = `${owner}.github.io`.toLowerCase();
-      if (repo.toLowerCase() === userSiteRepo) {
-        return "/";
-      }
-
-      return `/${repo}/`;
-    }
-
-    async function fetchJson(url) {
-      const response = await fetch(url, { headers: { "Accept": "application/vnd.github+json" } });
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}: ${url}`);
-      }
-      return response.json();
-    }
-
-    async function getBranch(owner, repo) {
-      if (CONFIG.branch) {
-        return CONFIG.branch;
-      }
-
-      const data = await fetchJson(`https://api.github.com/repos/${owner}/${repo}`);
-      return data.default_branch || "main";
-    }
-
-    function isHtmlFile(path) {
-      return /\.html?$/i.test(path);
-    }
-
-    function chooseEntry(files) {
-      const ranked = [...files].sort((a, b) => scoreFile(a) - scoreFile(b) || a.localeCompare(b, "zh-CN"));
-      return ranked[0] || "";
-    }
-
-    function scoreFile(path) {
-      const lower = path.toLowerCase();
-      const parts = lower.split("/");
-      const filename = parts[parts.length - 1];
-      const depth = parts.length;
-
-      if (filename === "index.html" && depth === 3) return 0;
-      if (filename === "index.html") return 1 + depth;
-      return 10 + depth;
-    }
-
-    function buildMemberProjectTree(htmlPaths) {
-      const members = new Map();
-
-      for (const fullPath of htmlPaths) {
-        const parts = fullPath.split("/");
-        if (parts.length < 3) continue;
-
-        const member = parts[0];
-        const project = parts[1];
-
-        if (!members.has(member)) {
-          members.set(member, new Map());
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>团队项目展示</title>
+    <style>
+        :root {
+            --bg-start: #f5efe4;
+            --bg-end: #e6f0ee;
+            --panel: #ffffffcc;
+            --line: #d8d0bf;
+            --text: #1f2528;
+            --muted: #5f6668;
+            --accent: #0f6c5b;
+            --accent-soft: #e4f1ee;
         }
 
-        const projects = members.get(member);
-        if (!projects.has(project)) {
-          projects.set(project, []);
+        * {
+            box-sizing: border-box;
         }
 
-        projects.get(project).push(fullPath);
-      }
-
-      const memberNodes = [];
-
-      for (const [memberName, projects] of [...members.entries()].sort((a, b) => a[0].localeCompare(b[0], "zh-CN"))) {
-        const projectNodes = [];
-
-        for (const [projectName, files] of [...projects.entries()].sort((a, b) => a[0].localeCompare(b[0], "zh-CN"))) {
-          const sortedFiles = [...files].sort((a, b) => scoreFile(a) - scoreFile(b) || a.localeCompare(b, "zh-CN"));
-          projectNodes.push({
-            name: projectName,
-            entry: chooseEntry(sortedFiles),
-            files: sortedFiles
-          });
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+            font-family: "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--text);
+            background: radial-gradient(circle at 0% 0%, #fff7e9 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, #def0ec 0%, transparent 45%),
+                linear-gradient(140deg, var(--bg-start), var(--bg-end));
         }
 
-        memberNodes.push({ name: memberName, projects: projectNodes });
-      }
-
-      return memberNodes;
-    }
-
-    function toSafePath(path) {
-      return path.split("/").map(encodeURIComponent).join("/");
-    }
-
-    function buildPreviewUrl(path, rootPath) {
-      const safePath = toSafePath(path);
-      if (rootPath.endsWith("/")) {
-        return `${rootPath}${safePath}`;
-      }
-      return `${rootPath}/${safePath}`;
-    }
-
-    function setEmptyMessage(text) {
-      emptyEl.hidden = false;
-      emptyEl.textContent = text;
-      frameEl.removeAttribute("src");
-      viewerTitleEl.textContent = "未选择项目";
-      viewerLinkEl.hidden = true;
-    }
-
-    function activatePath(path, title, rootPath) {
-      const item = state.itemsByPath.get(path);
-      if (!item) return;
-
-      if (state.activePath && state.itemsByPath.get(state.activePath)) {
-        state.itemsByPath.get(state.activePath).classList.remove("active");
-      }
-
-      item.classList.add("active");
-      state.activePath = path;
-      state.activeTitle = title;
-
-      const src = buildPreviewUrl(path, rootPath);
-      frameEl.src = src;
-      viewerTitleEl.textContent = title;
-      viewerLinkEl.href = src;
-      viewerLinkEl.hidden = false;
-      emptyEl.hidden = true;
-
-      const hashPath = toSafePath(path);
-      if (window.location.hash !== `#/${hashPath}`) {
-        history.replaceState(null, "", `#/${hashPath}`);
-      }
-    }
-
-    function createButton(text, className) {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = `tree-item ${className}`.trim();
-      btn.textContent = text;
-      return btn;
-    }
-
-    function filterMemberTree(memberTree) {
-      const keyword = state.searchKeyword.trim();
-      const filtered = [];
-
-      for (const member of memberTree) {
-        if (keyword && !member.name.includes(keyword)) {
-          continue;
+        .layout {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            backdrop-filter: blur(2px);
+            transition: grid-template-columns .2s ease;
         }
 
-        filtered.push(member);
-      }
+        .layout.sidebar-collapsed {
+            grid-template-columns: 0 1fr;
+        }
 
-      return filtered;
-    }
+        .sidebar {
+            border-right: 1px solid var(--line);
+            padding: 20px 14px 16px;
+            background: var(--panel);
+            overflow: auto;
+            transition: opacity .2s ease, padding .2s ease;
+        }
 
-    function setAllTreeNodes(open) {
-      for (const node of treeEl.querySelectorAll("details")) {
-        node.open = open;
-      }
-    }
+        .layout.sidebar-collapsed .sidebar {
+            opacity: 0;
+            pointer-events: none;
+            padding-left: 0;
+            padding-right: 0;
+            border-right: 0;
+        }
 
-    function setSidebarCollapsed(collapsed) {
-      state.sidebarCollapsed = collapsed;
-      layoutEl.classList.toggle("sidebar-collapsed", collapsed);
-      toggleSidebarBtn.textContent = collapsed ? "展开侧边栏" : "收起侧边栏";
-    }
+        .brand {
+            margin: 0 0 14px;
+            font-size: 20px;
+            letter-spacing: 0.04em;
+        }
 
-    function renderTree(memberTree, rootPath) {
-      treeEl.innerHTML = "";
-      state.itemsByPath.clear();
+        .hint {
+            margin: 0 0 18px;
+            color: var(--muted);
+            line-height: 1.5;
+            font-size: 13px;
+        }
 
-      if (memberTree.length === 0) {
-        const msg = document.createElement("div");
-        msg.className = "tree-empty";
-        msg.textContent = state.searchKeyword
-          ? `没有匹配成员：${state.searchKeyword}`
-          : "当前没有可展示的目录。";
-        treeEl.appendChild(msg);
-        return;
-      }
+        .tools {
+            display: grid;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
 
-      for (const member of memberTree) {
-        const memberDetails = document.createElement("details");
-        memberDetails.className = "member-node";
-        memberDetails.open = true;
+        .search-input {
+            width: 100%;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            padding: 8px 10px;
+            font-size: 13px;
+            background: #fff;
+            color: var(--text);
+        }
 
-        const memberSummary = document.createElement("summary");
-        memberSummary.className = "node-summary";
+        .toolbar {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
 
-        const memberLeft = document.createElement("span");
-        memberLeft.className = "summary-left";
-        const memberName = document.createElement("span");
-        memberName.className = "node-name";
-        memberName.textContent = member.name;
-        const memberMeta = document.createElement("span");
-        memberMeta.className = "node-meta";
-        memberMeta.textContent = `${member.projects.length} 项目`;
-        memberLeft.appendChild(memberName);
-        memberLeft.appendChild(memberMeta);
-        memberSummary.appendChild(memberLeft);
-        memberDetails.appendChild(memberSummary);
+        .tool-btn {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fff;
+            color: var(--text);
+            font-size: 12px;
+            padding: 6px 8px;
+            cursor: pointer;
+        }
 
-        const memberContent = document.createElement("div");
-        memberContent.className = "member-content";
+        .tool-btn:hover {
+            background: #f6f6f6;
+        }
 
-        for (const project of member.projects) {
-          const projectDetails = document.createElement("details");
-          projectDetails.className = "project-node";
-          projectDetails.open = false;
+        .tree {
+            display: grid;
+            gap: 8px;
+        }
 
-          const projectSummary = document.createElement("summary");
-          projectSummary.className = "node-summary";
+        details {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fff;
+            overflow: hidden;
+        }
 
-          const projectLeft = document.createElement("span");
-          projectLeft.className = "summary-left";
-          const projectName = document.createElement("span");
-          projectName.className = "node-name";
-          projectName.textContent = project.name;
-          const projectMeta = document.createElement("span");
-          projectMeta.className = "node-meta";
-          projectMeta.textContent = `${project.files.length} 页面`;
-          projectLeft.appendChild(projectName);
-          projectLeft.appendChild(projectMeta);
-          projectSummary.classList.add("project-summary");
-          projectSummary.addEventListener("click", () => {
-            activatePath(project.entry, `${member.name} / ${project.name}`, rootPath);
-          });
-          state.itemsByPath.set(project.entry, projectSummary);
-          projectSummary.appendChild(projectLeft);
-          projectDetails.appendChild(projectSummary);
+        summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 10px 12px;
+            font-weight: 600;
+            user-select: none;
+            border-bottom: 1px solid transparent;
+        }
 
-          const extraFiles = project.files.filter((file) => file !== project.entry);
-          if (extraFiles.length > 0) {
-            const fileList = document.createElement("div");
-            fileList.className = "file-list";
+        details[open] summary {
+            border-bottom-color: var(--line);
+            background: #faf8f1;
+        }
 
-            for (const file of extraFiles) {
-              const fileLabel = file.split("/").slice(2).join("/");
-              const fileBtn = createButton(fileLabel, "file-btn");
-              fileBtn.addEventListener("click", () => {
-                activatePath(file, `${member.name} / ${project.name} / ${fileLabel}`, rootPath);
-              });
+        summary::-webkit-details-marker {
+            display: none;
+        }
 
-              state.itemsByPath.set(file, fileBtn);
-              fileList.appendChild(fileBtn);
+        summary.node-summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        summary.node-summary::before {
+            content: "▸";
+            display: inline-block;
+            margin-right: 8px;
+            color: #6b7280;
+            transition: transform .15s ease;
+        }
+
+        details[open]>summary.node-summary::before {
+            transform: rotate(90deg);
+        }
+
+        .summary-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 0;
+        }
+
+        .node-name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .node-meta {
+            font-size: 12px;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        .node-summary.active {
+            background: var(--accent-soft);
+            border-color: #b5d8cf;
+            color: #0b5a4b;
+            font-weight: 600;
+        }
+
+        .member-content {
+            padding: 8px;
+            display: grid;
+            gap: 6px;
+        }
+
+        details.project-node {
+            margin-left: 10px;
+        }
+
+        details.project-node>summary {
+            background: #fcfcfc;
+            padding: 8px 10px;
+            border-radius: 8px;
+        }
+
+        .file-list {
+            display: grid;
+            gap: 5px;
+            margin: 4px 0 0 26px;
+            padding: 7px 0 2px 10px;
+            border-left: 2px dashed #d9d9d9;
+        }
+
+        .tree-item {
+            width: 100%;
+            text-align: left;
+            border: 1px solid transparent;
+            background: transparent;
+            padding: 7px 9px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: inherit;
+            font-size: 13px;
+        }
+
+        .tree-item:hover {
+            background: #f6f6f6;
+        }
+
+        .tree-item.active {
+            background: var(--accent-soft);
+            border-color: #b5d8cf;
+            color: #0b5a4b;
+            font-weight: 600;
+        }
+
+        .file-btn {
+            font-size: 12px;
+            color: #354245;
+            padding-left: 10px;
+        }
+
+        .tree-empty {
+            border: 1px dashed var(--line);
+            border-radius: 8px;
+            background: #fff;
+            color: var(--muted);
+            padding: 12px;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .main {
+            min-width: 0;
+            padding: 16px;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 10px;
+        }
+
+        .viewer-header {
+            padding: 10px 14px;
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .viewer-tools {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .viewer-title {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .viewer-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .viewer-link:hover {
+            text-decoration: underline;
+        }
+
+        .frame-wrap {
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            min-height: 0;
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .empty {
+            margin: 18vh auto 0;
+            width: min(560px, calc(100% - 20px));
+            padding: 18px;
+            border: 1px dashed var(--line);
+            border-radius: 12px;
+            background: #fff;
+            color: var(--muted);
+            line-height: 1.6;
+            white-space: pre-line;
+        }
+
+        @media (max-width: 900px) {
+            .layout {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr;
             }
 
-            projectDetails.appendChild(fileList);
-          }
+            .sidebar {
+                border-right: 0;
+                border-bottom: 1px solid var(--line);
+                max-height: 44vh;
+            }
 
-          memberContent.appendChild(projectDetails);
+            .main {
+                min-height: 56vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <h1 class="brand">团队静态项目</h1>
+            <p class="hint">按目录放文件：`成员名/项目名/静态文件`。点击左侧项目后，右侧直接渲染页面。</p>
+            <div class="tools">
+                <input id="memberSearch" class="search-input" type="search" placeholder="搜索成员名称..." />
+                <div class="toolbar">
+                    <button id="expandAllBtn" type="button" class="tool-btn">全部展开</button>
+                    <button id="collapseAllBtn" type="button" class="tool-btn">全部折叠</button>
+                </div>
+            </div>
+            <div id="tree" class="tree"></div>
+        </aside>
+
+        <main class="main">
+            <div class="viewer-header">
+                <h2 id="viewerTitle" class="viewer-title">未选择项目</h2>
+                <div class="viewer-tools">
+                    <button id="toggleSidebarBtn" type="button" class="tool-btn">收起侧边栏</button>
+                    <a id="viewerLink" class="viewer-link" href="#" target="_blank" rel="noopener noreferrer"
+                        hidden>新窗口打开</a>
+                </div>
+            </div>
+            <div class="frame-wrap">
+                <iframe id="viewerFrame" title="项目预览"></iframe>
+                <div id="empty" class="empty">正在读取仓库文件树...</div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const CONFIG = {
+            owner: "Jobo16",
+            repo: "Jobo16.github.io",
+            branch: "main",
+            rootPath: "/"
+        };
+
+        const state = {
+            itemsByPath: new Map(),
+            activePath: "",
+            activeTitle: "",
+            memberTreeRaw: [],
+            rootPath: "/",
+            searchKeyword: "",
+            sidebarCollapsed: false
+        };
+
+        const layoutEl = document.querySelector(".layout");
+        const treeEl = document.getElementById("tree");
+        const frameEl = document.getElementById("viewerFrame");
+        const emptyEl = document.getElementById("empty");
+        const viewerTitleEl = document.getElementById("viewerTitle");
+        const viewerLinkEl = document.getElementById("viewerLink");
+        const memberSearchEl = document.getElementById("memberSearch");
+        const expandAllBtn = document.getElementById("expandAllBtn");
+        const collapseAllBtn = document.getElementById("collapseAllBtn");
+        const toggleSidebarBtn = document.getElementById("toggleSidebarBtn");
+
+        function normalizeRootPath(path) {
+            if (!path) return "";
+            let p = path.trim();
+            if (!p.startsWith("/")) p = "/" + p;
+            if (!p.endsWith("/")) p = p + "/";
+            return p;
         }
 
-        memberDetails.appendChild(memberContent);
-        treeEl.appendChild(memberDetails);
-      }
-    }
+        function inferRepoFromLocation() {
+            const host = window.location.hostname;
+            const pathParts = window.location.pathname.split("/").filter(Boolean);
 
-    function renderByCurrentState() {
-      const filteredTree = filterMemberTree(state.memberTreeRaw);
-      renderTree(filteredTree, state.rootPath);
+            if (CONFIG.owner && CONFIG.repo) {
+                return { owner: CONFIG.owner, repo: CONFIG.repo };
+            }
 
-      if (filteredTree.length === 0) {
-        return;
-      }
+            if (!host.endsWith(".github.io")) {
+                return null;
+            }
 
-      if (state.activePath && state.itemsByPath.has(state.activePath)) {
-        activatePath(state.activePath, state.activeTitle || state.activePath.split("/").join(" / "), state.rootPath);
-        return;
-      }
-
-      const first = filteredTree[0].projects[0];
-      activatePath(first.entry, `${filteredTree[0].name} / ${first.name}`, state.rootPath);
-    }
-
-    function tryOpenFromHash(rootPath) {
-      if (!window.location.hash.startsWith("#/")) {
-        return false;
-      }
-
-      const encoded = window.location.hash.slice(2);
-      if (!encoded) {
-        return false;
-      }
-
-      const path = encoded.split("/").map((part) => decodeURIComponent(part)).join("/");
-      if (!state.itemsByPath.has(path)) {
-        return false;
-      }
-
-      const title = path.split("/").join(" / ");
-      activatePath(path, title, rootPath);
-      return true;
-    }
-
-    async function getHtmlPathsFromGitHub(owner, repo, branch) {
-      const treeData = await fetchJson(`https://api.github.com/repos/${owner}/${repo}/git/trees/${encodeURIComponent(branch)}?recursive=1`);
-      const paths = (treeData.tree || [])
-        .filter((node) => node.type === "blob")
-        .map((node) => node.path)
-        .filter(isHtmlFile)
-        .filter((path) => path.split("/").length >= 3);
-
-      return paths;
-    }
-
-    async function getHtmlPathsFromManifest() {
-      const data = await fetchJson("projects.manifest.json");
-      if (!Array.isArray(data.htmlPaths)) {
-        return [];
-      }
-
-      return data.htmlPaths
-        .filter((path) => typeof path === "string")
-        .filter(isHtmlFile)
-        .filter((path) => path.split("/").length >= 3);
-    }
-
-    async function init() {
-      const repoInfo = inferRepoFromLocation();
-      if (!repoInfo) {
-        setEmptyMessage(
-          "当前域名无法自动识别 GitHub 仓库。\n\n可选做法：\n1. 在脚本 CONFIG 中填写 owner/repo。\n2. 或者用 github.io 域名访问此页面。"
-        );
-        return;
-      }
-
-      const { owner, repo } = repoInfo;
-      const rootPath = inferRootPath(owner, repo);
-      let htmlPaths = [];
-      let loadError = null;
-
-      try {
-        const branch = await getBranch(owner, repo);
-        htmlPaths = await getHtmlPathsFromGitHub(owner, repo, branch);
-      } catch (error) {
-        console.error(error);
-        loadError = error;
-      }
-
-      if (htmlPaths.length === 0) {
-        try {
-          htmlPaths = await getHtmlPathsFromManifest();
-        } catch (manifestError) {
-          console.error(manifestError);
-          if (!loadError) {
-            loadError = manifestError;
-          }
+            const owner = host.split(".")[0];
+            const userSiteRepo = `${owner}.github.io`;
+            const repo = pathParts.length === 0 ? userSiteRepo : pathParts[0];
+            return { owner, repo };
         }
-      }
 
-      if (htmlPaths.length === 0) {
-        const details = loadError && loadError.message ? `\n\n错误详情：${loadError.message}` : "";
-        setEmptyMessage(
-          "未发现可预览项目，或读取目录失败。\n\n请确认：\n1. 仓库里已有 成员名/项目名/*.html\n2. 仓库为公开仓库或 API 可访问\n3. projects.manifest.json 已存在且包含 htmlPaths" + details
-        );
-        return;
-      }
+        function inferRootPath(owner, repo) {
+            if (CONFIG.rootPath) {
+                return normalizeRootPath(CONFIG.rootPath);
+            }
 
-      const memberTree = buildMemberProjectTree(htmlPaths);
-      if (memberTree.length === 0) {
-        setEmptyMessage(
-          "已发现 HTML 文件，但未匹配到成员/项目层级。\n\n请至少使用两级目录：成员名/项目名/*.html"
-        );
-        return;
-      }
+            const host = window.location.hostname;
+            if (!host.endsWith(".github.io")) {
+                return "/";
+            }
 
-      state.memberTreeRaw = memberTree;
-      state.rootPath = rootPath;
-      renderByCurrentState();
+            const userSiteRepo = `${owner}.github.io`.toLowerCase();
+            if (repo.toLowerCase() === userSiteRepo) {
+                return "/";
+            }
 
-      if (!tryOpenFromHash(rootPath)) {
-        const visibleTree = filterMemberTree(memberTree);
-        if (visibleTree.length > 0) {
-          const first = visibleTree[0].projects[0];
-          activatePath(first.entry, `${visibleTree[0].name} / ${first.name}`, rootPath);
+            return `/${repo}/`;
         }
-      }
-    }
 
-    memberSearchEl.addEventListener("input", () => {
-      state.searchKeyword = memberSearchEl.value || "";
-      renderByCurrentState();
-      if (state.searchKeyword.trim()) {
-        setAllTreeNodes(true);
-      }
-    });
+        async function fetchJson(url) {
+            const response = await fetch(url, { headers: { "Accept": "application/vnd.github+json" } });
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}: ${url}`);
+            }
+            return response.json();
+        }
 
-    expandAllBtn.addEventListener("click", () => setAllTreeNodes(true));
-    collapseAllBtn.addEventListener("click", () => setAllTreeNodes(false));
-    toggleSidebarBtn.addEventListener("click", () => setSidebarCollapsed(!state.sidebarCollapsed));
+        async function getBranch(owner, repo) {
+            if (CONFIG.branch) {
+                return CONFIG.branch;
+            }
 
-    init();
-  </script>
+            const data = await fetchJson(`https://api.github.com/repos/${owner}/${repo}`);
+            return data.default_branch || "main";
+        }
+
+        function isHtmlFile(path) {
+            return /\.html?$/i.test(path);
+        }
+
+        function chooseEntry(files) {
+            const ranked = [...files].sort((a, b) => scoreFile(a) - scoreFile(b) || a.localeCompare(b, "zh-CN"));
+            return ranked[0] || "";
+        }
+
+        function scoreFile(path) {
+            const lower = path.toLowerCase();
+            const parts = lower.split("/");
+            const filename = parts[parts.length - 1];
+            const depth = parts.length;
+
+            if (filename === "index.html" && depth === 3) return 0;
+            if (filename === "index.html") return 1 + depth;
+            return 10 + depth;
+        }
+
+        function buildMemberProjectTree(htmlPaths) {
+            const members = new Map();
+
+            for (const fullPath of htmlPaths) {
+                const parts = fullPath.split("/");
+                if (parts.length < 3) continue;
+
+                const member = parts[0];
+                const project = parts[1];
+
+                if (!members.has(member)) {
+                    members.set(member, new Map());
+                }
+
+                const projects = members.get(member);
+                if (!projects.has(project)) {
+                    projects.set(project, []);
+                }
+
+                projects.get(project).push(fullPath);
+            }
+
+            const memberNodes = [];
+
+            for (const [memberName, projects] of [...members.entries()].sort((a, b) => a[0].localeCompare(b[0], "zh-CN"))) {
+                const projectNodes = [];
+
+                for (const [projectName, files] of [...projects.entries()].sort((a, b) => a[0].localeCompare(b[0], "zh-CN"))) {
+                    const sortedFiles = [...files].sort((a, b) => scoreFile(a) - scoreFile(b) || a.localeCompare(b, "zh-CN"));
+                    projectNodes.push({
+                        name: projectName,
+                        entry: chooseEntry(sortedFiles),
+                        files: sortedFiles
+                    });
+                }
+
+                memberNodes.push({ name: memberName, projects: projectNodes });
+            }
+
+            return memberNodes;
+        }
+
+        function toSafePath(path) {
+            return path.split("/").map(encodeURIComponent).join("/");
+        }
+
+        function buildPreviewUrl(path, rootPath) {
+            const safePath = toSafePath(path);
+            if (rootPath.endsWith("/")) {
+                return `${rootPath}${safePath}`;
+            }
+            return `${rootPath}/${safePath}`;
+        }
+
+        function setEmptyMessage(text) {
+            emptyEl.hidden = false;
+            emptyEl.textContent = text;
+            frameEl.removeAttribute("src");
+            viewerTitleEl.textContent = "未选择项目";
+            viewerLinkEl.hidden = true;
+        }
+
+        function activatePath(path, title, rootPath) {
+            const item = state.itemsByPath.get(path);
+            if (!item) return;
+
+            if (state.activePath && state.itemsByPath.get(state.activePath)) {
+                state.itemsByPath.get(state.activePath).classList.remove("active");
+            }
+
+            item.classList.add("active");
+            state.activePath = path;
+            state.activeTitle = title;
+
+            const src = buildPreviewUrl(path, rootPath);
+            frameEl.src = src;
+            viewerTitleEl.textContent = title;
+            viewerLinkEl.href = src;
+            viewerLinkEl.hidden = false;
+            emptyEl.hidden = true;
+
+            const hashPath = toSafePath(path);
+            if (window.location.hash !== `#/${hashPath}`) {
+                history.replaceState(null, "", `#/${hashPath}`);
+            }
+        }
+
+        function createButton(text, className) {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = `tree-item ${className}`.trim();
+            btn.textContent = text;
+            return btn;
+        }
+
+        function filterMemberTree(memberTree) {
+            const keyword = state.searchKeyword.trim();
+            const filtered = [];
+
+            for (const member of memberTree) {
+                if (keyword && !member.name.includes(keyword)) {
+                    continue;
+                }
+
+                filtered.push(member);
+            }
+
+            return filtered;
+        }
+
+        function setAllTreeNodes(open) {
+            for (const node of treeEl.querySelectorAll("details")) {
+                node.open = open;
+            }
+        }
+
+        function setSidebarCollapsed(collapsed) {
+            state.sidebarCollapsed = collapsed;
+            layoutEl.classList.toggle("sidebar-collapsed", collapsed);
+            toggleSidebarBtn.textContent = collapsed ? "展开侧边栏" : "收起侧边栏";
+        }
+
+        function renderTree(memberTree, rootPath) {
+            treeEl.innerHTML = "";
+            state.itemsByPath.clear();
+
+            if (memberTree.length === 0) {
+                const msg = document.createElement("div");
+                msg.className = "tree-empty";
+                msg.textContent = state.searchKeyword
+                    ? `没有匹配成员：${state.searchKeyword}`
+                    : "当前没有可展示的目录。";
+                treeEl.appendChild(msg);
+                return;
+            }
+
+            for (const member of memberTree) {
+                const memberDetails = document.createElement("details");
+                memberDetails.className = "member-node";
+                memberDetails.open = true;
+
+                const memberSummary = document.createElement("summary");
+                memberSummary.className = "node-summary";
+
+                const memberLeft = document.createElement("span");
+                memberLeft.className = "summary-left";
+                const memberName = document.createElement("span");
+                memberName.className = "node-name";
+                memberName.textContent = member.name;
+                const memberMeta = document.createElement("span");
+                memberMeta.className = "node-meta";
+                memberMeta.textContent = `${member.projects.length} 项目`;
+                memberLeft.appendChild(memberName);
+                memberLeft.appendChild(memberMeta);
+                memberSummary.appendChild(memberLeft);
+                memberDetails.appendChild(memberSummary);
+
+                const memberContent = document.createElement("div");
+                memberContent.className = "member-content";
+
+                for (const project of member.projects) {
+                    const projectDetails = document.createElement("details");
+                    projectDetails.className = "project-node";
+                    projectDetails.open = false;
+
+                    const projectSummary = document.createElement("summary");
+                    projectSummary.className = "node-summary";
+
+                    const projectLeft = document.createElement("span");
+                    projectLeft.className = "summary-left";
+                    const projectName = document.createElement("span");
+                    projectName.className = "node-name";
+                    projectName.textContent = project.name;
+                    const projectMeta = document.createElement("span");
+                    projectMeta.className = "node-meta";
+                    projectMeta.textContent = `${project.files.length} 页面`;
+                    projectLeft.appendChild(projectName);
+                    projectLeft.appendChild(projectMeta);
+                    projectSummary.classList.add("project-summary");
+                    projectSummary.addEventListener("click", () => {
+                        activatePath(project.entry, `${member.name} / ${project.name}`, rootPath);
+                    });
+                    state.itemsByPath.set(project.entry, projectSummary);
+                    projectSummary.appendChild(projectLeft);
+                    projectDetails.appendChild(projectSummary);
+
+                    const extraFiles = project.files.filter((file) => file !== project.entry);
+                    if (extraFiles.length > 0) {
+                        const fileList = document.createElement("div");
+                        fileList.className = "file-list";
+
+                        for (const file of extraFiles) {
+                            const fileLabel = file.split("/").slice(2).join("/");
+                            const fileBtn = createButton(fileLabel, "file-btn");
+                            fileBtn.addEventListener("click", () => {
+                                activatePath(file, `${member.name} / ${project.name} / ${fileLabel}`, rootPath);
+                            });
+
+                            state.itemsByPath.set(file, fileBtn);
+                            fileList.appendChild(fileBtn);
+                        }
+
+                        projectDetails.appendChild(fileList);
+                    }
+
+                    memberContent.appendChild(projectDetails);
+                }
+
+                memberDetails.appendChild(memberContent);
+                treeEl.appendChild(memberDetails);
+            }
+        }
+
+        function renderByCurrentState() {
+            const filteredTree = filterMemberTree(state.memberTreeRaw);
+            renderTree(filteredTree, state.rootPath);
+
+            if (filteredTree.length === 0) {
+                return;
+            }
+
+            if (state.activePath && state.itemsByPath.has(state.activePath)) {
+                activatePath(state.activePath, state.activeTitle || state.activePath.split("/").join(" / "), state.rootPath);
+                return;
+            }
+
+            const first = filteredTree[0].projects[0];
+            activatePath(first.entry, `${filteredTree[0].name} / ${first.name}`, state.rootPath);
+        }
+
+        function tryOpenFromHash(rootPath) {
+            if (!window.location.hash.startsWith("#/")) {
+                return false;
+            }
+
+            const encoded = window.location.hash.slice(2);
+            if (!encoded) {
+                return false;
+            }
+
+            const path = encoded.split("/").map((part) => decodeURIComponent(part)).join("/");
+            if (!state.itemsByPath.has(path)) {
+                return false;
+            }
+
+            const title = path.split("/").join(" / ");
+            activatePath(path, title, rootPath);
+            return true;
+        }
+
+        async function getHtmlPathsFromGitHub(owner, repo, branch) {
+            const treeData = await fetchJson(`https://api.github.com/repos/${owner}/${repo}/git/trees/${encodeURIComponent(branch)}?recursive=1`);
+            const paths = (treeData.tree || [])
+                .filter((node) => node.type === "blob")
+                .map((node) => node.path)
+                .filter(isHtmlFile)
+                .filter((path) => path.split("/").length >= 3);
+
+            return paths;
+        }
+
+        async function getHtmlPathsFromManifest() {
+            const data = await fetchJson("projects.manifest.json");
+            if (!Array.isArray(data.htmlPaths)) {
+                return [];
+            }
+
+            return data.htmlPaths
+                .filter((path) => typeof path === "string")
+                .filter(isHtmlFile)
+                .filter((path) => path.split("/").length >= 3);
+        }
+
+        async function init() {
+            const repoInfo = inferRepoFromLocation();
+            if (!repoInfo) {
+                setEmptyMessage(
+                    "当前域名无法自动识别 GitHub 仓库。\n\n可选做法：\n1. 在脚本 CONFIG 中填写 owner/repo。\n2. 或者用 github.io 域名访问此页面。"
+                );
+                return;
+            }
+
+            const { owner, repo } = repoInfo;
+            const rootPath = inferRootPath(owner, repo);
+            let htmlPaths = [];
+            let loadError = null;
+
+            try {
+                const branch = await getBranch(owner, repo);
+                htmlPaths = await getHtmlPathsFromGitHub(owner, repo, branch);
+            } catch (error) {
+                console.error(error);
+                loadError = error;
+            }
+
+            if (htmlPaths.length === 0) {
+                try {
+                    htmlPaths = await getHtmlPathsFromManifest();
+                } catch (manifestError) {
+                    console.error(manifestError);
+                    if (!loadError) {
+                        loadError = manifestError;
+                    }
+                }
+            }
+
+            if (htmlPaths.length === 0) {
+                const details = loadError && loadError.message ? `\n\n错误详情：${loadError.message}` : "";
+                setEmptyMessage(
+                    "未发现可预览项目，或读取目录失败。\n\n请确认：\n1. 仓库里已有 成员名/项目名/*.html\n2. 仓库为公开仓库或 API 可访问\n3. projects.manifest.json 已存在且包含 htmlPaths" + details
+                );
+                return;
+            }
+
+            const memberTree = buildMemberProjectTree(htmlPaths);
+            if (memberTree.length === 0) {
+                setEmptyMessage(
+                    "已发现 HTML 文件，但未匹配到成员/项目层级。\n\n请至少使用两级目录：成员名/项目名/*.html"
+                );
+                return;
+            }
+
+            state.memberTreeRaw = memberTree;
+            state.rootPath = rootPath;
+            renderByCurrentState();
+
+            if (!tryOpenFromHash(rootPath)) {
+                const visibleTree = filterMemberTree(memberTree);
+                if (visibleTree.length > 0) {
+                    const first = visibleTree[0].projects[0];
+                    activatePath(first.entry, `${visibleTree[0].name} / ${first.name}`, rootPath);
+                }
+            }
+        }
+
+        memberSearchEl.addEventListener("input", () => {
+            state.searchKeyword = memberSearchEl.value || "";
+            renderByCurrentState();
+            if (state.searchKeyword.trim()) {
+                setAllTreeNodes(true);
+            }
+        });
+
+        expandAllBtn.addEventListener("click", () => setAllTreeNodes(true));
+        collapseAllBtn.addEventListener("click", () => setAllTreeNodes(false));
+        toggleSidebarBtn.addEventListener("click", () => setSidebarCollapsed(!state.sidebarCollapsed));
+
+        init();
+    </script>
 </body>
+
 </html>
