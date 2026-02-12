@@ -1,11 +1,561 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>静态网页</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>团队项目展示</title>
+  <style>
+    :root {
+      --bg-start: #f5efe4;
+      --bg-end: #e6f0ee;
+      --panel: #ffffffcc;
+      --line: #d8d0bf;
+      --text: #1f2528;
+      --muted: #5f6668;
+      --accent: #0f6c5b;
+      --accent-soft: #e4f1ee;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      font-family: "Noto Sans SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: radial-gradient(circle at 0% 0%, #fff7e9 0%, transparent 40%),
+                  radial-gradient(circle at 100% 100%, #def0ec 0%, transparent 45%),
+                  linear-gradient(140deg, var(--bg-start), var(--bg-end));
+    }
+
+    .layout {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      backdrop-filter: blur(2px);
+    }
+
+    .sidebar {
+      border-right: 1px solid var(--line);
+      padding: 20px 14px 16px;
+      background: var(--panel);
+      overflow: auto;
+    }
+
+    .brand {
+      margin: 0 0 14px;
+      font-size: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    .hint {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 13px;
+    }
+
+    .tree {
+      display: grid;
+      gap: 8px;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 10px 12px;
+      font-weight: 600;
+      user-select: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    details[open] summary {
+      border-bottom-color: var(--line);
+      background: #faf8f1;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .project-list,
+    .file-list {
+      display: grid;
+      gap: 6px;
+      padding: 8px;
+    }
+
+    .file-list {
+      margin-top: 4px;
+      border-top: 1px dashed var(--line);
+      padding-top: 8px;
+    }
+
+    button.tree-item {
+      width: 100%;
+      text-align: left;
+      border: 1px solid transparent;
+      background: transparent;
+      padding: 8px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      color: inherit;
+      font-size: 14px;
+    }
+
+    button.tree-item:hover {
+      background: #f6f6f6;
+    }
+
+    button.tree-item.active {
+      background: var(--accent-soft);
+      border-color: #b5d8cf;
+      color: #0b5a4b;
+      font-weight: 600;
+    }
+
+    .file-btn {
+      font-size: 13px;
+      color: #354245;
+      padding-left: 14px;
+    }
+
+    .main {
+      min-width: 0;
+      padding: 16px;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 10px;
+    }
+
+    .viewer-header {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .viewer-title {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+      word-break: break-all;
+    }
+
+    .viewer-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .viewer-link:hover {
+      text-decoration: underline;
+    }
+
+    .frame-wrap {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+      background: #fff;
+      min-height: 0;
+      position: relative;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .empty {
+      margin: 18vh auto 0;
+      width: min(560px, calc(100% - 20px));
+      padding: 18px;
+      border: 1px dashed var(--line);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--muted);
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+      }
+
+      .sidebar {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        max-height: 44vh;
+      }
+
+      .main {
+        min-height: 56vh;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>欢迎来到我的网页！</h1>
-    <p>这是一个简单的 HTML 页面。</p>
+  <div class="layout">
+    <aside class="sidebar">
+      <h1 class="brand">团队静态项目</h1>
+      <p class="hint">按目录放文件：`成员名/项目名/静态文件`。点击左侧项目后，右侧直接渲染页面。</p>
+      <div id="tree" class="tree"></div>
+    </aside>
+
+    <main class="main">
+      <div class="viewer-header">
+        <h2 id="viewerTitle" class="viewer-title">未选择项目</h2>
+        <a id="viewerLink" class="viewer-link" href="#" target="_blank" rel="noopener noreferrer" hidden>新窗口打开</a>
+      </div>
+      <div class="frame-wrap">
+        <iframe id="viewerFrame" title="项目预览"></iframe>
+        <div id="empty" class="empty">正在读取仓库文件树...</div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const CONFIG = {
+      owner: "",
+      repo: "",
+      branch: "",
+      rootPath: ""
+    };
+
+    const state = {
+      itemsByPath: new Map(),
+      activePath: ""
+    };
+
+    const treeEl = document.getElementById("tree");
+    const frameEl = document.getElementById("viewerFrame");
+    const emptyEl = document.getElementById("empty");
+    const viewerTitleEl = document.getElementById("viewerTitle");
+    const viewerLinkEl = document.getElementById("viewerLink");
+
+    function normalizeRootPath(path) {
+      if (!path) return "";
+      let p = path.trim();
+      if (!p.startsWith("/")) p = "/" + p;
+      if (!p.endsWith("/")) p = p + "/";
+      return p;
+    }
+
+    function inferRepoFromLocation() {
+      const host = window.location.hostname;
+      const pathParts = window.location.pathname.split("/").filter(Boolean);
+
+      if (CONFIG.owner && CONFIG.repo) {
+        return { owner: CONFIG.owner, repo: CONFIG.repo };
+      }
+
+      if (!host.endsWith(".github.io")) {
+        return null;
+      }
+
+      const owner = host.split(".")[0];
+      const userSiteRepo = `${owner}.github.io`;
+      const repo = pathParts.length === 0 ? userSiteRepo : pathParts[0];
+      return { owner, repo };
+    }
+
+    function inferRootPath(owner, repo) {
+      if (CONFIG.rootPath) {
+        return normalizeRootPath(CONFIG.rootPath);
+      }
+
+      const host = window.location.hostname;
+      if (!host.endsWith(".github.io")) {
+        return "/";
+      }
+
+      const userSiteRepo = `${owner}.github.io`.toLowerCase();
+      if (repo.toLowerCase() === userSiteRepo) {
+        return "/";
+      }
+
+      return `/${repo}/`;
+    }
+
+    async function fetchJson(url) {
+      const response = await fetch(url, { headers: { "Accept": "application/vnd.github+json" } });
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${url}`);
+      }
+      return response.json();
+    }
+
+    async function getBranch(owner, repo) {
+      if (CONFIG.branch) {
+        return CONFIG.branch;
+      }
+
+      const data = await fetchJson(`https://api.github.com/repos/${owner}/${repo}`);
+      return data.default_branch || "main";
+    }
+
+    function isHtmlFile(path) {
+      return /\.html?$/i.test(path);
+    }
+
+    function chooseEntry(files) {
+      const ranked = [...files].sort((a, b) => scoreFile(a) - scoreFile(b) || a.localeCompare(b, "zh-CN"));
+      return ranked[0] || "";
+    }
+
+    function scoreFile(path) {
+      const lower = path.toLowerCase();
+      const parts = lower.split("/");
+      const filename = parts[parts.length - 1];
+      const depth = parts.length;
+
+      if (filename === "index.html" && depth === 3) return 0;
+      if (filename === "index.html") return 1 + depth;
+      return 10 + depth;
+    }
+
+    function buildMemberProjectTree(htmlPaths) {
+      const members = new Map();
+
+      for (const fullPath of htmlPaths) {
+        const parts = fullPath.split("/");
+        if (parts.length < 3) continue;
+
+        const member = parts[0];
+        const project = parts[1];
+
+        if (!members.has(member)) {
+          members.set(member, new Map());
+        }
+
+        const projects = members.get(member);
+        if (!projects.has(project)) {
+          projects.set(project, []);
+        }
+
+        projects.get(project).push(fullPath);
+      }
+
+      const memberNodes = [];
+
+      for (const [memberName, projects] of [...members.entries()].sort((a, b) => a[0].localeCompare(b[0], "zh-CN"))) {
+        const projectNodes = [];
+
+        for (const [projectName, files] of [...projects.entries()].sort((a, b) => a[0].localeCompare(b[0], "zh-CN"))) {
+          const sortedFiles = [...files].sort((a, b) => scoreFile(a) - scoreFile(b) || a.localeCompare(b, "zh-CN"));
+          projectNodes.push({
+            name: projectName,
+            entry: chooseEntry(sortedFiles),
+            files: sortedFiles
+          });
+        }
+
+        memberNodes.push({ name: memberName, projects: projectNodes });
+      }
+
+      return memberNodes;
+    }
+
+    function toSafePath(path) {
+      return path.split("/").map(encodeURIComponent).join("/");
+    }
+
+    function buildPreviewUrl(path, rootPath) {
+      const safePath = toSafePath(path);
+      if (rootPath.endsWith("/")) {
+        return `${rootPath}${safePath}`;
+      }
+      return `${rootPath}/${safePath}`;
+    }
+
+    function setEmptyMessage(text) {
+      emptyEl.hidden = false;
+      emptyEl.textContent = text;
+      frameEl.removeAttribute("src");
+      viewerTitleEl.textContent = "未选择项目";
+      viewerLinkEl.hidden = true;
+    }
+
+    function activatePath(path, title, rootPath) {
+      const item = state.itemsByPath.get(path);
+      if (!item) return;
+
+      if (state.activePath && state.itemsByPath.get(state.activePath)) {
+        state.itemsByPath.get(state.activePath).classList.remove("active");
+      }
+
+      item.classList.add("active");
+      state.activePath = path;
+
+      const src = buildPreviewUrl(path, rootPath);
+      frameEl.src = src;
+      viewerTitleEl.textContent = title;
+      viewerLinkEl.href = src;
+      viewerLinkEl.hidden = false;
+      emptyEl.hidden = true;
+
+      const hashPath = toSafePath(path);
+      if (window.location.hash !== `#/${hashPath}`) {
+        history.replaceState(null, "", `#/${hashPath}`);
+      }
+    }
+
+    function createButton(text, className) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `tree-item ${className}`.trim();
+      btn.textContent = text;
+      return btn;
+    }
+
+    function renderTree(memberTree, rootPath) {
+      treeEl.innerHTML = "";
+      state.itemsByPath.clear();
+
+      for (const member of memberTree) {
+        const memberDetails = document.createElement("details");
+        memberDetails.open = true;
+
+        const memberSummary = document.createElement("summary");
+        memberSummary.textContent = member.name;
+        memberDetails.appendChild(memberSummary);
+
+        const projectList = document.createElement("div");
+        projectList.className = "project-list";
+
+        for (const project of member.projects) {
+          const wrap = document.createElement("div");
+
+          const projectBtn = createButton(project.name, "project-btn");
+          projectBtn.addEventListener("click", () => {
+            activatePath(project.entry, `${member.name} / ${project.name}`, rootPath);
+          });
+          state.itemsByPath.set(project.entry, projectBtn);
+          wrap.appendChild(projectBtn);
+
+          const extraFiles = project.files.filter((file) => file !== project.entry);
+          if (extraFiles.length > 0) {
+            const fileList = document.createElement("div");
+            fileList.className = "file-list";
+
+            for (const file of extraFiles) {
+              const fileLabel = file.split("/").slice(2).join("/");
+              const fileBtn = createButton(fileLabel, "file-btn");
+              fileBtn.addEventListener("click", () => {
+                activatePath(file, `${member.name} / ${project.name} / ${fileLabel}`, rootPath);
+              });
+
+              state.itemsByPath.set(file, fileBtn);
+              fileList.appendChild(fileBtn);
+            }
+
+            wrap.appendChild(fileList);
+          }
+
+          projectList.appendChild(wrap);
+        }
+
+        memberDetails.appendChild(projectList);
+        treeEl.appendChild(memberDetails);
+      }
+    }
+
+    function tryOpenFromHash(rootPath) {
+      if (!window.location.hash.startsWith("#/")) {
+        return false;
+      }
+
+      const encoded = window.location.hash.slice(2);
+      if (!encoded) {
+        return false;
+      }
+
+      const path = encoded.split("/").map((part) => decodeURIComponent(part)).join("/");
+      if (!state.itemsByPath.has(path)) {
+        return false;
+      }
+
+      const title = path.split("/").join(" / ");
+      activatePath(path, title, rootPath);
+      return true;
+    }
+
+    async function getHtmlPathsFromGitHub(owner, repo, branch) {
+      const treeData = await fetchJson(`https://api.github.com/repos/${owner}/${repo}/git/trees/${encodeURIComponent(branch)}?recursive=1`);
+      const paths = (treeData.tree || [])
+        .filter((node) => node.type === "blob")
+        .map((node) => node.path)
+        .filter(isHtmlFile)
+        .filter((path) => path.split("/").length >= 3);
+
+      return paths;
+    }
+
+    async function init() {
+      const repoInfo = inferRepoFromLocation();
+      if (!repoInfo) {
+        setEmptyMessage(
+          "当前域名无法自动识别 GitHub 仓库。\n\n可选做法：\n1. 在脚本 CONFIG 中填写 owner/repo。\n2. 或者用 github.io 域名访问此页面。"
+        );
+        return;
+      }
+
+      const { owner, repo } = repoInfo;
+      const rootPath = inferRootPath(owner, repo);
+
+      try {
+        const branch = await getBranch(owner, repo);
+        const htmlPaths = await getHtmlPathsFromGitHub(owner, repo, branch);
+
+        if (htmlPaths.length === 0) {
+          setEmptyMessage(
+            "未发现可预览项目。\n\n请按结构添加文件：\n成员名/项目名/index.html\n\n也支持：成员名/项目名/xxx.html + css/js"
+          );
+          return;
+        }
+
+        const memberTree = buildMemberProjectTree(htmlPaths);
+        if (memberTree.length === 0) {
+          setEmptyMessage(
+            "已发现 HTML 文件，但未匹配到成员/项目层级。\n\n请至少使用两级目录：成员名/项目名/*.html"
+          );
+          return;
+        }
+
+        renderTree(memberTree, rootPath);
+
+        if (!tryOpenFromHash(rootPath)) {
+          const first = memberTree[0].projects[0];
+          activatePath(first.entry, `${memberTree[0].name} / ${first.name}`, rootPath);
+        }
+      } catch (error) {
+        console.error(error);
+        setEmptyMessage(
+          "读取 GitHub 仓库失败。\n\n可能原因：\n1. 仓库私有或 API 访问受限。\n2. GitHub API 速率限制。\n3. owner/repo 推断错误。\n\n请打开控制台查看错误详情。"
+        );
+      }
+    }
+
+    init();
+  </script>
 </body>
 </html>

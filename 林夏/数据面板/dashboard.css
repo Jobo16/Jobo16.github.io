@@ -1,0 +1,6 @@
+body { margin: 0; font-family: "Microsoft YaHei", sans-serif; background: #f9fafb; }
+.grid { max-width: 960px; margin: 32px auto; padding: 0 16px; display: grid; gap: 12px; grid-template-columns: repeat(3, 1fr); }
+.card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 16px; }
+.label { color: #6b7280; font-size: 13px; }
+.value { font-size: 28px; font-weight: 700; margin-top: 6px; }
+@media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
