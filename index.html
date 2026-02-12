@@ -604,27 +604,40 @@
             return null;
         }
 
+        function toRelativePathFromPathname(pathname, rootPath) {
+            const root = normalizeRootPath(rootPath);
+            if (!pathname.startsWith(root)) {
+                return "";
+            }
+            return fromSafePath(pathname.slice(root.length)).replace(/^\/+/, "");
+        }
+
         function readRouteInfoFromFrame(path, rootPath) {
             const fallbackMode = state.routeModeByPath.get(path) || "path";
             if (!path || !frameEl.contentWindow) {
-                return { suffix: "", mode: fallbackMode };
+                return { suffix: "", mode: fallbackMode, matched: false };
             }
 
             let frameLocation;
             try {
                 frameLocation = frameEl.contentWindow.location;
             } catch {
-                return { suffix: state.activeRouteSuffix, mode: fallbackMode };
+                return {
+                    suffix: state.activeRouteSuffix,
+                    mode: fallbackMode,
+                    matched: false
+                };
             }
 
             const expectedPathname = new URL(buildPreviewUrl(path, rootPath), window.location.origin).pathname;
             if (frameLocation.pathname === expectedPathname) {
                 if (!frameLocation.hash.startsWith("#/")) {
-                    return { suffix: "", mode: fallbackMode };
+                    return { suffix: "", mode: fallbackMode, matched: true };
                 }
                 return {
                     suffix: normalizeRouteSuffix(fromSafePath(frameLocation.hash.slice(2))),
-                    mode: "hash"
+                    mode: "hash",
+                    matched: true
                 };
             }
 
@@ -632,11 +645,16 @@
                 const encodedSuffix = frameLocation.pathname.slice(expectedPathname.length + 1);
                 return {
                     suffix: normalizeRouteSuffix(fromSafePath(encodedSuffix)),
-                    mode: "path"
+                    mode: "path",
+                    matched: true
                 };
             }
 
-            return { suffix: state.activeRouteSuffix, mode: fallbackMode };
+            return {
+                suffix: state.activeRouteSuffix,
+                mode: fallbackMode,
+                matched: false
+            };
         }
 
         function syncHashFromFrameLocation() {
@@ -644,19 +662,37 @@
                 return;
             }
 
-            const routeInfo = readRouteInfoFromFrame(state.activePath, state.rootPath);
-            state.routeModeByPath.set(state.activePath, routeInfo.mode);
-            state.activeRouteSuffix = routeInfo.suffix;
-
+            let frameLocation;
             if (frameEl.contentWindow) {
                 try {
-                    const loc = frameEl.contentWindow.location;
-                    updateViewerLink(`${loc.pathname}${loc.search}${loc.hash}`);
+                    frameLocation = frameEl.contentWindow.location;
                 } catch {
-                    // noop
+                    frameLocation = null;
                 }
             }
 
+            if (frameLocation) {
+                updateViewerLink(`${frameLocation.pathname}${frameLocation.search}${frameLocation.hash}`);
+
+                const frameRelativePath = toRelativePathFromPathname(frameLocation.pathname, state.rootPath);
+                if (
+                    frameRelativePath &&
+                    frameRelativePath !== state.activePath &&
+                    state.itemsByPath.has(frameRelativePath)
+                ) {
+                    const title = frameRelativePath.split("/").join(" / ");
+                    activatePath(frameRelativePath, title, state.rootPath);
+                    return;
+                }
+            }
+
+            const routeInfo = readRouteInfoFromFrame(state.activePath, state.rootPath);
+            if (!routeInfo.matched) {
+                return;
+            }
+
+            state.routeModeByPath.set(state.activePath, routeInfo.mode);
+            state.activeRouteSuffix = routeInfo.suffix;
             const targetHash = buildViewerHash(state.activePath, routeInfo.suffix);
             if (window.location.hash !== targetHash) {
                 history.replaceState(null, "", targetHash);
@@ -955,9 +991,9 @@
         });
 
         frameEl.addEventListener("load", () => {
+            const selection = parseHashSelection();
             syncHashFromFrameLocation();
 
-            const selection = parseHashSelection();
             if (!selection || selection.path !== state.activePath) {
                 state.routeRetryKey = "";
                 return;
