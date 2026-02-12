@@ -382,6 +382,8 @@
             activePath: "",
             activeTitle: "",
             activeRouteSuffix: "",
+            routeModeByPath: new Map(),
+            routeRetryKey: "",
             memberTreeRaw: [],
             rootPath: "/",
             searchKeyword: "",
@@ -560,18 +562,20 @@
             return `${rootPath}/${safePath}`;
         }
 
-        function buildFrameSource(path, rootPath, routeSuffix = "") {
+        function buildFrameSource(path, rootPath, routeSuffix = "", routeMode = "path") {
             const previewUrl = buildPreviewUrl(path, rootPath);
             const suffix = normalizeRouteSuffix(routeSuffix);
             if (!suffix) {
                 return previewUrl;
             }
-            return `${previewUrl}#/${toSafePath(suffix)}`;
+            if (routeMode === "hash") {
+                return `${previewUrl}#/${toSafePath(suffix)}`;
+            }
+            return `${previewUrl}/${toSafePath(suffix)}`;
         }
 
-        function updateViewerLink(path, routeSuffix = "") {
-            const hash = buildViewerHash(path, routeSuffix);
-            viewerLinkEl.href = `${window.location.pathname}${window.location.search}${hash}`;
+        function updateViewerLink(href) {
+            viewerLinkEl.href = href;
         }
 
         function parseHashSelection() {
@@ -600,32 +604,39 @@
             return null;
         }
 
-        function readRouteSuffixFromFrame(path, rootPath) {
+        function readRouteInfoFromFrame(path, rootPath) {
+            const fallbackMode = state.routeModeByPath.get(path) || "path";
             if (!path || !frameEl.contentWindow) {
-                return "";
+                return { suffix: "", mode: fallbackMode };
             }
 
             let frameLocation;
             try {
                 frameLocation = frameEl.contentWindow.location;
             } catch {
-                return state.activeRouteSuffix;
+                return { suffix: state.activeRouteSuffix, mode: fallbackMode };
             }
 
             const expectedPathname = new URL(buildPreviewUrl(path, rootPath), window.location.origin).pathname;
             if (frameLocation.pathname === expectedPathname) {
                 if (!frameLocation.hash.startsWith("#/")) {
-                    return "";
+                    return { suffix: "", mode: fallbackMode };
                 }
-                return normalizeRouteSuffix(fromSafePath(frameLocation.hash.slice(2)));
+                return {
+                    suffix: normalizeRouteSuffix(fromSafePath(frameLocation.hash.slice(2))),
+                    mode: "hash"
+                };
             }
 
             if (frameLocation.pathname.startsWith(`${expectedPathname}/`)) {
                 const encodedSuffix = frameLocation.pathname.slice(expectedPathname.length + 1);
-                return normalizeRouteSuffix(fromSafePath(encodedSuffix));
+                return {
+                    suffix: normalizeRouteSuffix(fromSafePath(encodedSuffix)),
+                    mode: "path"
+                };
             }
 
-            return state.activeRouteSuffix;
+            return { suffix: state.activeRouteSuffix, mode: fallbackMode };
         }
 
         function syncHashFromFrameLocation() {
@@ -633,14 +644,20 @@
                 return;
             }
 
-            const routeSuffix = readRouteSuffixFromFrame(state.activePath, state.rootPath);
-            if (routeSuffix === state.activeRouteSuffix) {
-                return;
+            const routeInfo = readRouteInfoFromFrame(state.activePath, state.rootPath);
+            state.routeModeByPath.set(state.activePath, routeInfo.mode);
+            state.activeRouteSuffix = routeInfo.suffix;
+
+            if (frameEl.contentWindow) {
+                try {
+                    const loc = frameEl.contentWindow.location;
+                    updateViewerLink(`${loc.pathname}${loc.search}${loc.hash}`);
+                } catch {
+                    // noop
+                }
             }
 
-            state.activeRouteSuffix = routeSuffix;
-            updateViewerLink(state.activePath, routeSuffix);
-            const targetHash = buildViewerHash(state.activePath, routeSuffix);
+            const targetHash = buildViewerHash(state.activePath, routeInfo.suffix);
             if (window.location.hash !== targetHash) {
                 history.replaceState(null, "", targetHash);
             }
@@ -654,7 +671,7 @@
             viewerLinkEl.hidden = true;
         }
 
-        function activatePath(path, title, rootPath, routeSuffix = "") {
+        function activatePath(path, title, rootPath, routeSuffix = "", routeModeOverride = "") {
             const item = state.itemsByPath.get(path);
             if (!item) return;
 
@@ -666,14 +683,16 @@
             state.activePath = path;
             state.activeTitle = title;
             state.activeRouteSuffix = normalizeRouteSuffix(routeSuffix);
+            const routeMode = routeModeOverride || state.routeModeByPath.get(path) || "path";
+            state.routeModeByPath.set(path, routeMode);
 
-            const src = buildFrameSource(path, rootPath, state.activeRouteSuffix);
+            const src = buildFrameSource(path, rootPath, state.activeRouteSuffix, routeMode);
             const targetSrc = new URL(src, window.location.href).href;
             if (frameEl.src !== targetSrc) {
                 frameEl.src = src;
             }
             viewerTitleEl.textContent = title;
-            updateViewerLink(path, state.activeRouteSuffix);
+            updateViewerLink(src);
             viewerLinkEl.hidden = false;
             emptyEl.hidden = true;
 
@@ -937,6 +956,27 @@
 
         frameEl.addEventListener("load", () => {
             syncHashFromFrameLocation();
+
+            const selection = parseHashSelection();
+            if (!selection || selection.path !== state.activePath) {
+                state.routeRetryKey = "";
+                return;
+            }
+
+            const requestedSuffix = normalizeRouteSuffix(selection.routeSuffix);
+            if (!requestedSuffix || requestedSuffix === state.activeRouteSuffix) {
+                state.routeRetryKey = "";
+                return;
+            }
+
+            const retryKey = `${selection.path}|${requestedSuffix}`;
+            if (state.routeRetryKey === retryKey) {
+                return;
+            }
+
+            state.routeRetryKey = retryKey;
+            const title = selection.path.split("/").join(" / ");
+            activatePath(selection.path, title, state.rootPath, requestedSuffix, "hash");
         });
 
         window.addEventListener("hashchange", () => {
