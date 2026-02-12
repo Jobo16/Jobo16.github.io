@@ -35,6 +35,18 @@
 4. 推送到 GitHub 并启用 GitHub Pages
 5. 打开 Pages 地址即可自动看到最新目录树
 
+## Vue / Vite 项目注意事项
+
+如果你上传的是 Vue 构建产物，请优先确保资源路径是相对路径，否则在 `成员名/项目名/` 子目录下会白屏。
+
+- Vite 推荐配置：`base: "./"`
+- Vue CLI 推荐配置：`publicPath: "./"`
+- Vue Router 建议使用 `createWebHashHistory()`（纯静态托管更稳）
+
+仓库的 `scripts/generate_manifest.py` 已包含兜底逻辑：
+- 会自动扫描项目 HTML
+- 若发现 `src="/assets/..."`、`href="/static/..."` 这类根路径且文件实际在当前项目目录下，会自动改为 `./assets/...`、`./static/...`
+
 ## 页面行为说明
 
 - 左侧点击项目：打开项目入口页
