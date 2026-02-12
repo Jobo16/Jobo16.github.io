@@ -31,7 +31,6 @@ import {
   buildFrameSource,
   buildPreviewUrl,
   buildViewerHash,
-  buildViewerPageLink,
   parseHashSelection,
   toRelativePathFromPathname,
 } from "./features/routing.js";
@@ -45,7 +44,13 @@ import { bindPortalEvents, initializePortal } from "./features/bootstrap.js";
  * @returns {void}
  */
 function updateViewerLink(path, routeSuffix = "") {
-  viewerLinkEl.href = buildViewerPageLink(path, routeSuffix);
+  const routeMode = state.routeModeByPath.get(path) || "path";
+  viewerLinkEl.href = buildFrameSource(
+    path,
+    state.rootPath,
+    routeSuffix,
+    routeMode,
+  );
 }
 
 /**
@@ -108,12 +113,8 @@ const catalogFeature = createCatalogFeature({
   activatePath,
 });
 
-const {
-  filterMemberTree,
-  renderByCurrentState,
-  setAllTreeNodes,
-  setSidebarCollapsed,
-} = catalogFeature;
+const { renderByCurrentState, setAllTreeNodes, setSidebarCollapsed } =
+  catalogFeature;
 
 /**
  * @param {string} rootPath
@@ -153,9 +154,7 @@ initializePortal({
   state,
   setEmptyMessage,
   renderByCurrentState,
-  filterMemberTree,
   tryOpenFromHash,
-  activatePath,
   buildMemberProjectTree,
   inferRepoFromLocation,
   inferRootPath,

@@ -139,6 +139,13 @@
 - 新增 `quality:ci`，由 CI 执行完整门禁（含 E2E）
 - `quality.yml` 切换为调用 `quality:ci`
 
+27. 深链与新窗口行为修复：
+
+- 修复初始化顺序：先渲染目录，再优先尝试 hash 恢复，避免被首项自动激活覆盖
+- `renderByCurrentState` 增加 `autoActivateFirst` 选项，支持启动阶段精确控制
+- “新窗口打开”改为页面直达 URL（不再打开目录首页）
+- 新增 `bootstrap.test.js` 覆盖深链恢复与首项回退逻辑，防回归
+
 ### 自动化与零配置能力（已保留）
 
 1. `scripts/generate_manifest.py` 自动生成 `projects.manifest.json`。

@@ -12,10 +12,8 @@
  * @property {PortalConfig} config
  * @property {PortalState} state
  * @property {(text: string) => void} setEmptyMessage
- * @property {() => void} renderByCurrentState
- * @property {(memberTree: MemberNode[]) => MemberNode[]} filterMemberTree
+ * @property {(options?: { autoActivateFirst?: boolean }) => void} renderByCurrentState
  * @property {(rootPath: string) => boolean} tryOpenFromHash
- * @property {(path: string, title: string, rootPath: string, routeSuffix?: string, routeModeOverride?: RouteMode) => void} activatePath
  * @property {(htmlPaths: string[]) => MemberNode[]} buildMemberProjectTree
  * @property {(config: PortalConfig) => RepoInfo | null} inferRepoFromLocation
  * @property {(config: PortalConfig, owner: string, repo: string) => string} inferRootPath
@@ -33,9 +31,7 @@ export async function initializePortal({
   state,
   setEmptyMessage,
   renderByCurrentState,
-  filterMemberTree,
   tryOpenFromHash,
-  activatePath,
   buildMemberProjectTree,
   inferRepoFromLocation,
   inferRootPath,
@@ -104,21 +100,10 @@ export async function initializePortal({
 
   state.memberTreeRaw = memberTree;
   state.rootPath = rootPath;
-  renderByCurrentState();
+  renderByCurrentState({ autoActivateFirst: false });
 
   if (!tryOpenFromHash(rootPath)) {
-    const visibleTree = filterMemberTree(memberTree);
-    const firstMember = visibleTree[0];
-    const firstProject = firstMember && firstMember.projects[0];
-    if (firstMember && firstProject) {
-      activatePath(
-        firstProject.entry,
-        `${firstMember.displayName || firstMember.name} / ${firstProject.displayName || firstProject.name}`,
-        rootPath,
-        "",
-        firstProject.routeMode || "path",
-      );
-    }
+    renderByCurrentState({ autoActivateFirst: true });
   }
 }
 

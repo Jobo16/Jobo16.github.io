@@ -220,9 +220,11 @@ export function createCatalogFeature({
   }
 
   /**
+   * @param {{ autoActivateFirst?: boolean }} [options]
    * @returns {void}
    */
-  function renderByCurrentState() {
+  function renderByCurrentState(options = {}) {
+    const { autoActivateFirst = true } = options;
     const filteredTree = filterMemberTree(state.memberTreeRaw);
     renderTree(filteredTree, state.rootPath);
 
@@ -237,6 +239,10 @@ export function createCatalogFeature({
         state.rootPath,
         state.activeRouteSuffix,
       );
+      return;
+    }
+
+    if (!autoActivateFirst) {
       return;
     }
 
