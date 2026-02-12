@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-12T14:55:09.757250+00:00",
+  "generatedAt": "2026-02-12T15:37:00.728877+00:00",
   "version": 3,
   "htmlPaths": [
     "周博(测试)/react项目/index.html",
@@ -7,6 +7,8 @@
     "周博(测试)/测试项目/index.html",
     "周雨/品牌介绍/index.html",
     "周雨/待办清单/index.html",
+    "小李（重构后测试）/小李的第一个项目/index.html",
+    "小李（重构后测试）/小李的第二个项目/index.html",
     "新成员/新的项目/index.html",
     "林夏/个人简历/resume.html",
     "林夏/数据面板/index.html",
@@ -78,6 +80,34 @@
           "entry": "周雨/待办清单/index.html",
           "pages": [
             "周雨/待办清单/index.html"
+          ],
+          "pageCount": 1,
+          "routeMode": "path"
+        }
+      ]
+    },
+    {
+      "name": "小李（重构后测试）",
+      "projectCount": 2,
+      "projects": [
+        {
+          "id": "小李（重构后测试）/小李的第一个项目",
+          "member": "小李（重构后测试）",
+          "name": "小李的第一个项目",
+          "entry": "小李（重构后测试）/小李的第一个项目/index.html",
+          "pages": [
+            "小李（重构后测试）/小李的第一个项目/index.html"
+          ],
+          "pageCount": 1,
+          "routeMode": "path"
+        },
+        {
+          "id": "小李（重构后测试）/小李的第二个项目",
+          "member": "小李（重构后测试）",
+          "name": "小李的第二个项目",
+          "entry": "小李（重构后测试）/小李的第二个项目/index.html",
+          "pages": [
+            "小李（重构后测试）/小李的第二个项目/index.html"
           ],
           "pageCount": 1,
           "routeMode": "path"
@@ -244,6 +274,28 @@
       "routeMode": "path"
     },
     {
+      "id": "小李（重构后测试）/小李的第一个项目",
+      "member": "小李（重构后测试）",
+      "name": "小李的第一个项目",
+      "entry": "小李（重构后测试）/小李的第一个项目/index.html",
+      "pages": [
+        "小李（重构后测试）/小李的第一个项目/index.html"
+      ],
+      "pageCount": 1,
+      "routeMode": "path"
+    },
+    {
+      "id": "小李（重构后测试）/小李的第二个项目",
+      "member": "小李（重构后测试）",
+      "name": "小李的第二个项目",
+      "entry": "小李（重构后测试）/小李的第二个项目/index.html",
+      "pages": [
+        "小李（重构后测试）/小李的第二个项目/index.html"
+      ],
+      "pageCount": 1,
+      "routeMode": "path"
+    },
+    {
       "id": "新成员/新的项目",
       "member": "新成员",
       "name": "新的项目",
@@ -323,8 +375,8 @@
     }
   ],
   "stats": {
-    "memberCount": 6,
-    "projectCount": 12,
-    "pageCount": 13
+    "memberCount": 7,
+    "projectCount": 14,
+    "pageCount": 15
   }
 }
