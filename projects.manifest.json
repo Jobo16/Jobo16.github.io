@@ -1,65 +1,17 @@
 {
-  "generatedAt": "2026-02-24T10:19:54.099640+00:00",
+  "generatedAt": "2026-02-24T13:43:50.571234+00:00",
   "version": 3,
   "htmlPaths": [
-    "周博(测试)/react项目/index.html",
-    "周博(测试)/博客/index.html",
-    "周博(测试)/测试项目/index.html",
     "周雨/品牌介绍/index.html",
     "周雨/待办清单/index.html",
     "小明/测试项目/index.html",
-    "小李（重构后测试）/小李的第一个项目/index.html",
-    "小李（重构后测试）/小李的第二个项目/index.html",
-    "新成员/新的项目/index.html",
     "林夏/个人简历/resume.html",
     "林夏/数据面板/index.html",
     "赵星河/作品集卡片/index.html",
     "赵星河/活动落地页/landing.html",
-    "陆雨奇/中国留学黄页/index.html",
-    "陈墨/博客样例/index.html",
-    "陈墨/博客样例/post.html",
-    "陈墨/图文展示/gallery.html"
+    "陆雨奇/中国留学黄页/index.html"
   ],
   "members": [
-    {
-      "name": "周博(测试)",
-      "projectCount": 3,
-      "projects": [
-        {
-          "id": "周博(测试)/react项目",
-          "member": "周博(测试)",
-          "name": "react项目",
-          "entry": "周博(测试)/react项目/index.html",
-          "pages": [
-            "周博(测试)/react项目/index.html"
-          ],
-          "pageCount": 1,
-          "routeMode": "path"
-        },
-        {
-          "id": "周博(测试)/博客",
-          "member": "周博(测试)",
-          "name": "博客",
-          "entry": "周博(测试)/博客/index.html",
-          "pages": [
-            "周博(测试)/博客/index.html"
-          ],
-          "pageCount": 1,
-          "routeMode": "path"
-        },
-        {
-          "id": "周博(测试)/测试项目",
-          "member": "周博(测试)",
-          "name": "测试项目",
-          "entry": "周博(测试)/测试项目/index.html",
-          "pages": [
-            "周博(测试)/测试项目/index.html"
-          ],
-          "pageCount": 1,
-          "routeMode": "path"
-        }
-      ]
-    },
     {
       "name": "周雨",
       "projectCount": 2,
@@ -99,51 +51,6 @@
           "entry": "小明/测试项目/index.html",
           "pages": [
             "小明/测试项目/index.html"
-          ],
-          "pageCount": 1,
-          "routeMode": "path"
-        }
-      ]
-    },
-    {
-      "name": "小李（重构后测试）",
-      "projectCount": 2,
-      "projects": [
-        {
-          "id": "小李（重构后测试）/小李的第一个项目",
-          "member": "小李（重构后测试）",
-          "name": "小李的第一个项目",
-          "entry": "小李（重构后测试）/小李的第一个项目/index.html",
-          "pages": [
-            "小李（重构后测试）/小李的第一个项目/index.html"
-          ],
-          "pageCount": 1,
-          "routeMode": "path"
-        },
-        {
-          "id": "小李（重构后测试）/小李的第二个项目",
-          "member": "小李（重构后测试）",
-          "name": "小李的第二个项目",
-          "entry": "小李（重构后测试）/小李的第二个项目/index.html",
-          "pages": [
-            "小李（重构后测试）/小李的第二个项目/index.html"
-          ],
-          "pageCount": 1,
-          "routeMode": "path"
-        }
-      ]
-    },
-    {
-      "name": "新成员",
-      "projectCount": 1,
-      "projects": [
-        {
-          "id": "新成员/新的项目",
-          "member": "新成员",
-          "name": "新的项目",
-          "entry": "新成员/新的项目/index.html",
-          "pages": [
-            "新成员/新的项目/index.html"
           ],
           "pageCount": 1,
           "routeMode": "path"
@@ -222,71 +129,9 @@
           "routeMode": "path"
         }
       ]
-    },
-    {
-      "name": "陈墨",
-      "projectCount": 2,
-      "projects": [
-        {
-          "id": "陈墨/博客样例",
-          "member": "陈墨",
-          "name": "博客样例",
-          "entry": "陈墨/博客样例/index.html",
-          "pages": [
-            "陈墨/博客样例/index.html",
-            "陈墨/博客样例/post.html"
-          ],
-          "pageCount": 2,
-          "routeMode": "path"
-        },
-        {
-          "id": "陈墨/图文展示",
-          "member": "陈墨",
-          "name": "图文展示",
-          "entry": "陈墨/图文展示/gallery.html",
-          "pages": [
-            "陈墨/图文展示/gallery.html"
-          ],
-          "pageCount": 1,
-          "routeMode": "path"
-        }
-      ]
     }
   ],
   "projects": [
-    {
-      "id": "周博(测试)/react项目",
-      "member": "周博(测试)",
-      "name": "react项目",
-      "entry": "周博(测试)/react项目/index.html",
-      "pages": [
-        "周博(测试)/react项目/index.html"
-      ],
-      "pageCount": 1,
-      "routeMode": "path"
-    },
-    {
-      "id": "周博(测试)/博客",
-      "member": "周博(测试)",
-      "name": "博客",
-      "entry": "周博(测试)/博客/index.html",
-      "pages": [
-        "周博(测试)/博客/index.html"
-      ],
-      "pageCount": 1,
-      "routeMode": "path"
-    },
-    {
-      "id": "周博(测试)/测试项目",
-      "member": "周博(测试)",
-      "name": "测试项目",
-      "entry": "周博(测试)/测试项目/index.html",
-      "pages": [
-        "周博(测试)/测试项目/index.html"
-      ],
-      "pageCount": 1,
-      "routeMode": "path"
-    },
     {
       "id": "周雨/品牌介绍",
       "member": "周雨",
@@ -316,39 +161,6 @@
       "entry": "小明/测试项目/index.html",
       "pages": [
         "小明/测试项目/index.html"
-      ],
-      "pageCount": 1,
-      "routeMode": "path"
-    },
-    {
-      "id": "小李（重构后测试）/小李的第一个项目",
-      "member": "小李（重构后测试）",
-      "name": "小李的第一个项目",
-      "entry": "小李（重构后测试）/小李的第一个项目/index.html",
-      "pages": [
-        "小李（重构后测试）/小李的第一个项目/index.html"
-      ],
-      "pageCount": 1,
-      "routeMode": "path"
-    },
-    {
-      "id": "小李（重构后测试）/小李的第二个项目",
-      "member": "小李（重构后测试）",
-      "name": "小李的第二个项目",
-      "entry": "小李（重构后测试）/小李的第二个项目/index.html",
-      "pages": [
-        "小李（重构后测试）/小李的第二个项目/index.html"
-      ],
-      "pageCount": 1,
-      "routeMode": "path"
-    },
-    {
-      "id": "新成员/新的项目",
-      "member": "新成员",
-      "name": "新的项目",
-      "entry": "新成员/新的项目/index.html",
-      "pages": [
-        "新成员/新的项目/index.html"
       ],
       "pageCount": 1,
       "routeMode": "path"
@@ -407,34 +219,11 @@
       ],
       "pageCount": 1,
       "routeMode": "path"
-    },
-    {
-      "id": "陈墨/博客样例",
-      "member": "陈墨",
-      "name": "博客样例",
-      "entry": "陈墨/博客样例/index.html",
-      "pages": [
-        "陈墨/博客样例/index.html",
-        "陈墨/博客样例/post.html"
-      ],
-      "pageCount": 2,
-      "routeMode": "path"
-    },
-    {
-      "id": "陈墨/图文展示",
-      "member": "陈墨",
-      "name": "图文展示",
-      "entry": "陈墨/图文展示/gallery.html",
-      "pages": [
-        "陈墨/图文展示/gallery.html"
-      ],
-      "pageCount": 1,
-      "routeMode": "path"
     }
   ],
   "stats": {
-    "memberCount": 9,
-    "projectCount": 16,
-    "pageCount": 17
+    "memberCount": 5,
+    "projectCount": 8,
+    "pageCount": 8
   }
 }

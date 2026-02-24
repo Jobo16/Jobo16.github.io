@@ -48,15 +48,37 @@ CSS_IMPORT_RE = re.compile(
     re.IGNORECASE,
 )
 JS_STRING_ASSET_RE = re.compile(
-    r'(?P<quote>["\'])(?P<url>(?P<prefix>/|(?:\./|\.\./)+)(?P<top>[A-Za-z0-9._-]+)(?:/[^"\']*)?)(?P=quote)',
+    r'(?P<quote>["\'])(?P<url>/(?P<top>[A-Za-z0-9._-]+)(?:/[^"\']*)?)(?P=quote)',
+    re.IGNORECASE,
+)
+JS_DATA_BASE_ASSIGN_RE = re.compile(
+    r'(?P<decl>\b(?:const|let|var)\s+)(?P<name>[A-Za-z_$][\w$]*)\s*=\s*(?P<quote>["\'])(?:/|(?:\./|\.\./)+)data(?P=quote)\s*;?',
+    re.IGNORECASE,
+)
+JS_DATA_IMPORT_META_URL_RE = re.compile(
+    r'new URL\(\s*(?P<quote>["\'])(?:/|(?:\./|\.\./)+)data(?P=quote)\s*,\s*import\.meta\.url\s*\)\.pathname\.replace\([^)]*\)',
+    re.IGNORECASE,
+)
+JS_PLACEHOLDER_IMAGE_RE = re.compile(
+    r'(?<!new URL\()(?P<quote>["\'])(?:/|(?:\./|\.\./)+)images/placeholder\.svg(?P=quote)',
+    re.IGNORECASE,
+)
+JS_PLACEHOLDER_IMPORT_META_URL_RE = re.compile(
+    r'(?<!new URL\()new URL\(\s*(?P<quote>["\'])(?:/|(?:\./|\.\./)+)images/placeholder\.svg(?P=quote)\s*,\s*import\.meta\.url\s*\)\.pathname(?:\.replace\([^)]*\))?',
+    re.IGNORECASE,
+)
+JS_PLACEHOLDER_DOUBLE_NESTED_IMPORT_META_URL_RE = re.compile(
+    r'new URL\(\s*new URL\(\s*(?P<quote>["\'])(?:/|(?:\./|\.\./)+)images/placeholder\.svg(?P=quote)\s*,\s*import\.meta\.url\s*\)\.pathname\s*,\s*import\.meta\.url\s*\)\.pathname(?:\.replace\([^)]*\))?',
     re.IGNORECASE,
 )
 ROUTER_HISTORY_CONFIG_RE = re.compile(
     r"history\s*:\s*(?P<fn>[A-Za-z_$][\w$]*)\(\s*(?:(?P<quote>['\"])\/(?P=quote)|import\.meta\.env\.BASE_URL)?\s*\)\s*,\s*routes\s*:",
 )
+REACT_BROWSER_ROUTER_FUNCTION_RE = re.compile(
+    r"function\s+(?P<name>[A-Za-z_$][\w$]*)\(\w+\)\{let\{[^}]*\bbasename:[^}]*\bchildren:[^}]*\}=\w+",
+)
 JS_REWRITABLE_ROOT_DIRS = {
     "assets",
-    "data",
     "fonts",
     "images",
     "img",
@@ -569,36 +591,64 @@ def rewrite_js_asset_links(file_path: Path, project_root: Path) -> bool:
         nonlocal changed
         quote = match.group("quote")
         url = match.group("url")
-        prefix = match.group("prefix")
         top = match.group("top").lower()
         if top not in JS_REWRITABLE_ROOT_DIRS:
             return match.group(0)
 
-        rewritten: str | None = None
-        if prefix == "/":
-            base_dir = project_root if top == "data" else file_path.parent
-            rewritten = resolve_project_asset_url_from_base(
-                base_dir=base_dir,
-                project_root=project_root,
-                url=url,
-            )
-        elif top == "data":
-            path_part, suffix = split_path_and_suffix(url)
-            relative_candidate = re.sub(r"^(?:\./|\.\./)+", "", path_part)
-            if relative_candidate:
-                project_root_resolved = project_root.resolve()
-                target = (project_root / relative_candidate).resolve()
-                if target.exists() and target.is_relative_to(project_root_resolved):
-                    rewritten = (
-                        f"{as_posix_relative(project_root, target)}{suffix}"
-                    )
+        rewritten = resolve_project_asset_url_from_base(
+            base_dir=file_path.parent,
+            project_root=project_root,
+            url=url,
+        )
         if not rewritten:
             return match.group(0)
 
         changed = True
         return f"{quote}{rewritten}{quote}"
 
-    updated = JS_STRING_ASSET_RE.sub(replacer, content)
+    def data_base_replacer(match: re.Match[str]) -> str:
+        nonlocal changed
+        changed = True
+        decl = match.group("decl")
+        name = match.group("name")
+        return (
+            f'{decl}{name}=new URL("../data",import.meta.url).pathname'
+            '.replace(/\\/$/,"");'
+        )
+
+    def data_import_meta_replacer(match: re.Match[str]) -> str:
+        nonlocal changed
+        replacement = 'new URL("../data",import.meta.url).pathname.replace(/\\/$/,"")'
+        if match.group(0) == replacement:
+            return match.group(0)
+        changed = True
+        return replacement
+
+    def placeholder_replacer(match: re.Match[str]) -> str:
+        nonlocal changed
+        changed = True
+        return 'new URL("../images/placeholder.svg",import.meta.url).href'
+
+    def placeholder_import_meta_replacer(match: re.Match[str]) -> str:
+        nonlocal changed
+        replacement = 'new URL("../images/placeholder.svg",import.meta.url).href'
+        if match.group(0) == replacement:
+            return match.group(0)
+        changed = True
+        return replacement
+
+    updated = JS_DATA_BASE_ASSIGN_RE.sub(data_base_replacer, content)
+    updated = JS_DATA_IMPORT_META_URL_RE.sub(data_import_meta_replacer, updated)
+    updated = JS_PLACEHOLDER_DOUBLE_NESTED_IMPORT_META_URL_RE.sub(
+        placeholder_import_meta_replacer,
+        updated,
+    )
+    updated = JS_PLACEHOLDER_IMPORT_META_URL_RE.sub(
+        placeholder_import_meta_replacer,
+        updated,
+    )
+    updated = JS_PLACEHOLDER_IMAGE_RE.sub(placeholder_replacer, updated)
+    updated = JS_STRING_ASSET_RE.sub(replacer, updated)
     if not changed:
         return False
 
@@ -625,13 +675,26 @@ def rewrite_router_history_base(file_path: Path) -> bool:
     except UnicodeDecodeError:
         return False
 
-    if "history" not in content:
+    if "history" not in content and "basename" not in content:
         return False
 
     updated = ROUTER_HISTORY_CONFIG_RE.sub(
         lambda m: f'history:{m.group("fn")}(location.pathname),routes:',
         content,
     )
+    router_names = {
+        match.group("name")
+        for match in REACT_BROWSER_ROUTER_FUNCTION_RE.finditer(updated)
+    }
+    if router_names:
+        for router_name in sorted(router_names):
+            pattern = re.compile(
+                rf"(?P<prefix>[A-Za-z_$][\w$]*\.(?:jsx|jsxs)\(\s*{re.escape(router_name)}\s*,\s*\{{)\s*children:",
+            )
+            updated = pattern.sub(
+                r"\g<prefix>basename:window.location.pathname,children:",
+                updated,
+            )
     if updated == content:
         return False
 
