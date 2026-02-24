@@ -2,6 +2,9 @@
 
 /** @typedef {import("../types.js").PortalState} PortalState */
 /** @typedef {import("../types.js").RouteMode} RouteMode */
+const FRAME_LOAD_TIMEOUT_MS = 7000;
+const FRAME_LOAD_FAILURE_MESSAGE =
+  "预览加载失败，可能是页面不存在或禁止 iframe 嵌入。请使用“新窗口打开”。";
 
 /**
  * @typedef {object} PreviewFeatureDeps
@@ -203,12 +206,17 @@ export function createPreviewFeature({
       return;
     }
 
-    if (
-      state.pendingFramePath &&
-      Date.now() - state.pendingFrameSetAt > 15000
-    ) {
-      state.pendingFramePath = "";
-      state.pendingFrameSetAt = 0;
+    if (state.pendingFramePath) {
+      const pendingElapsed = Date.now() - state.pendingFrameSetAt;
+      if (pendingElapsed > FRAME_LOAD_TIMEOUT_MS) {
+        const timedOutPath = state.pendingFramePath;
+        state.pendingFramePath = "";
+        state.pendingFrameSetAt = 0;
+        if (timedOutPath === state.activePath) {
+          setViewerStatus(FRAME_LOAD_FAILURE_MESSAGE, "error");
+          return;
+        }
+      }
     }
 
     const hasPendingFrameNavigation =
@@ -284,10 +292,7 @@ export function createPreviewFeature({
       state.pendingFrameSetAt = 0;
     }
 
-    setViewerStatus(
-      "预览加载失败，可能是页面不存在或禁止 iframe 嵌入。请使用“新窗口打开”。",
-      "error",
-    );
+    setViewerStatus(FRAME_LOAD_FAILURE_MESSAGE, "error");
   }
 
   return {

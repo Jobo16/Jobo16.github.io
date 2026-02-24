@@ -218,7 +218,7 @@ test("renders member and project catalog, then filters members", async ({ page }
   await expect(tree).not.toContainText("bob");
 });
 
-test("updates hash and share link when iframe pushes sub route", async ({ page }) => {
+test("updates hash and viewer link when iframe pushes sub route", async ({ page }) => {
   await page.goto("/");
 
   await page.locator(".project-summary", { hasText: "Dashboard" }).click();
@@ -232,7 +232,7 @@ test("updates hash and share link when iframe pushes sub route", async ({ page }
   await expect(page).toHaveURL(/#\/bob\/dashboard\/index\.html\/metrics$/);
   await expect(page.locator("#viewerLink")).toHaveAttribute(
     "href",
-    /#\/bob\/dashboard\/index\.html\/metrics$/,
+    /\/bob\/dashboard\/index\.html\/metrics$/,
   );
 });
 
@@ -242,7 +242,7 @@ test("restores preview from deep link hash", async ({ page }) => {
   await expect(page.locator("#viewerTitle")).toContainText("bob / Dashboard");
   await expect(page.locator("#viewerLink")).toHaveAttribute(
     "href",
-    /#\/bob\/dashboard\/index\.html\/reports$/,
+    /\/bob\/dashboard\/index\.html\/reports$/,
   );
   await expect(page.locator("#viewerStatus")).toBeHidden();
 });
