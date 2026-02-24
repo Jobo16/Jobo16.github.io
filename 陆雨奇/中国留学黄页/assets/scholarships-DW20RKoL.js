@@ -1,0 +1,1 @@
+import{f as n}from"./http-m-LeLakT.js";const t="../data";async function o(){return await n(`${t}/scholarships.json`)}async function r(a){return(await o()).find(s=>s.slug===a)??null}export{r as a,o as g};

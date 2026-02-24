@@ -47,9 +47,22 @@ CSS_IMPORT_RE = re.compile(
     r'(?P<prefix>@import\s+)(?P<quote>["\'])(?P<url>/[^"\']+)(?P=quote)',
     re.IGNORECASE,
 )
+JS_STRING_ASSET_RE = re.compile(
+    r'(?P<quote>["\'])(?P<url>/(?P<top>[A-Za-z0-9._-]+)(?:/[^"\']*)?)(?P=quote)',
+    re.IGNORECASE,
+)
 ROUTER_HISTORY_CONFIG_RE = re.compile(
     r"history\s*:\s*(?P<fn>[A-Za-z_$][\w$]*)\(\s*(?:(?P<quote>['\"])\/(?P=quote)|import\.meta\.env\.BASE_URL)?\s*\)\s*,\s*routes\s*:",
 )
+JS_REWRITABLE_ROOT_DIRS = {
+    "assets",
+    "data",
+    "fonts",
+    "images",
+    "img",
+    "media",
+    "static",
+}
 
 
 def collect_html_paths() -> list[str]:
@@ -532,6 +545,54 @@ def normalize_css_assets(html_paths: list[str]) -> int:
     return updated_count
 
 
+def rewrite_js_asset_links(file_path: Path, project_root: Path) -> bool:
+    try:
+        content = file_path.read_text(encoding="utf-8")
+    except UnicodeDecodeError:
+        return False
+
+    changed = False
+
+    def replacer(match: re.Match[str]) -> str:
+        nonlocal changed
+        quote = match.group("quote")
+        url = match.group("url")
+        top = match.group("top").lower()
+        if top not in JS_REWRITABLE_ROOT_DIRS:
+            return match.group(0)
+
+        rewritten = resolve_project_asset_url(
+            file_path=file_path,
+            project_root=project_root,
+            url=url,
+        )
+        if not rewritten:
+            return match.group(0)
+
+        changed = True
+        return f"{quote}{rewritten}{quote}"
+
+    updated = JS_STRING_ASSET_RE.sub(replacer, content)
+    if not changed:
+        return False
+
+    file_path.write_text(updated, encoding="utf-8", newline="\n")
+    return True
+
+
+def normalize_js_assets(html_paths: list[str]) -> int:
+    updated_count = 0
+    for project_root in project_roots_from_html_paths(html_paths):
+        for file_path in project_root.rglob("*"):
+            if not file_path.is_file():
+                continue
+            if file_path.suffix.lower() not in JS_EXTENSIONS:
+                continue
+            if rewrite_js_asset_links(file_path, project_root):
+                updated_count += 1
+    return updated_count
+
+
 def rewrite_router_history_base(file_path: Path) -> bool:
     try:
         content = file_path.read_text(encoding="utf-8")
@@ -606,6 +667,7 @@ def main() -> None:
     html_paths = collect_html_paths()
     normalized_html_assets = normalize_html_assets(html_paths)
     normalized_css_assets = normalize_css_assets(html_paths)
+    normalized_js_assets = normalize_js_assets(html_paths)
     normalized_router_bases = normalize_router_bases(html_paths)
     if normalized_html_assets:
         print(
@@ -614,6 +676,10 @@ def main() -> None:
     if normalized_css_assets:
         print(
             f"Normalized root-absolute asset links in {normalized_css_assets} CSS files."
+        )
+    if normalized_js_assets:
+        print(
+            f"Normalized root-absolute asset links in {normalized_js_assets} JavaScript files."
         )
     if normalized_router_bases:
         print(
