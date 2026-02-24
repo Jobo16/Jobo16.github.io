@@ -48,7 +48,7 @@ CSS_IMPORT_RE = re.compile(
     re.IGNORECASE,
 )
 JS_STRING_ASSET_RE = re.compile(
-    r'(?P<quote>["\'])(?P<url>/(?P<top>[A-Za-z0-9._-]+)(?:/[^"\']*)?)(?P=quote)',
+    r'(?P<quote>["\'])(?P<url>(?P<prefix>/|(?:\./|\.\./)+)(?P<top>[A-Za-z0-9._-]+)(?:/[^"\']*)?)(?P=quote)',
     re.IGNORECASE,
 )
 ROUTER_HISTORY_CONFIG_RE = re.compile(
@@ -356,8 +356,8 @@ def as_posix_relative(from_dir: Path, target: Path) -> str:
     return f"./{relative}"
 
 
-def resolve_project_asset_url(
-    file_path: Path,
+def resolve_project_asset_url_from_base(
+    base_dir: Path,
     project_root: Path,
     url: str,
 ) -> str | None:
@@ -377,7 +377,19 @@ def resolve_project_asset_url(
     if not target.is_relative_to(project_root_resolved):
         return None
 
-    return f"{as_posix_relative(file_path.parent, target)}{suffix}"
+    return f"{as_posix_relative(base_dir, target)}{suffix}"
+
+
+def resolve_project_asset_url(
+    file_path: Path,
+    project_root: Path,
+    url: str,
+) -> str | None:
+    return resolve_project_asset_url_from_base(
+        base_dir=file_path.parent,
+        project_root=project_root,
+        url=url,
+    )
 
 
 def project_root_for_html(html_relative_path: str) -> Path | None:
@@ -557,15 +569,29 @@ def rewrite_js_asset_links(file_path: Path, project_root: Path) -> bool:
         nonlocal changed
         quote = match.group("quote")
         url = match.group("url")
+        prefix = match.group("prefix")
         top = match.group("top").lower()
         if top not in JS_REWRITABLE_ROOT_DIRS:
             return match.group(0)
 
-        rewritten = resolve_project_asset_url(
-            file_path=file_path,
-            project_root=project_root,
-            url=url,
-        )
+        rewritten: str | None = None
+        if prefix == "/":
+            base_dir = project_root if top == "data" else file_path.parent
+            rewritten = resolve_project_asset_url_from_base(
+                base_dir=base_dir,
+                project_root=project_root,
+                url=url,
+            )
+        elif top == "data":
+            path_part, suffix = split_path_and_suffix(url)
+            relative_candidate = re.sub(r"^(?:\./|\.\./)+", "", path_part)
+            if relative_candidate:
+                project_root_resolved = project_root.resolve()
+                target = (project_root / relative_candidate).resolve()
+                if target.exists() and target.is_relative_to(project_root_resolved):
+                    rewritten = (
+                        f"{as_posix_relative(project_root, target)}{suffix}"
+                    )
         if not rewritten:
             return match.group(0)
 
