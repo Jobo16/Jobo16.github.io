@@ -1,0 +1,132 @@
+[
+  {
+    "id": "mc-engineering",
+    "slug": "engineering",
+    "name": "Engineering",
+    "nameZh": "工学",
+    "majorSubcategoryIds": [
+      "msc-engineering-1",
+      "msc-engineering-11",
+      "msc-engineering-21",
+      "msc-engineering-31",
+      "msc-engineering-41"
+    ]
+  },
+  {
+    "id": "mc-business",
+    "slug": "business",
+    "name": "Business",
+    "nameZh": "商科",
+    "majorSubcategoryIds": [
+      "msc-business-2",
+      "msc-business-12",
+      "msc-business-22",
+      "msc-business-32",
+      "msc-business-42"
+    ]
+  },
+  {
+    "id": "mc-medicine",
+    "slug": "medicine",
+    "name": "Medicine",
+    "nameZh": "医学",
+    "majorSubcategoryIds": [
+      "msc-medicine-3",
+      "msc-medicine-13",
+      "msc-medicine-23",
+      "msc-medicine-33",
+      "msc-medicine-43"
+    ]
+  },
+  {
+    "id": "mc-humanities",
+    "slug": "humanities",
+    "name": "Humanities",
+    "nameZh": "人文学科",
+    "majorSubcategoryIds": [
+      "msc-humanities-4",
+      "msc-humanities-14",
+      "msc-humanities-24",
+      "msc-humanities-34",
+      "msc-humanities-44"
+    ]
+  },
+  {
+    "id": "mc-law",
+    "slug": "law",
+    "name": "Law",
+    "nameZh": "法学",
+    "majorSubcategoryIds": [
+      "msc-law-5",
+      "msc-law-15",
+      "msc-law-25",
+      "msc-law-35",
+      "msc-law-45"
+    ]
+  },
+  {
+    "id": "mc-education",
+    "slug": "education",
+    "name": "Education",
+    "nameZh": "教育学",
+    "majorSubcategoryIds": [
+      "msc-education-6",
+      "msc-education-16",
+      "msc-education-26",
+      "msc-education-36",
+      "msc-education-46"
+    ]
+  },
+  {
+    "id": "mc-arts",
+    "slug": "arts",
+    "name": "Arts",
+    "nameZh": "艺术学",
+    "majorSubcategoryIds": [
+      "msc-arts-7",
+      "msc-arts-17",
+      "msc-arts-27",
+      "msc-arts-37",
+      "msc-arts-47"
+    ]
+  },
+  {
+    "id": "mc-science",
+    "slug": "science",
+    "name": "Science",
+    "nameZh": "理学",
+    "majorSubcategoryIds": [
+      "msc-science-8",
+      "msc-science-18",
+      "msc-science-28",
+      "msc-science-38",
+      "msc-science-48"
+    ]
+  },
+  {
+    "id": "mc-agriculture",
+    "slug": "agriculture",
+    "name": "Agriculture",
+    "nameZh": "农学",
+    "majorSubcategoryIds": [
+      "msc-agriculture-9",
+      "msc-agriculture-19",
+      "msc-agriculture-29",
+      "msc-agriculture-39",
+      "msc-agriculture-49"
+    ]
+  },
+  {
+    "id": "mc-social-sciences",
+    "slug": "social-sciences",
+    "name": "Social Sciences",
+    "nameZh": "社会科学",
+    "majorSubcategoryIds": [
+      "msc-social-sciences-10",
+      "msc-social-sciences-20",
+      "msc-social-sciences-30",
+      "msc-social-sciences-40",
+      "msc-social-sciences-50"
+    ]
+  }
+]

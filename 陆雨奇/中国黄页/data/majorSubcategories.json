@@ -1,0 +1,652 @@
+[
+  {
+    "id": "msc-engineering-1",
+    "slug": "engineering",
+    "name": "Engineering - 机械工程",
+    "nameZh": "机械工程",
+    "majorCategoryId": "mc-engineering",
+    "subMajorIds": [
+      "sm-1",
+      "sm-51",
+      "sm-101",
+      "sm-151"
+    ]
+  },
+  {
+    "id": "msc-business-2",
+    "slug": "business",
+    "name": "Business - 工商管理",
+    "nameZh": "工商管理",
+    "majorCategoryId": "mc-business",
+    "subMajorIds": [
+      "sm-2",
+      "sm-52",
+      "sm-102",
+      "sm-152"
+    ]
+  },
+  {
+    "id": "msc-medicine-3",
+    "slug": "medicine",
+    "name": "Medicine - 临床医学",
+    "nameZh": "临床医学",
+    "majorCategoryId": "mc-medicine",
+    "subMajorIds": [
+      "sm-3",
+      "sm-53",
+      "sm-103",
+      "sm-153"
+    ]
+  },
+  {
+    "id": "msc-humanities-4",
+    "slug": "humanities",
+    "name": "Humanities - 中国语言文学",
+    "nameZh": "中国语言文学",
+    "majorCategoryId": "mc-humanities",
+    "subMajorIds": [
+      "sm-4",
+      "sm-54",
+      "sm-104",
+      "sm-154"
+    ]
+  },
+  {
+    "id": "msc-law-5",
+    "slug": "law",
+    "name": "Law - 法学理论",
+    "nameZh": "法学理论",
+    "majorCategoryId": "mc-law",
+    "subMajorIds": [
+      "sm-5",
+      "sm-55",
+      "sm-105",
+      "sm-155"
+    ]
+  },
+  {
+    "id": "msc-education-6",
+    "slug": "education",
+    "name": "Education - 教育学原理",
+    "nameZh": "教育学原理",
+    "majorCategoryId": "mc-education",
+    "subMajorIds": [
+      "sm-6",
+      "sm-56",
+      "sm-106",
+      "sm-156"
+    ]
+  },
+  {
+    "id": "msc-arts-7",
+    "slug": "arts",
+    "name": "Arts - 美术学",
+    "nameZh": "美术学",
+    "majorCategoryId": "mc-arts",
+    "subMajorIds": [
+      "sm-7",
+      "sm-57",
+      "sm-107",
+      "sm-157"
+    ]
+  },
+  {
+    "id": "msc-science-8",
+    "slug": "science",
+    "name": "Science - 数学",
+    "nameZh": "数学",
+    "majorCategoryId": "mc-science",
+    "subMajorIds": [
+      "sm-8",
+      "sm-58",
+      "sm-108",
+      "sm-158"
+    ]
+  },
+  {
+    "id": "msc-agriculture-9",
+    "slug": "agriculture",
+    "name": "Agriculture - 作物学",
+    "nameZh": "作物学",
+    "majorCategoryId": "mc-agriculture",
+    "subMajorIds": [
+      "sm-9",
+      "sm-59",
+      "sm-109",
+      "sm-159"
+    ]
+  },
+  {
+    "id": "msc-social-sciences-10",
+    "slug": "social-sciences",
+    "name": "Social Sciences - 社会学",
+    "nameZh": "社会学",
+    "majorCategoryId": "mc-social-sciences",
+    "subMajorIds": [
+      "sm-10",
+      "sm-60",
+      "sm-110",
+      "sm-160"
+    ]
+  },
+  {
+    "id": "msc-engineering-11",
+    "slug": "engineering",
+    "name": "Engineering - 电气工程",
+    "nameZh": "电气工程",
+    "majorCategoryId": "mc-engineering",
+    "subMajorIds": [
+      "sm-11",
+      "sm-61",
+      "sm-111",
+      "sm-161"
+    ]
+  },
+  {
+    "id": "msc-business-12",
+    "slug": "business",
+    "name": "Business - 金融学",
+    "nameZh": "金融学",
+    "majorCategoryId": "mc-business",
+    "subMajorIds": [
+      "sm-12",
+      "sm-62",
+      "sm-112",
+      "sm-162"
+    ]
+  },
+  {
+    "id": "msc-medicine-13",
+    "slug": "medicine",
+    "name": "Medicine - 药学",
+    "nameZh": "药学",
+    "majorCategoryId": "mc-medicine",
+    "subMajorIds": [
+      "sm-13",
+      "sm-63",
+      "sm-113",
+      "sm-163"
+    ]
+  },
+  {
+    "id": "msc-humanities-14",
+    "slug": "humanities",
+    "name": "Humanities - 历史学",
+    "nameZh": "历史学",
+    "majorCategoryId": "mc-humanities",
+    "subMajorIds": [
+      "sm-14",
+      "sm-64",
+      "sm-114",
+      "sm-164"
+    ]
+  },
+  {
+    "id": "msc-law-15",
+    "slug": "law",
+    "name": "Law - 民商法学",
+    "nameZh": "民商法学",
+    "majorCategoryId": "mc-law",
+    "subMajorIds": [
+      "sm-15",
+      "sm-65",
+      "sm-115",
+      "sm-165"
+    ]
+  },
+  {
+    "id": "msc-education-16",
+    "slug": "education",
+    "name": "Education - 课程与教学论",
+    "nameZh": "课程与教学论",
+    "majorCategoryId": "mc-education",
+    "subMajorIds": [
+      "sm-16",
+      "sm-66",
+      "sm-116",
+      "sm-166"
+    ]
+  },
+  {
+    "id": "msc-arts-17",
+    "slug": "arts",
+    "name": "Arts - 设计学",
+    "nameZh": "设计学",
+    "majorCategoryId": "mc-arts",
+    "subMajorIds": [
+      "sm-17",
+      "sm-67",
+      "sm-117",
+      "sm-167"
+    ]
+  },
+  {
+    "id": "msc-science-18",
+    "slug": "science",
+    "name": "Science - 物理学",
+    "nameZh": "物理学",
+    "majorCategoryId": "mc-science",
+    "subMajorIds": [
+      "sm-18",
+      "sm-68",
+      "sm-118",
+      "sm-168"
+    ]
+  },
+  {
+    "id": "msc-agriculture-19",
+    "slug": "agriculture",
+    "name": "Agriculture - 园艺学",
+    "nameZh": "园艺学",
+    "majorCategoryId": "mc-agriculture",
+    "subMajorIds": [
+      "sm-19",
+      "sm-69",
+      "sm-119",
+      "sm-169"
+    ]
+  },
+  {
+    "id": "msc-social-sciences-20",
+    "slug": "social-sciences",
+    "name": "Social Sciences - 政治学",
+    "nameZh": "政治学",
+    "majorCategoryId": "mc-social-sciences",
+    "subMajorIds": [
+      "sm-20",
+      "sm-70",
+      "sm-120",
+      "sm-170"
+    ]
+  },
+  {
+    "id": "msc-engineering-21",
+    "slug": "engineering",
+    "name": "Engineering - 计算机科学与技术",
+    "nameZh": "计算机科学与技术",
+    "majorCategoryId": "mc-engineering",
+    "subMajorIds": [
+      "sm-21",
+      "sm-71",
+      "sm-121",
+      "sm-171"
+    ]
+  },
+  {
+    "id": "msc-business-22",
+    "slug": "business",
+    "name": "Business - 会计学",
+    "nameZh": "会计学",
+    "majorCategoryId": "mc-business",
+    "subMajorIds": [
+      "sm-22",
+      "sm-72",
+      "sm-122",
+      "sm-172"
+    ]
+  },
+  {
+    "id": "msc-medicine-23",
+    "slug": "medicine",
+    "name": "Medicine - 护理学",
+    "nameZh": "护理学",
+    "majorCategoryId": "mc-medicine",
+    "subMajorIds": [
+      "sm-23",
+      "sm-73",
+      "sm-123",
+      "sm-173"
+    ]
+  },
+  {
+    "id": "msc-humanities-24",
+    "slug": "humanities",
+    "name": "Humanities - 哲学",
+    "nameZh": "哲学",
+    "majorCategoryId": "mc-humanities",
+    "subMajorIds": [
+      "sm-24",
+      "sm-74",
+      "sm-124",
+      "sm-174"
+    ]
+  },
+  {
+    "id": "msc-law-25",
+    "slug": "law",
+    "name": "Law - 刑法学",
+    "nameZh": "刑法学",
+    "majorCategoryId": "mc-law",
+    "subMajorIds": [
+      "sm-25",
+      "sm-75",
+      "sm-125",
+      "sm-175"
+    ]
+  },
+  {
+    "id": "msc-education-26",
+    "slug": "education",
+    "name": "Education - 高等教育学",
+    "nameZh": "高等教育学",
+    "majorCategoryId": "mc-education",
+    "subMajorIds": [
+      "sm-26",
+      "sm-76",
+      "sm-126",
+      "sm-176"
+    ]
+  },
+  {
+    "id": "msc-arts-27",
+    "slug": "arts",
+    "name": "Arts - 音乐学",
+    "nameZh": "音乐学",
+    "majorCategoryId": "mc-arts",
+    "subMajorIds": [
+      "sm-27",
+      "sm-77",
+      "sm-127",
+      "sm-177"
+    ]
+  },
+  {
+    "id": "msc-science-28",
+    "slug": "science",
+    "name": "Science - 化学",
+    "nameZh": "化学",
+    "majorCategoryId": "mc-science",
+    "subMajorIds": [
+      "sm-28",
+      "sm-78",
+      "sm-128",
+      "sm-178"
+    ]
+  },
+  {
+    "id": "msc-agriculture-29",
+    "slug": "agriculture",
+    "name": "Agriculture - 农业资源与环境",
+    "nameZh": "农业资源与环境",
+    "majorCategoryId": "mc-agriculture",
+    "subMajorIds": [
+      "sm-29",
+      "sm-79",
+      "sm-129",
+      "sm-179"
+    ]
+  },
+  {
+    "id": "msc-social-sciences-30",
+    "slug": "social-sciences",
+    "name": "Social Sciences - 心理学",
+    "nameZh": "心理学",
+    "majorCategoryId": "mc-social-sciences",
+    "subMajorIds": [
+      "sm-30",
+      "sm-80",
+      "sm-130",
+      "sm-180"
+    ]
+  },
+  {
+    "id": "msc-engineering-31",
+    "slug": "engineering",
+    "name": "Engineering - 土木工程",
+    "nameZh": "土木工程",
+    "majorCategoryId": "mc-engineering",
+    "subMajorIds": [
+      "sm-31",
+      "sm-81",
+      "sm-131",
+      "sm-181"
+    ]
+  },
+  {
+    "id": "msc-business-32",
+    "slug": "business",
+    "name": "Business - 国际贸易",
+    "nameZh": "国际贸易",
+    "majorCategoryId": "mc-business",
+    "subMajorIds": [
+      "sm-32",
+      "sm-82",
+      "sm-132",
+      "sm-182"
+    ]
+  },
+  {
+    "id": "msc-medicine-33",
+    "slug": "medicine",
+    "name": "Medicine - 公共卫生",
+    "nameZh": "公共卫生",
+    "majorCategoryId": "mc-medicine",
+    "subMajorIds": [
+      "sm-33",
+      "sm-83",
+      "sm-133",
+      "sm-183"
+    ]
+  },
+  {
+    "id": "msc-humanities-34",
+    "slug": "humanities",
+    "name": "Humanities - 外国语言文学",
+    "nameZh": "外国语言文学",
+    "majorCategoryId": "mc-humanities",
+    "subMajorIds": [
+      "sm-34",
+      "sm-84",
+      "sm-134",
+      "sm-184"
+    ]
+  },
+  {
+    "id": "msc-law-35",
+    "slug": "law",
+    "name": "Law - 国际法学",
+    "nameZh": "国际法学",
+    "majorCategoryId": "mc-law",
+    "subMajorIds": [
+      "sm-35",
+      "sm-85",
+      "sm-135",
+      "sm-185"
+    ]
+  },
+  {
+    "id": "msc-education-36",
+    "slug": "education",
+    "name": "Education - 学前教育学",
+    "nameZh": "学前教育学",
+    "majorCategoryId": "mc-education",
+    "subMajorIds": [
+      "sm-36",
+      "sm-86",
+      "sm-136",
+      "sm-186"
+    ]
+  },
+  {
+    "id": "msc-arts-37",
+    "slug": "arts",
+    "name": "Arts - 戏剧与影视学",
+    "nameZh": "戏剧与影视学",
+    "majorCategoryId": "mc-arts",
+    "subMajorIds": [
+      "sm-37",
+      "sm-87",
+      "sm-137",
+      "sm-187"
+    ]
+  },
+  {
+    "id": "msc-science-38",
+    "slug": "science",
+    "name": "Science - 生物学",
+    "nameZh": "生物学",
+    "majorCategoryId": "mc-science",
+    "subMajorIds": [
+      "sm-38",
+      "sm-88",
+      "sm-138",
+      "sm-188"
+    ]
+  },
+  {
+    "id": "msc-agriculture-39",
+    "slug": "agriculture",
+    "name": "Agriculture - 植物保护",
+    "nameZh": "植物保护",
+    "majorCategoryId": "mc-agriculture",
+    "subMajorIds": [
+      "sm-39",
+      "sm-89",
+      "sm-139",
+      "sm-189"
+    ]
+  },
+  {
+    "id": "msc-social-sciences-40",
+    "slug": "social-sciences",
+    "name": "Social Sciences - 人类学",
+    "nameZh": "人类学",
+    "majorCategoryId": "mc-social-sciences",
+    "subMajorIds": [
+      "sm-40",
+      "sm-90",
+      "sm-140",
+      "sm-190"
+    ]
+  },
+  {
+    "id": "msc-engineering-41",
+    "slug": "engineering",
+    "name": "Engineering - 化学工程",
+    "nameZh": "化学工程",
+    "majorCategoryId": "mc-engineering",
+    "subMajorIds": [
+      "sm-41",
+      "sm-91",
+      "sm-141",
+      "sm-191"
+    ]
+  },
+  {
+    "id": "msc-business-42",
+    "slug": "business",
+    "name": "Business - 市场营销",
+    "nameZh": "市场营销",
+    "majorCategoryId": "mc-business",
+    "subMajorIds": [
+      "sm-42",
+      "sm-92",
+      "sm-142",
+      "sm-192"
+    ]
+  },
+  {
+    "id": "msc-medicine-43",
+    "slug": "medicine",
+    "name": "Medicine - 口腔医学",
+    "nameZh": "口腔医学",
+    "majorCategoryId": "mc-medicine",
+    "subMajorIds": [
+      "sm-43",
+      "sm-93",
+      "sm-143",
+      "sm-193"
+    ]
+  },
+  {
+    "id": "msc-humanities-44",
+    "slug": "humanities",
+    "name": "Humanities - 新闻传播学",
+    "nameZh": "新闻传播学",
+    "majorCategoryId": "mc-humanities",
+    "subMajorIds": [
+      "sm-44",
+      "sm-94",
+      "sm-144",
+      "sm-194"
+    ]
+  },
+  {
+    "id": "msc-law-45",
+    "slug": "law",
+    "name": "Law - 经济法学",
+    "nameZh": "经济法学",
+    "majorCategoryId": "mc-law",
+    "subMajorIds": [
+      "sm-45",
+      "sm-95",
+      "sm-145",
+      "sm-195"
+    ]
+  },
+  {
+    "id": "msc-education-46",
+    "slug": "education",
+    "name": "Education - 教育技术学",
+    "nameZh": "教育技术学",
+    "majorCategoryId": "mc-education",
+    "subMajorIds": [
+      "sm-46",
+      "sm-96",
+      "sm-146",
+      "sm-196"
+    ]
+  },
+  {
+    "id": "msc-arts-47",
+    "slug": "arts",
+    "name": "Arts - 艺术学理论",
+    "nameZh": "艺术学理论",
+    "majorCategoryId": "mc-arts",
+    "subMajorIds": [
+      "sm-47",
+      "sm-97",
+      "sm-147",
+      "sm-197"
+    ]
+  },
+  {
+    "id": "msc-science-48",
+    "slug": "science",
+    "name": "Science - 地理学",
+    "nameZh": "地理学",
+    "majorCategoryId": "mc-science",
+    "subMajorIds": [
+      "sm-48",
+      "sm-98",
+      "sm-148",
+      "sm-198"
+    ]
+  },
+  {
+    "id": "msc-agriculture-49",
+    "slug": "agriculture",
+    "name": "Agriculture - 畜牧学",
+    "nameZh": "畜牧学",
+    "majorCategoryId": "mc-agriculture",
+    "subMajorIds": [
+      "sm-49",
+      "sm-99",
+      "sm-149",
+      "sm-199"
+    ]
+  },
+  {
+    "id": "msc-social-sciences-50",
+    "slug": "social-sciences",
+    "name": "Social Sciences - 公共管理",
+    "nameZh": "公共管理",
+    "majorCategoryId": "mc-social-sciences",
+    "subMajorIds": [
+      "sm-50",
+      "sm-100",
+      "sm-150",
+      "sm-200"
+    ]
+  }
+]

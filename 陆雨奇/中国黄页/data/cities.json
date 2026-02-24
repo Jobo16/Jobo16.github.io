@@ -1,0 +1,1012 @@
+[
+  {
+    "id": "city-beijing",
+    "slug": "beijing",
+    "name": "Beijing",
+    "nameZh": "北京",
+    "coverImage": "https://picsum.photos/id/1029/800/600",
+    "images": [
+      "https://picsum.photos/id/1029/800/600",
+      "https://picsum.photos/id/1026/800/600"
+    ],
+    "region": "华北",
+    "province": "北京",
+    "population": 5000000,
+    "overview": "Beijing is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "北京是中国的首都，拥有丰富的历史文化底蕴和世界一流的高等教育资源，是留学生体验传统与现代交融的绝佳选择。",
+    "averageSalary": 8000,
+    "livingCost": "affordable",
+    "climate": {
+      "temperature": "Mild",
+      "precipitation": "Low",
+      "humidity": "Dry",
+      "hasHeating": true,
+      "otherTags": [
+        "Coastal"
+      ]
+    },
+    "description": "<p><strong>Beijing</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>北京</strong></p><p>北京是中华人民共和国的首都，全国政治、文化、国际交往和科技创新中心。这座城市拥有三千多年的建城史和八百多年的建都史，故宫、长城、颐和园等世界文化遗产闻名遐迩。作为中国高等教育最发达的城市之一，北京汇聚了北京大学、清华大学等众多顶尖学府。</p><p>北京交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-peking-university",
+      "uni-tsinghua-university",
+      "uni-demo-university-31"
+    ],
+    "popularity": 1000
+  },
+  {
+    "id": "city-shanghai",
+    "slug": "shanghai",
+    "name": "Shanghai",
+    "nameZh": "上海",
+    "coverImage": "https://picsum.photos/id/1026/800/600",
+    "images": [
+      "https://picsum.photos/id/1026/800/600",
+      "https://picsum.photos/id/1015/800/600"
+    ],
+    "region": "华东",
+    "province": "上海",
+    "population": 5250000,
+    "overview": "Shanghai is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "上海是中国最大的经济中心和国际化大都市，金融、贸易、航运业发达，拥有复旦大学、上海交通大学等著名高校。",
+    "averageSalary": 8800,
+    "livingCost": "moderate",
+    "climate": {
+      "temperature": "Warm",
+      "precipitation": "Medium",
+      "humidity": "Moderate",
+      "hasHeating": false,
+      "otherTags": [
+        "Inland"
+      ]
+    },
+    "description": "<p><strong>Shanghai</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>上海</strong></p><p>上海是中国最大的城市，也是全球知名的国际金融中心。外滩的万国建筑群、陆家嘴的摩天大楼展现着这座城市的历史与现代。上海高等教育资源丰富，拥有复旦大学、上海交通大学、同济大学等多所双一流高校，吸引着来自世界各地的留学生。</p><p>上海交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-fudan-university",
+      "uni-shanghai-jiao-tong-university",
+      "uni-demo-university-32"
+    ],
+    "popularity": 990
+  },
+  {
+    "id": "city-guangzhou",
+    "slug": "guangzhou",
+    "name": "Guangzhou",
+    "nameZh": "广州",
+    "coverImage": "https://picsum.photos/id/1015/800/600",
+    "images": [
+      "https://picsum.photos/id/1015/800/600",
+      "https://picsum.photos/id/1018/800/600"
+    ],
+    "region": "华南",
+    "province": "广东",
+    "population": 5500000,
+    "overview": "Guangzhou is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "广州是华南地区的经济文化中心，岭南文化的发源地，气候温暖宜人，是留学生感受南方风情的理想城市。",
+    "averageSalary": 9600,
+    "livingCost": "expensive",
+    "climate": {
+      "temperature": "Cool",
+      "precipitation": "High",
+      "humidity": "Humid",
+      "hasHeating": false,
+      "otherTags": [
+        "Mountain"
+      ]
+    },
+    "description": "<p><strong>Guangzhou</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>广州</strong></p><p>广州是中国南方最大的城市，有着两千多年的悠久历史。这里是海上丝绸之路的起点，商贸文化氛围浓厚。广州气候温暖，美食文化享誉全球。中山大学、华南理工大学等高校为留学生提供优质的教育资源。</p><p>广州交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-sun-yat-sen-university",
+      "uni-demo-university-33"
+    ],
+    "popularity": 980
+  },
+  {
+    "id": "city-shenzhen",
+    "slug": "shenzhen",
+    "name": "Shenzhen",
+    "nameZh": "深圳",
+    "coverImage": "https://picsum.photos/id/1018/800/600",
+    "images": [
+      "https://picsum.photos/id/1018/800/600",
+      "https://picsum.photos/id/1031/800/600"
+    ],
+    "region": "华南",
+    "province": "广东",
+    "population": 5750000,
+    "overview": "Shenzhen is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "深圳是中国改革开放的前沿城市，科技创新氛围浓厚，年轻活力充沛，是体验中国现代化发展成就的窗口。",
+    "averageSalary": 10400,
+    "livingCost": "affordable",
+    "climate": {
+      "temperature": "Four seasons",
+      "precipitation": "Low",
+      "humidity": "Dry",
+      "hasHeating": true,
+      "otherTags": [
+        "River"
+      ]
+    },
+    "description": "<p><strong>Shenzhen</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>深圳</strong></p><p>深圳从一个小渔村发展成为国际化大都市，是中国改革开放的象征。这座城市以科技创新闻名，汇聚了华为、腾讯等全球知名企业。深圳大学、南方科技大学等新兴高校快速发展，为留学生提供前沿的学习环境。</p><p>深圳交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-34"
+    ],
+    "popularity": 970
+  },
+  {
+    "id": "city-hangzhou",
+    "slug": "hangzhou",
+    "name": "Hangzhou",
+    "nameZh": "杭州",
+    "coverImage": "https://picsum.photos/id/1031/800/600",
+    "images": [
+      "https://picsum.photos/id/1031/800/600",
+      "https://picsum.photos/id/1044/800/600"
+    ],
+    "region": "华东",
+    "province": "浙江",
+    "population": 6000000,
+    "overview": "Hangzhou is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "杭州是风景秀丽的历史文化名城，西湖美景闻名天下，互联网产业发达，是学习与生活的理想之地。",
+    "averageSalary": 11200,
+    "livingCost": "moderate",
+    "climate": {
+      "temperature": "Mild",
+      "precipitation": "Medium",
+      "humidity": "Moderate",
+      "hasHeating": false,
+      "otherTags": [
+        "Coastal"
+      ]
+    },
+    "description": "<p><strong>Hangzhou</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>杭州</strong></p><p>杭州素有'人间天堂'的美誉，西湖文化景观被列入世界文化遗产。这座城市既有深厚的历史底蕴，又是中国数字经济的中心。浙江大学是中国顶尖高校之一，杭州也吸引着越来越多的国际学生。</p><p>杭州交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-zhejiang-university",
+      "uni-demo-university-35"
+    ],
+    "popularity": 960
+  },
+  {
+    "id": "city-nanjing",
+    "slug": "nanjing",
+    "name": "Nanjing",
+    "nameZh": "南京",
+    "coverImage": "https://picsum.photos/id/1044/800/600",
+    "images": [
+      "https://picsum.photos/id/1044/800/600",
+      "https://picsum.photos/id/1048/800/600"
+    ],
+    "region": "华东",
+    "province": "江苏",
+    "population": 6250000,
+    "overview": "Nanjing is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "南京是六朝古都，历史文化底蕴深厚，高等教育资源丰富，是感受中华文明魅力的重要城市。",
+    "averageSalary": 12000,
+    "livingCost": "expensive",
+    "climate": {
+      "temperature": "Warm",
+      "precipitation": "High",
+      "humidity": "Humid",
+      "hasHeating": false,
+      "otherTags": [
+        "Inland"
+      ]
+    },
+    "description": "<p><strong>Nanjing</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>南京</strong></p><p>南京是中国四大古都之一，有着近两千五百年的建城史。明孝陵、中山陵等历史遗迹见证着这座城市的辉煌。南京大学、东南大学等高校实力雄厚，为留学生提供优质的学术环境。</p><p>南京交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-nanjing-university",
+      "uni-demo-university-36"
+    ],
+    "popularity": 950
+  },
+  {
+    "id": "city-chengdu",
+    "slug": "chengdu",
+    "name": "Chengdu",
+    "nameZh": "成都",
+    "coverImage": "https://picsum.photos/id/1048/800/600",
+    "images": [
+      "https://picsum.photos/id/1048/800/600",
+      "https://picsum.photos/id/1059/800/600"
+    ],
+    "region": "西南",
+    "province": "四川",
+    "population": 6500000,
+    "overview": "Chengdu is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "成都是天府之国的中心城市，生活节奏悠闲，美食文化丰富，大熊猫是这座城市的名片。",
+    "averageSalary": 12800,
+    "livingCost": "affordable",
+    "climate": {
+      "temperature": "Cool",
+      "precipitation": "Low",
+      "humidity": "Dry",
+      "hasHeating": true,
+      "otherTags": [
+        "Mountain"
+      ]
+    },
+    "description": "<p><strong>Chengdu</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>成都</strong></p><p>成都是中国西南地区的重要城市，以悠闲的生活方式和美食闻名。这里是大熊猫的故乡，也是川剧、蜀绣等非物质文化遗产的发源地。四川大学、电子科技大学等高校为留学生提供多元化的学习选择。</p><p>成都交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-sichuan-university",
+      "uni-demo-university-37"
+    ],
+    "popularity": 940
+  },
+  {
+    "id": "city-wuhan",
+    "slug": "wuhan",
+    "name": "Wuhan",
+    "nameZh": "武汉",
+    "coverImage": "https://picsum.photos/id/1059/800/600",
+    "images": [
+      "https://picsum.photos/id/1059/800/600",
+      "https://picsum.photos/id/164/800/600"
+    ],
+    "region": "华中",
+    "province": "湖北",
+    "population": 6750000,
+    "overview": "Wuhan is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "武汉是华中地区最大的城市，江河交汇，九省通衢，高等教育资源集中，是中部崛起的重要引擎。",
+    "averageSalary": 13600,
+    "livingCost": "moderate",
+    "climate": {
+      "temperature": "Four seasons",
+      "precipitation": "Medium",
+      "humidity": "Moderate",
+      "hasHeating": false,
+      "otherTags": [
+        "River"
+      ]
+    },
+    "description": "<p><strong>Wuhan</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>武汉</strong></p><p>武汉是长江与汉江的交汇之地，素有'九省通衢'之称。黄鹤楼、东湖等景点名扬四海。武汉大学、华中科技大学等高校享有盛誉，武汉也是中国在校大学生最多的城市之一。</p><p>武汉交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-wuhan-university",
+      "uni-demo-university-38"
+    ],
+    "popularity": 930
+  },
+  {
+    "id": "city-xi-an",
+    "slug": "xi-an",
+    "name": "Xi'an",
+    "nameZh": "西安",
+    "coverImage": "https://picsum.photos/id/164/800/600",
+    "images": [
+      "https://picsum.photos/id/164/800/600",
+      "https://picsum.photos/id/122/800/600"
+    ],
+    "region": "西北",
+    "province": "陕西",
+    "population": 7000000,
+    "overview": "Xi'an is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "西安是十三朝古都，丝绸之路的起点，兵马俑举世闻名，是探索中华五千年文明的必访之地。",
+    "averageSalary": 8000,
+    "livingCost": "expensive",
+    "climate": {
+      "temperature": "Mild",
+      "precipitation": "High",
+      "humidity": "Humid",
+      "hasHeating": false,
+      "otherTags": [
+        "Coastal"
+      ]
+    },
+    "description": "<p><strong>Xi'an</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>西安</strong></p><p>西安古称长安，是中国历史上建都时间最长的城市之一。秦始皇兵马俑被誉为世界第八大奇迹。西安交通大学、西北工业大学等高校在工科领域实力突出，吸引众多留学生。</p><p>西安交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-39"
+    ],
+    "popularity": 920
+  },
+  {
+    "id": "city-tianjin",
+    "slug": "tianjin",
+    "name": "Tianjin",
+    "nameZh": "天津",
+    "coverImage": "https://picsum.photos/id/122/800/600",
+    "images": [
+      "https://picsum.photos/id/122/800/600",
+      "https://picsum.photos/id/252/800/600"
+    ],
+    "region": "华北",
+    "province": "天津",
+    "population": 7250000,
+    "overview": "Tianjin is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "天津是北方重要的港口城市，近代历史文化丰富，与北京相邻，是留学生便捷的学习生活之选。",
+    "averageSalary": 8800,
+    "livingCost": "affordable",
+    "climate": {
+      "temperature": "Warm",
+      "precipitation": "Low",
+      "humidity": "Dry",
+      "hasHeating": true,
+      "otherTags": [
+        "Inland"
+      ]
+    },
+    "description": "<p><strong>Tianjin</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>天津</strong></p><p>天津是中国四大直辖市之一，拥有独特的近代历史建筑群。这座城市既有浓郁的传统文化，又是现代化的港口城市。南开大学、天津大学等百年学府享有盛誉。</p><p>天津交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-40"
+    ],
+    "popularity": 910
+  },
+  {
+    "id": "city-harbin",
+    "slug": "harbin",
+    "name": "Harbin",
+    "nameZh": "哈尔滨",
+    "coverImage": "https://picsum.photos/id/252/800/600",
+    "images": [
+      "https://picsum.photos/id/252/800/600",
+      "https://picsum.photos/id/274/800/600"
+    ],
+    "region": "东北",
+    "province": "黑龙江",
+    "population": 7500000,
+    "overview": "Harbin is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "哈尔滨是东北的冰城，冬季冰雪节庆闻名世界，俄罗斯风情浓厚，是体验北国风光的绝佳之地。",
+    "averageSalary": 9600,
+    "livingCost": "moderate",
+    "climate": {
+      "temperature": "Cool",
+      "precipitation": "Medium",
+      "humidity": "Moderate",
+      "hasHeating": false,
+      "otherTags": [
+        "Mountain"
+      ]
+    },
+    "description": "<p><strong>Harbin</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>哈尔滨</strong></p><p>哈尔滨被称为'东方莫斯科'，以独特的欧式建筑和冰雪文化闻名。每年的哈尔滨冰雪大世界吸引着来自全球的游客。哈尔滨工业大学是中国航天领域的顶尖学府。</p><p>哈尔滨交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-harbin-institute-of-technology",
+      "uni-demo-university-11",
+      "uni-demo-university-41"
+    ],
+    "popularity": 900
+  },
+  {
+    "id": "city-shenyang",
+    "slug": "shenyang",
+    "name": "Shenyang",
+    "nameZh": "沈阳",
+    "coverImage": "https://picsum.photos/id/274/800/600",
+    "images": [
+      "https://picsum.photos/id/274/800/600",
+      "https://picsum.photos/id/366/800/600"
+    ],
+    "region": "东北",
+    "province": "辽宁",
+    "population": 7750000,
+    "overview": "Shenyang is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "沈阳是东北的工业重镇，沈阳故宫见证着清朝历史，是了解中国近现代工业发展的重要城市。",
+    "averageSalary": 10400,
+    "livingCost": "expensive",
+    "climate": {
+      "temperature": "Four seasons",
+      "precipitation": "High",
+      "humidity": "Humid",
+      "hasHeating": false,
+      "otherTags": [
+        "River"
+      ]
+    },
+    "description": "<p><strong>Shenyang</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>沈阳</strong></p><p>沈阳是辽宁省省会，中国东北地区的中心城市。沈阳故宫是中国现存最完整的两座皇家宫殿之一。东北大学等高校在工科领域具有传统优势。</p><p>沈阳交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-12",
+      "uni-demo-university-42"
+    ],
+    "popularity": 890
+  },
+  {
+    "id": "city-dalian",
+    "slug": "dalian",
+    "name": "Dalian",
+    "nameZh": "大连",
+    "coverImage": "https://picsum.photos/id/366/800/600",
+    "images": [
+      "https://picsum.photos/id/366/800/600",
+      "https://picsum.photos/id/376/800/600"
+    ],
+    "region": "东北",
+    "province": "辽宁",
+    "population": 8000000,
+    "overview": "Dalian is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "大连是美丽的海滨城市，气候宜人，环境优美，是东北地区对外开放的窗口城市。",
+    "averageSalary": 11200,
+    "livingCost": "affordable",
+    "climate": {
+      "temperature": "Mild",
+      "precipitation": "Low",
+      "humidity": "Dry",
+      "hasHeating": true,
+      "otherTags": [
+        "Coastal"
+      ]
+    },
+    "description": "<p><strong>Dalian</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>大连</strong></p><p>大连位于辽东半岛南端，是中国北方重要的港口和旅游城市。这里气候温和，海滨风光秀丽。大连理工大学在工程领域享有盛誉。</p><p>大连交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-13",
+      "uni-demo-university-43"
+    ],
+    "popularity": 880
+  },
+  {
+    "id": "city-qingdao",
+    "slug": "qingdao",
+    "name": "Qingdao",
+    "nameZh": "青岛",
+    "coverImage": "https://picsum.photos/id/376/800/600",
+    "images": [
+      "https://picsum.photos/id/376/800/600",
+      "https://picsum.photos/id/416/800/600"
+    ],
+    "region": "华东",
+    "province": "山东",
+    "population": 8250000,
+    "overview": "Qingdao is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "青岛是著名的海滨城市，红瓦绿树、碧海蓝天，德式建筑独具特色，是宜居宜学的美丽城市。",
+    "averageSalary": 12000,
+    "livingCost": "moderate",
+    "climate": {
+      "temperature": "Warm",
+      "precipitation": "Medium",
+      "humidity": "Moderate",
+      "hasHeating": false,
+      "otherTags": [
+        "Inland"
+      ]
+    },
+    "description": "<p><strong>Qingdao</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>青岛</strong></p><p>青岛是山东省副省级城市，以优美的海滨风光和独特的德式建筑闻名。青岛啤酒享誉全球。中国海洋大学是海洋科学领域的顶尖学府。</p><p>青岛交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-14",
+      "uni-demo-university-44"
+    ],
+    "popularity": 870
+  },
+  {
+    "id": "city-jinan",
+    "slug": "jinan",
+    "name": "Jinan",
+    "nameZh": "济南",
+    "coverImage": "https://picsum.photos/id/416/800/600",
+    "images": [
+      "https://picsum.photos/id/416/800/600",
+      "https://picsum.photos/id/429/800/600"
+    ],
+    "region": "华东",
+    "province": "山东",
+    "population": 8500000,
+    "overview": "Jinan is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "济南是山东省会，泉城之名源于众多的天然泉水，历史文化底蕴深厚，是齐鲁文化的中心。",
+    "averageSalary": 12800,
+    "livingCost": "expensive",
+    "climate": {
+      "temperature": "Cool",
+      "precipitation": "High",
+      "humidity": "Humid",
+      "hasHeating": false,
+      "otherTags": [
+        "Mountain"
+      ]
+    },
+    "description": "<p><strong>Jinan</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>济南</strong></p><p>济南以泉水众多而闻名，趵突泉被誉为'天下第一泉'。这座城市有着悠久的历史和丰富的文化遗产。山东大学是中国历史最悠久的高校之一。</p><p>济南交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-15",
+      "uni-demo-university-45"
+    ],
+    "popularity": 860
+  },
+  {
+    "id": "city-xiamen",
+    "slug": "xiamen",
+    "name": "Xiamen",
+    "nameZh": "厦门",
+    "coverImage": "https://picsum.photos/id/429/800/600",
+    "images": [
+      "https://picsum.photos/id/429/800/600",
+      "https://picsum.photos/id/1029/800/600"
+    ],
+    "region": "华东",
+    "province": "福建",
+    "population": 8750000,
+    "overview": "Xiamen is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "厦门是美丽的海岛城市，鼓浪屿世界闻名，气候温和，是宜居宜学的花园城市。",
+    "averageSalary": 13600,
+    "livingCost": "affordable",
+    "climate": {
+      "temperature": "Four seasons",
+      "precipitation": "Low",
+      "humidity": "Dry",
+      "hasHeating": true,
+      "otherTags": [
+        "River"
+      ]
+    },
+    "description": "<p><strong>Xiamen</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>厦门</strong></p><p>厦门是中国东南沿海的美丽城市，鼓浪屿被列入世界文化遗产。这里气候宜人，是著名的旅游目的地。厦门大学被誉为'中国最美大学'。</p><p>厦门交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-16",
+      "uni-demo-university-46"
+    ],
+    "popularity": 850
+  },
+  {
+    "id": "city-fuzhou",
+    "slug": "fuzhou",
+    "name": "Fuzhou",
+    "nameZh": "福州",
+    "coverImage": "https://picsum.photos/id/1029/800/600",
+    "images": [
+      "https://picsum.photos/id/1029/800/600",
+      "https://picsum.photos/id/1026/800/600"
+    ],
+    "region": "华东",
+    "province": "福建",
+    "population": 9000000,
+    "overview": "Fuzhou is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "福州是福建省会，榕城之名源于满城的榕树，是海峡西岸经济区的中心城市。",
+    "averageSalary": 8000,
+    "livingCost": "moderate",
+    "climate": {
+      "temperature": "Mild",
+      "precipitation": "Medium",
+      "humidity": "Moderate",
+      "hasHeating": false,
+      "otherTags": [
+        "Coastal"
+      ]
+    },
+    "description": "<p><strong>Fuzhou</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>福州</strong></p><p>福州有着两千多年的历史，是著名的侨乡。这座城市以温泉和历史文化街区闻名。福州大学等高校为留学生提供良好的学习环境。</p><p>福州交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-17",
+      "uni-demo-university-47"
+    ],
+    "popularity": 840
+  },
+  {
+    "id": "city-changsha",
+    "slug": "changsha",
+    "name": "Changsha",
+    "nameZh": "长沙",
+    "coverImage": "https://picsum.photos/id/1026/800/600",
+    "images": [
+      "https://picsum.photos/id/1026/800/600",
+      "https://picsum.photos/id/1015/800/600"
+    ],
+    "region": "华中",
+    "province": "湖南",
+    "population": 9250000,
+    "overview": "Changsha is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "长沙是湖南省会，湘江北去，岳麓山下，是革命历史名城，也是娱乐文化产业的中心。",
+    "averageSalary": 8800,
+    "livingCost": "expensive",
+    "climate": {
+      "temperature": "Warm",
+      "precipitation": "High",
+      "humidity": "Humid",
+      "hasHeating": false,
+      "otherTags": [
+        "Inland"
+      ]
+    },
+    "description": "<p><strong>Changsha</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>长沙</strong></p><p>长沙是湖南省省会，有着三千多年的历史。岳麓书院是中国四大书院之一。中南大学、湖南大学等高校在多个领域具有特色优势。</p><p>长沙交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-18",
+      "uni-demo-university-48"
+    ],
+    "popularity": 830
+  },
+  {
+    "id": "city-kunming",
+    "slug": "kunming",
+    "name": "Kunming",
+    "nameZh": "昆明",
+    "coverImage": "https://picsum.photos/id/1015/800/600",
+    "images": [
+      "https://picsum.photos/id/1015/800/600",
+      "https://picsum.photos/id/1018/800/600"
+    ],
+    "region": "西南",
+    "province": "云南",
+    "population": 9500000,
+    "overview": "Kunming is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "昆明是春城，四季如春的气候闻名遐迩，民族文化多元，是体验中国西南风情的绝佳城市。",
+    "averageSalary": 9600,
+    "livingCost": "affordable",
+    "climate": {
+      "temperature": "Cool",
+      "precipitation": "Low",
+      "humidity": "Dry",
+      "hasHeating": true,
+      "otherTags": [
+        "Mountain"
+      ]
+    },
+    "description": "<p><strong>Kunming</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>昆明</strong></p><p>昆明被誉为'春城'，气候四季如春。这里是中国面向东南亚、南亚的重要门户。云南大学等高校在民族学、生态学等领域具有特色。</p><p>昆明交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-19",
+      "uni-demo-university-49"
+    ],
+    "popularity": 820
+  },
+  {
+    "id": "city-chongqing",
+    "slug": "chongqing",
+    "name": "Chongqing",
+    "nameZh": "重庆",
+    "coverImage": "https://picsum.photos/id/1018/800/600",
+    "images": [
+      "https://picsum.photos/id/1018/800/600",
+      "https://picsum.photos/id/1031/800/600"
+    ],
+    "region": "西南",
+    "province": "重庆",
+    "population": 9750000,
+    "overview": "Chongqing is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "重庆是山城，嘉陵江与长江交汇于此，独特的地形造就了独特的城市景观和美食文化。",
+    "averageSalary": 10400,
+    "livingCost": "moderate",
+    "climate": {
+      "temperature": "Four seasons",
+      "precipitation": "Medium",
+      "humidity": "Moderate",
+      "hasHeating": false,
+      "otherTags": [
+        "River"
+      ]
+    },
+    "description": "<p><strong>Chongqing</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>重庆</strong></p><p>重庆是中国西部唯一的直辖市，以独特的山城地貌和火锅美食闻名。这里是长江上游的经济中心。重庆大学、西南大学等高校实力雄厚。</p><p>重庆交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-20",
+      "uni-demo-university-50"
+    ],
+    "popularity": 810
+  },
+  {
+    "id": "city-suzhou",
+    "slug": "suzhou",
+    "name": "Suzhou",
+    "nameZh": "苏州",
+    "coverImage": "https://picsum.photos/id/1031/800/600",
+    "images": [
+      "https://picsum.photos/id/1031/800/600",
+      "https://picsum.photos/id/1044/800/600"
+    ],
+    "region": "华东",
+    "province": "江苏",
+    "population": 10000000,
+    "overview": "Suzhou is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "苏州是园林之城，古典园林世界闻名，是江南水乡文化的代表，也是现代制造业重镇。",
+    "averageSalary": 11200,
+    "livingCost": "expensive",
+    "climate": {
+      "temperature": "Mild",
+      "precipitation": "High",
+      "humidity": "Humid",
+      "hasHeating": false,
+      "otherTags": [
+        "Coastal"
+      ]
+    },
+    "description": "<p><strong>Suzhou</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>苏州</strong></p><p>苏州以精美的古典园林闻名于世，拙政园、留园等被列入世界文化遗产。这座城市既有深厚的历史文化，又是现代化的工业城市。苏州大学等高校发展迅速。</p><p>苏州交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-21"
+    ],
+    "popularity": 800
+  },
+  {
+    "id": "city-ningbo",
+    "slug": "ningbo",
+    "name": "Ningbo",
+    "nameZh": "宁波",
+    "coverImage": "https://picsum.photos/id/1044/800/600",
+    "images": [
+      "https://picsum.photos/id/1044/800/600",
+      "https://picsum.photos/id/1048/800/600"
+    ],
+    "region": "华东",
+    "province": "浙江",
+    "population": 10250000,
+    "overview": "Ningbo is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "宁波是浙江的重要港口城市，历史悠久，是海上丝绸之路的重要节点，经济发达。",
+    "averageSalary": 12000,
+    "livingCost": "affordable",
+    "climate": {
+      "temperature": "Warm",
+      "precipitation": "Low",
+      "humidity": "Dry",
+      "hasHeating": true,
+      "otherTags": [
+        "Inland"
+      ]
+    },
+    "description": "<p><strong>Ningbo</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>宁波</strong></p><p>宁波是中国重要的港口城市，有着七千多年的河姆渡文化。这里是天一阁藏书楼所在地，历史文化底蕴深厚。宁波大学等高校为留学生提供优质教育。</p><p>宁波交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-22"
+    ],
+    "popularity": 790
+  },
+  {
+    "id": "city-hefei",
+    "slug": "hefei",
+    "name": "Hefei",
+    "nameZh": "合肥",
+    "coverImage": "https://picsum.photos/id/1048/800/600",
+    "images": [
+      "https://picsum.photos/id/1048/800/600",
+      "https://picsum.photos/id/1059/800/600"
+    ],
+    "region": "华东",
+    "province": "安徽",
+    "population": 10500000,
+    "overview": "Hefei is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "合肥是安徽省会，中国科学技术大学所在地，是国家重要的科教中心城市。",
+    "averageSalary": 12800,
+    "livingCost": "moderate",
+    "climate": {
+      "temperature": "Cool",
+      "precipitation": "Medium",
+      "humidity": "Moderate",
+      "hasHeating": false,
+      "otherTags": [
+        "Mountain"
+      ]
+    },
+    "description": "<p><strong>Hefei</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>合肥</strong></p><p>合肥是安徽省省会，近年来发展迅速。中国科学技术大学是中国顶尖的理工科高校之一，在科技创新领域具有重要地位。</p><p>合肥交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-23"
+    ],
+    "popularity": 780
+  },
+  {
+    "id": "city-zhengzhou",
+    "slug": "zhengzhou",
+    "name": "Zhengzhou",
+    "nameZh": "郑州",
+    "coverImage": "https://picsum.photos/id/1059/800/600",
+    "images": [
+      "https://picsum.photos/id/1059/800/600",
+      "https://picsum.photos/id/164/800/600"
+    ],
+    "region": "华中",
+    "province": "河南",
+    "population": 10750000,
+    "overview": "Zhengzhou is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "郑州是河南省会，中原文化的核心地区，交通枢纽地位突出，是中部崛起的重要城市。",
+    "averageSalary": 13600,
+    "livingCost": "expensive",
+    "climate": {
+      "temperature": "Four seasons",
+      "precipitation": "High",
+      "humidity": "Humid",
+      "hasHeating": false,
+      "otherTags": [
+        "River"
+      ]
+    },
+    "description": "<p><strong>Zhengzhou</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>郑州</strong></p><p>郑州位于中原腹地，是中国重要的交通枢纽。嵩山少林寺闻名世界。郑州大学是河南省唯一的211高校。</p><p>郑州交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-24"
+    ],
+    "popularity": 770
+  },
+  {
+    "id": "city-nanning",
+    "slug": "nanning",
+    "name": "Nanning",
+    "nameZh": "南宁",
+    "coverImage": "https://picsum.photos/id/164/800/600",
+    "images": [
+      "https://picsum.photos/id/164/800/600",
+      "https://picsum.photos/id/122/800/600"
+    ],
+    "region": "华南",
+    "province": "广西",
+    "population": 11000000,
+    "overview": "Nanning is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "南宁是广西首府，绿城之名源于丰富的植被，是中国面向东盟的重要门户城市。",
+    "averageSalary": 8000,
+    "livingCost": "affordable",
+    "climate": {
+      "temperature": "Mild",
+      "precipitation": "Low",
+      "humidity": "Dry",
+      "hasHeating": true,
+      "otherTags": [
+        "Coastal"
+      ]
+    },
+    "description": "<p><strong>Nanning</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>南宁</strong></p><p>南宁是广西壮族自治区首府，被称为'绿城'。这里是中国—东盟博览会的永久举办地，面向东南亚的区位优势明显。广西大学等高校欢迎国际学生。</p><p>南宁交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-25"
+    ],
+    "popularity": 760
+  },
+  {
+    "id": "city-urumqi",
+    "slug": "urumqi",
+    "name": "Urumqi",
+    "nameZh": "乌鲁木齐",
+    "coverImage": "https://picsum.photos/id/122/800/600",
+    "images": [
+      "https://picsum.photos/id/122/800/600",
+      "https://picsum.photos/id/252/800/600"
+    ],
+    "region": "西北",
+    "province": "新疆",
+    "population": 11250000,
+    "overview": "Urumqi is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "乌鲁木齐是新疆首府，地处亚欧大陆腹地，是感受丝绸之路历史与多元民族文化的重要城市。",
+    "averageSalary": 8800,
+    "livingCost": "moderate",
+    "climate": {
+      "temperature": "Warm",
+      "precipitation": "Medium",
+      "humidity": "Moderate",
+      "hasHeating": false,
+      "otherTags": [
+        "Inland"
+      ]
+    },
+    "description": "<p><strong>Urumqi</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>乌鲁木齐</strong></p><p>乌鲁木齐是新疆维吾尔自治区首府，是丝绸之路经济带的核心城市。这里多民族文化交融，风景独特。新疆大学等高校欢迎国际学生。</p><p>乌鲁木齐交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-26"
+    ],
+    "popularity": 750
+  },
+  {
+    "id": "city-lanzhou",
+    "slug": "lanzhou",
+    "name": "Lanzhou",
+    "nameZh": "兰州",
+    "coverImage": "https://picsum.photos/id/252/800/600",
+    "images": [
+      "https://picsum.photos/id/252/800/600",
+      "https://picsum.photos/id/274/800/600"
+    ],
+    "region": "西北",
+    "province": "甘肃",
+    "population": 11500000,
+    "overview": "Lanzhou is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "兰州是甘肃省会，黄河穿城而过，是西北地区的重要城市，兰州拉面享誉全国。",
+    "averageSalary": 9600,
+    "livingCost": "expensive",
+    "climate": {
+      "temperature": "Cool",
+      "precipitation": "High",
+      "humidity": "Humid",
+      "hasHeating": false,
+      "otherTags": [
+        "Mountain"
+      ]
+    },
+    "description": "<p><strong>Lanzhou</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>兰州</strong></p><p>兰州是甘肃省省会，黄河之滨的美丽城市。兰州拉面是中国最著名的面食之一。兰州大学在化学、生态学等领域具有传统优势。</p><p>兰州交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-27"
+    ],
+    "popularity": 740
+  },
+  {
+    "id": "city-hohhot",
+    "slug": "hohhot",
+    "name": "Hohhot",
+    "nameZh": "呼和浩特",
+    "coverImage": "https://picsum.photos/id/274/800/600",
+    "images": [
+      "https://picsum.photos/id/274/800/600",
+      "https://picsum.photos/id/366/800/600"
+    ],
+    "region": "华北",
+    "province": "内蒙古",
+    "population": 11750000,
+    "overview": "Hohhot is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "呼和浩特是内蒙古首府，草原文化浓郁，是体验蒙古族风情和草原风光的理想城市。",
+    "averageSalary": 10400,
+    "livingCost": "affordable",
+    "climate": {
+      "temperature": "Four seasons",
+      "precipitation": "Low",
+      "humidity": "Dry",
+      "hasHeating": true,
+      "otherTags": [
+        "River"
+      ]
+    },
+    "description": "<p><strong>Hohhot</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>呼和浩特</strong></p><p>呼和浩特是内蒙古自治区首府，在蒙古语中意为'青色的城'。这里是感受草原文化的绝佳之地。内蒙古大学等高校欢迎国际学生。</p><p>呼和浩特交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-28"
+    ],
+    "popularity": 730
+  },
+  {
+    "id": "city-guiyang",
+    "slug": "guiyang",
+    "name": "Guiyang",
+    "nameZh": "贵阳",
+    "coverImage": "https://picsum.photos/id/366/800/600",
+    "images": [
+      "https://picsum.photos/id/366/800/600",
+      "https://picsum.photos/id/376/800/600"
+    ],
+    "region": "西南",
+    "province": "贵州",
+    "population": 12000000,
+    "overview": "Guiyang is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "贵阳是贵州省会，气候凉爽宜人，被称为'避暑之都'，少数民族文化丰富多彩。",
+    "averageSalary": 11200,
+    "livingCost": "moderate",
+    "climate": {
+      "temperature": "Mild",
+      "precipitation": "Medium",
+      "humidity": "Moderate",
+      "hasHeating": false,
+      "otherTags": [
+        "Coastal"
+      ]
+    },
+    "description": "<p><strong>Guiyang</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>贵阳</strong></p><p>贵阳是贵州省省会，以凉爽的气候闻名。这里是多民族聚居之地，苗族、侗族等民族文化独特。贵州大学等高校为留学生提供多元化的文化体验。</p><p>贵阳交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-29"
+    ],
+    "popularity": 720
+  },
+  {
+    "id": "city-haikou",
+    "slug": "haikou",
+    "name": "Haikou",
+    "nameZh": "海口",
+    "coverImage": "https://picsum.photos/id/376/800/600",
+    "images": [
+      "https://picsum.photos/id/376/800/600",
+      "https://picsum.photos/id/416/800/600"
+    ],
+    "region": "华南",
+    "province": "海南",
+    "population": 12250000,
+    "overview": "Haikou is a vibrant city with modern infrastructure and diverse opportunities for international students.",
+    "overviewZh": "海口是海南省会，热带海岛风情浓郁，是体验中国最南端热带城市生活的理想选择。",
+    "averageSalary": 12000,
+    "livingCost": "expensive",
+    "climate": {
+      "temperature": "Warm",
+      "precipitation": "High",
+      "humidity": "Humid",
+      "hasHeating": false,
+      "otherTags": [
+        "Inland"
+      ]
+    },
+    "description": "<p><strong>Haikou</strong> is a popular destination for international students with rich educational resources. The city offers a perfect blend of traditional Chinese culture and modern urban development. International students will find excellent universities, diverse academic programs, and supportive learning environments. The city features convenient public transportation, affordable living costs, and a wide range of cultural activities. From historical landmarks to contemporary art scenes, from traditional cuisine to international restaurants, the city provides a rich and diverse experience for students from around the world. The local government and universities have established comprehensive support systems for international students, including visa services, accommodation assistance, health insurance, and cultural integration programs. The city's climate is generally comfortable throughout the year, making it an ideal place for study and living. Whether you're interested in technology, business, arts, or sciences, you'll find excellent opportunities to pursue your academic and career goals in this vibrant city.</p>",
+    "descriptionZh": "<p><strong>海口</strong></p><p>海口是海南省省会，地处热带，椰林婆娑，是中国著名的旅游城市。海南大学等高校为留学生提供独特的热带学习体验。</p><p>海口交通便利，地铁、公交网络发达，出行十分方便。城市生活设施完善，购物中心、餐厅、医院、银行等一应俱全。这里既有悠久的历史文化遗产，也有现代化的城市景观，是留学生体验中国魅力的理想之地。城市的餐饮文化丰富多彩，既有地道的本地风味，也有来自全国各地乃至世界各国的美食。这里的夜生活丰富，有各种酒吧、茶馆、演出场所可供选择。城市绿化覆盖率高，公园众多，是休闲放松的好去处。国际学生在这里可以参加各种文化活动，深入了解中国传统文化和现代社会发展。城市对外国人友好，许多商店和餐厅提供英文服务，生活非常便利。选择在这里学习，您将在优质的学术环境中成长，同时享受丰富多彩的城市生活。</p>",
+    "universityIds": [
+      "uni-demo-university-30"
+    ],
+    "popularity": 710
+  }
+]
