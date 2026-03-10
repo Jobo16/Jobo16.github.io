@@ -1,1 +1,0 @@
-import{f as a}from"./http-m-LeLakT.js";const o=new URL("../data",import.meta.url).pathname.replace(/\/$/,"");async function r(){return await a(`${o}/majorCategories.json`)}async function s(){return await a(`${o}/majorSubcategories.json`)}async function n(){return await a(`${o}/subMajors.json`)}export{r as a,s as b,n as g};

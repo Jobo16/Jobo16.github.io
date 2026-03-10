@@ -1,1 +1,0 @@
-function o(e,n){return n==="zh"?e.nameZh??e.name:e.name}function t(e,n){return n==="zh"?e.contentZh??e.content:e.content}function r(e,n){return n==="zh"?e.overviewZh??e.overview:e.overview}export{r as a,t as b,o as g};

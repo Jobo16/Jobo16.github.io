@@ -1,0 +1,50 @@
+[
+  {
+    "id": "uv-uni-peking-university-1",
+    "universityId": "uni-peking-university",
+    "title": "Campus Life Highlights",
+    "titleZh": "校园生活掠影",
+    "coverImage": "https://picsum.photos/id/318/800/600",
+    "srcUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "duration": 596,
+    "sourceType": "official",
+    "sourceLabel": "Official",
+    "sourceLabelZh": "官方"
+  },
+  {
+    "id": "uv-uni-peking-university-2",
+    "universityId": "uni-peking-university",
+    "title": "Student Experience",
+    "titleZh": "学生体验",
+    "coverImage": "https://picsum.photos/id/342/800/600",
+    "srcUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
+    "duration": 654,
+    "sourceType": "student",
+    "sourceLabel": "Student",
+    "sourceLabelZh": "学长分享"
+  },
+  {
+    "id": "uv-uni-peking-university-3",
+    "universityId": "uni-peking-university",
+    "title": "Quick Campus Tour",
+    "titleZh": "校园速览",
+    "coverImage": "https://picsum.photos/id/367/800/600",
+    "srcUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    "duration": 15,
+    "sourceType": "official",
+    "sourceLabel": "Official",
+    "sourceLabelZh": "官方"
+  },
+  {
+    "id": "uv-uni-peking-university-4",
+    "universityId": "uni-peking-university",
+    "title": "Study in China Stories",
+    "titleZh": "来华留学故事",
+    "coverImage": "https://picsum.photos/id/399/800/600",
+    "srcUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
+    "duration": 888,
+    "sourceType": "faculty",
+    "sourceLabel": "Faculty",
+    "sourceLabelZh": "教授解读"
+  }
+]
