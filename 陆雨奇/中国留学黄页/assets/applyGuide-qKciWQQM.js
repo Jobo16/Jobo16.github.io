@@ -1,1 +1,1 @@
-import{f as n}from"./http-C3dk6mDk.js";const l="/data";async function e(){return await n(`${l}/apply-guide.json`)}async function u(t){return(await e()).find(a=>a.slug===t)??null}export{u as a,e as g};
+import{f as n}from"./http-C3dk6mDk.js";const l=new URL("../data",import.meta.url).pathname.replace(/\/$/,"");async function e(){return await n(`${l}/apply-guide.json`)}async function u(t){return(await e()).find(a=>a.slug===t)??null}export{u as a,e as g};

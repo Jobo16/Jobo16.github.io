@@ -1,1 +1,1 @@
-import{f as s}from"./http-C3dk6mDk.js";const a="/data";async function i(){return await s(`${a}/universities.json`)}async function o(n){return(await i()).find(t=>t.slug===n)??null}export{o as a,i as g};
+import{f as s}from"./http-C3dk6mDk.js";const a=new URL("../data",import.meta.url).pathname.replace(/\/$/,"");async function i(){return await s(`${a}/universities.json`)}async function o(n){return(await i()).find(t=>t.slug===n)??null}export{o as a,i as g};
