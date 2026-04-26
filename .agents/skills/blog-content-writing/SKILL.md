@@ -44,3 +44,6 @@ draft: false
 - Shared notes, essays, links, reading notes, and lightweight thoughts live under `content/notes/`, with `content/notes/index.md` as the notes overview page.
 - Each project or note should be one Markdown page.
 - Images and attachments should live under `content/assets/`.
+- When embedding images in Obsidian Markdown, set a display width unless the image is intentionally full-size, for example `![[image.png|320]]`.
+- QR codes and contact images should usually be displayed at 180-260px wide.
+- Prefer WebP or JPEG for photos and large illustrations; prefer PNG for QR codes, logos, screenshots with sharp UI text, and transparent images.

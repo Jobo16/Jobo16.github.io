@@ -40,10 +40,18 @@ draft:
 
 Before committing or deploying content changes:
 
-1. Run `npx quartz build`.
+1. Run `npm run build:optimized`.
 2. Check for broken internal links in the build output.
 3. Confirm `.agents/` is not rendered as public pages.
-4. Run a privacy review for newly published pages.
+4. Confirm large images in `public/` were resized or compressed by `scripts/optimize-images.mjs`.
+5. Run a privacy review for newly published pages.
+
+## Image Rules
+
+- Page-level sizing should be controlled in Markdown with Obsidian image width syntax, for example `![[weixin.png|220]]`.
+- Deployment output is optimized by `scripts/optimize-images.mjs` after Quartz builds `public/`.
+- QR-like images are capped smaller than normal images by filename patterns such as `weixin`, `wechat`, `qr`, or `qrcode`.
+- Do not publish multi-megabyte source images without either resizing the display width or confirming the build output has been optimized.
 
 ## Large Reorganizations
 

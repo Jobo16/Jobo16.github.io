@@ -160,6 +160,12 @@ button.desktop-explorer {
   }
 }
 
+.explorer-titleless {
+  .explorer-content {
+    margin-top: 0;
+  }
+}
+
 .folder-container {
   flex-direction: row;
   display: flex;
