@@ -6,6 +6,8 @@ tags:
   - project
   - automation
   - data
+aliases:
+  - projects/kaoqing
 draft: false
 ---
 

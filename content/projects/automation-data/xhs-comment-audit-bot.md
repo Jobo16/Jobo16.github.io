@@ -6,6 +6,8 @@ tags:
   - project
   - automation
   - feishu
+aliases:
+  - projects/xhs-comment-audit-bot
 draft: false
 ---
 

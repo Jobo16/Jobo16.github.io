@@ -6,18 +6,20 @@ tags:
   - about
 draft: false
 ---
+
 我是 JOBO，浙工大英语专业，长期关注 AI、产品原型、Web 应用和内容工程。
 
 我不是传统路径的工程师，更像是在用 AI Coding 补齐技术能力、用产品问题牵引学习的人。日常会高强度使用 Codex、ChatGPT、Claude Code、Trae 等工具，把需求拆成可执行任务，再通过代码、文档和部署把东西落地。
 
 ## 联系方式
+
 [[contact]]
 
 ## 正在做的项目
 
-- [[projects/tangclaw-v3|Tangclaw v3]]：围绕 AI SaaS 工作台、学习资产、会话、自动化任务和微信通道做稳定化。
-- [[projects/auto-deploy-v2|auto-deploy-v2]]：维护静态网站统一部署服务和 CLI 发布流程。
-- [[projects/remotion-platform|Remotion Batch Video Platform]]：整理视频模板平台和批量渲染工作流。
+- [[projects/ai-products/tangclaw-v3|Tangclaw v3]]：围绕 AI SaaS 工作台、学习资产、会话、自动化任务和微信通道做稳定化。
+- [[projects/devtools-infra/auto-deploy-v2|auto-deploy-v2]]：维护静态网站统一部署服务和 CLI 发布流程。
+- [[projects/content-video/remotion-platform|Remotion Batch Video Platform]]：整理视频模板平台和批量渲染工作流。
 - 这个博客：用 Quartz + Obsidian Markdown 维护个人内容、项目记录和 AI 写作规则。
 
 ## 个人经历

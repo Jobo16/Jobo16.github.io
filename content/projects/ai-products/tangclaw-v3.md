@@ -6,6 +6,8 @@ tags:
   - project
   - ai
   - nextjs
+aliases:
+  - projects/tangclaw-v3
 draft: false
 ---
 

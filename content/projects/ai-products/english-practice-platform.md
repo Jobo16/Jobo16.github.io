@@ -6,6 +6,8 @@ tags:
   - project
   - education
   - nextjs
+aliases:
+  - projects/english-practice-platform
 draft: false
 ---
 

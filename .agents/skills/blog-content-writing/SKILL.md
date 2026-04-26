@@ -40,7 +40,11 @@ draft: false
 ## Placement
 
 - Site-level pages remain at `content/index.md`, `content/about.md`, and `content/contact.md`.
-- Project pages live under `content/projects/`, with `content/projects/index.md` as the project overview page.
+- Project pages live under one of the project type folders below, with `content/projects/index.md` as the project overview page:
+  - `content/projects/ai-products/`
+  - `content/projects/automation-data/`
+  - `content/projects/content-video/`
+  - `content/projects/devtools-infra/`
 - Shared notes, essays, links, reading notes, and lightweight thoughts live under `content/notes/`, with `content/notes/index.md` as the notes overview page.
 - Each project or note should be one Markdown page.
 - Images and attachments should live under `content/assets/`.

@@ -6,6 +6,8 @@ tags:
   - project
   - deploy
   - tool
+aliases:
+  - projects/auto-deploy-v2
 draft: false
 ---
 

@@ -6,6 +6,8 @@ tags:
   - project
   - skills
   - agent
+aliases:
+  - projects/skills-kit
 draft: false
 ---
 

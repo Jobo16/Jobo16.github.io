@@ -6,6 +6,8 @@ tags:
   - project
   - remotion
   - video
+aliases:
+  - projects/remotion-platform
 draft: false
 ---
 

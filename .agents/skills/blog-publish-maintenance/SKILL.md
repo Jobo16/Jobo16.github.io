@@ -9,9 +9,15 @@ Keep the Quartz content repository clean, buildable, and easy to maintain over t
 ## File Rules
 
 - Main public pages are `content/index.md`, `content/about.md`, and `content/contact.md`.
-- Project pages live under `content/projects/`; `content/projects/index.md` is the project overview page.
+- Project pages live under one of the project type folders:
+  - `content/projects/ai-products/`
+  - `content/projects/automation-data/`
+  - `content/projects/content-video/`
+  - `content/projects/devtools-infra/`
+- `content/projects/index.md` is the project overview page.
 - Note/share pages live under `content/notes/`; `content/notes/index.md` is the notes overview page.
-- Do not create extra nested folders under `projects/` or `notes/` unless the user explicitly asks.
+- Do not create extra nested folders under `notes/`.
+- Do not create new project type folders unless the user explicitly asks.
 - Images and attachments should live under `content/assets/`.
 - Do not scatter assets next to random articles unless there is already a clear local convention.
 - Do not delete published pages unless the user explicitly requests deletion.
@@ -56,3 +62,11 @@ Before committing or deploying content changes:
 ## Large Reorganizations
 
 Before moving or renaming many files, list the planned changes first and preserve existing URLs when practical.
+
+## Project Category Rules
+
+- Use `ai-products` for AI product work, learning platforms, user-facing AI workflows, RAG, chat, knowledge bases, and SaaS-style product systems.
+- Use `automation-data` for data collection, browser automation, Feishu/Base integrations, SCRM/backend workflows, OCR, scraping, and structured exports.
+- Use `content-video` for Remotion, short video generation, content production, media templates, and batch rendering workflows.
+- Use `devtools-infra` for deployment tools, CLI tools, project skills, Agent tooling, infrastructure helpers, and engineering workflow utilities.
+- When moving an already published project, add an `aliases` entry for the previous path to preserve old URLs.

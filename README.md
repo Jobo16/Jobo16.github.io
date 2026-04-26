@@ -6,7 +6,10 @@
 
 - `content/index.md`: 首页
 - `content/projects/index.md`: 项目总览
-- `content/projects/*.md`: 项目详情页
+- `content/projects/ai-products/*.md`: AI 产品项目
+- `content/projects/automation-data/*.md`: 自动化与数据项目
+- `content/projects/content-video/*.md`: 内容与视频项目
+- `content/projects/devtools-infra/*.md`: 开发工具与基础设施项目
 - `content/notes/index.md`: 笔记总览
 - `content/notes/*.md`: 分享文档，一篇一页
 - `content/about.md`: 关于
@@ -41,7 +44,7 @@ scripts/sync-obsidian.sh
 
 ```bash
 npm ci
-npx quartz build
+npm run build:optimized
 ```
 
-构建产物 `public/` 会发布到 GitHub Pages。
+构建产物 `public/` 会发布到 GitHub Pages 和 `jobo.asia` 服务器。

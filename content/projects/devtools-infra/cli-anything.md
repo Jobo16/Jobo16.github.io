@@ -6,6 +6,8 @@ tags:
   - project
   - cli
   - agent
+aliases:
+  - projects/cli-anything
 draft: false
 ---
 

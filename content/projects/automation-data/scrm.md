@@ -6,6 +6,8 @@ tags:
   - project
   - backend
   - scrm
+aliases:
+  - projects/scrm
 draft: false
 ---
 

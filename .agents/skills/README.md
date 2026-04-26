@@ -10,7 +10,9 @@ Current site structure:
 - `content/about.md`
 - `content/contact.md`
 - `content/projects/index.md`
-- `content/projects/*.md`
+- `content/projects/ai-products/*.md`
+- `content/projects/automation-data/*.md`
+- `content/projects/content-video/*.md`
+- `content/projects/devtools-infra/*.md`
 - `content/notes/index.md`
 - `content/notes/*.md`
-
