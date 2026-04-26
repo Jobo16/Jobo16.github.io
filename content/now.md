@@ -14,9 +14,9 @@ draft: false
 ## 当前主要项目
 
 - 搭建这个基于 Quartz + Obsidian Markdown 的个人博客和知识主页，把公开内容、项目记录、联系方式和 AI 维护规则统一起来。
-- 推进 [[projects/tangclaw-v3|Tangclaw v3]]，围绕 AI SaaS 工作台、学习资产、会话、自动化任务和微信通道做稳定化。
-- 维护 [[projects/auto-deploy-v2|auto-deploy-v2]]，用于统一管理和部署静态网站。
-- 整理 Remotion 视频生成工作流，包括 [[projects/word-video|Word Video]] 和批量视频模板平台。
+- 推进 [[projects|Tangclaw v3]]，围绕 AI SaaS 工作台、学习资产、会话、自动化任务和微信通道做稳定化。
+- 维护 [[projects|auto-deploy-v2]]，用于统一管理和部署静态网站。
+- 整理 Remotion 视频生成工作流，包括 [[projects|Word Video]] 和批量视频模板平台。
 
 ## 最近关注
 

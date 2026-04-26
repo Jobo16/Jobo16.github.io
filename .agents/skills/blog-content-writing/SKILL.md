@@ -39,9 +39,8 @@ draft: false
 
 ## Placement
 
-- Long articles go under `content/writing/essays/`.
-- Short notes go under `content/writing/notes/`.
-- Shared links, books, media, and tools go under `content/sharing/`.
-- Project notes go under `content/projects/`.
-- Site-level pages remain at `content/index.md`, `content/now.md`, `content/about.md`, and `content/contact.md`.
-
+- Site-level pages remain at `content/index.md`, `content/now.md`, `content/about.md`, `content/contact.md`, `content/projects.md`, and `content/notes.md`.
+- Keep project summaries in `content/projects.md` by default.
+- Keep articles, shares, links, reading notes, and lightweight thoughts in `content/notes.md` by default.
+- Only create a subpage when a topic has enough long-lived content to justify its own page.
+- Images and attachments should live under `content/assets/`.

@@ -19,15 +19,14 @@ draft: false
 
 ## 最近项目
 
-- [[projects/tangclaw-v3|Tangclaw v3]]：AI SaaS 工作台，包含会话、资产、知识库检索、自动化任务和微信通道。
-- [[projects/auto-deploy-v2|auto-deploy-v2]]：静态网站统一上传、更新、删除和访问的部署服务。
-- [[projects/xhs-comment-audit-bot|小红书评论校验同步 Bot]]：读取飞书多维表格，抓取评论并回写结果。
-- [[projects/word-video|Word Video]]：面向中文词汇学习短视频的 Remotion 渲染项目。
+- [[projects|Tangclaw v3]]：AI SaaS 工作台，包含会话、资产、知识库检索、自动化任务和微信通道。
+- [[projects|auto-deploy-v2]]：静态网站统一上传、更新、删除和访问的部署服务。
+- [[projects|小红书评论校验同步 Bot]]：读取飞书多维表格，抓取评论并回写结果。
+- [[projects|Word Video]]：面向中文词汇学习短视频的 Remotion 渲染项目。
 
 ## 内容入口
 
-- [[writing|文章]]
-- [[sharing|分享]]
+- [[notes|笔记]]
 - [[projects|项目]]
 - [[about|关于]]
 - [[contact|联系]]
