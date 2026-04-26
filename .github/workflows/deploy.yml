@@ -1,4 +1,4 @@
-name: Deploy Quartz site to GitHub Pages
+name: Deploy Quartz site
 
 on:
   push:
@@ -49,3 +49,49 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  deploy-server:
+    needs: build
+    runs-on: ubuntu-24.04
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Quartz
+        run: npx quartz build
+
+      - name: Configure SSH
+        env:
+          JOBO_SERVER_SSH_KEY: ${{ secrets.JOBO_SERVER_SSH_KEY }}
+          JOBO_SERVER_HOST: ${{ secrets.JOBO_SERVER_HOST }}
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          printf '%s\n' "$JOBO_SERVER_SSH_KEY" > ~/.ssh/jobo_server_deploy
+          chmod 600 ~/.ssh/jobo_server_deploy
+          ssh-keyscan -H "$JOBO_SERVER_HOST" >> ~/.ssh/known_hosts
+
+      - name: Deploy to jobo.asia server
+        env:
+          JOBO_SERVER_HOST: ${{ secrets.JOBO_SERVER_HOST }}
+          JOBO_SERVER_USER: ${{ secrets.JOBO_SERVER_USER }}
+        run: |
+          rsync -az --delete -e "ssh -i ~/.ssh/jobo_server_deploy" public/ "$JOBO_SERVER_USER@$JOBO_SERVER_HOST:/tmp/jobo-asia-public/"
+          ssh -i ~/.ssh/jobo_server_deploy "$JOBO_SERVER_USER@$JOBO_SERVER_HOST" '
+            set -euo pipefail
+            sudo mkdir -p /srv/sites/jobo-asia
+            sudo rsync -a --delete /tmp/jobo-asia-public/ /srv/sites/jobo-asia/
+            sudo chown -R caddy:caddy /srv/sites/jobo-asia
+            sudo find /srv/sites/jobo-asia -type d -exec chmod 755 {} \;
+            sudo find /srv/sites/jobo-asia -type f -exec chmod 644 {} \;
+          '

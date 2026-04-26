@@ -14,7 +14,7 @@ const config: QuartzConfig = {
     enablePopovers: true,
     analytics: null,
     locale: "zh-CN",
-    baseUrl: "Jobo16.github.io",
+    baseUrl: "jobo.asia",
     ignorePatterns: ["private", "templates", ".obsidian", "_ai-skills"],
     defaultDateType: "created",
     theme: {
