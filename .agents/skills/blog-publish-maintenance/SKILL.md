@@ -8,9 +8,10 @@ Keep the Quartz content repository clean, buildable, and easy to maintain over t
 
 ## File Rules
 
-- Keep `content/` shallow by default.
-- Main public pages are `index.md`, `now.md`, `about.md`, `contact.md`, `projects.md`, and `notes.md`.
-- Do not create nested folders unless the user explicitly wants a larger content section.
+- Main public pages are `content/index.md`, `content/about.md`, and `content/contact.md`.
+- Project pages live under `content/projects/`; `content/projects/index.md` is the project overview page.
+- Note/share pages live under `content/notes/`; `content/notes/index.md` is the notes overview page.
+- Do not create extra nested folders under `projects/` or `notes/` unless the user explicitly asks.
 - Images and attachments should live under `content/assets/`.
 - Do not scatter assets next to random articles unless there is already a clear local convention.
 - Do not delete published pages unless the user explicitly requests deletion.
@@ -31,6 +32,7 @@ draft:
 
 - `draft: true` means not ready for publication.
 - `draft: false` means publishable.
+- `date` is the creation date used for descending lists.
 - `description` should be concise and suitable for previews.
 - Avoid duplicate or near-duplicate tags.
 

@@ -16,7 +16,7 @@ const config: QuartzConfig = {
     locale: "zh-CN",
     baseUrl: "Jobo16.github.io",
     ignorePatterns: ["private", "templates", ".obsidian", "_ai-skills"],
-    defaultDateType: "modified",
+    defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,

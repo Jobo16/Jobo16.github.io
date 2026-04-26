@@ -5,9 +5,10 @@
 ## 内容结构
 
 - `content/index.md`: 首页
-- `content/now.md`: 正在做什么
-- `content/projects.md`: 项目入口
-- `content/notes.md`: 笔记、文章、分享、链接统一入口
+- `content/projects/index.md`: 项目总览
+- `content/projects/*.md`: 项目详情页
+- `content/notes/index.md`: 笔记总览
+- `content/notes/*.md`: 分享文档，一篇一页
 - `content/about.md`: 关于
 - `content/contact.md`: 联系方式
 - `.agents/skills/`: AI 维护内容时需要遵守的项目级规则

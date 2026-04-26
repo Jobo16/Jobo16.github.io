@@ -1,6 +1,6 @@
 ---
 title: "关于"
-description: "英语专业背景的 AI Coding 实践者，关注产品、自动化和内容工程。"
+description: "关于我、联系方式和近期正在做的项目。"
 date: 2026-04-26
 tags:
   - about
@@ -13,6 +13,23 @@ draft: false
 
 我不是传统路径的工程师，更像是在用 AI Coding 补齐技术能力、用产品问题牵引学习的人。日常会高强度使用 Codex、ChatGPT、Claude Code、Trae 等工具，把需求拆成可执行任务，再通过代码、文档和部署把东西落地。
 
+## 联系
+
+- 个人主页：<https://jobo.asia>
+- 当前博客：<https://jobo16.github.io>
+- GitHub：<https://github.com/Jobo16>
+- CSDN：<https://blog.csdn.net/2401_84009235?type=blog>
+- X / Twitter：<https://twitter.com/BJO221238954295>
+
+手机号、微信二维码和私人邮箱暂不直接放在公开页面。合作或交流可以先通过公开主页、GitHub 或已有公开社交入口联系。
+
+## Ongoing
+
+- [[projects/tangclaw-v3|Tangclaw v3]]：围绕 AI SaaS 工作台、学习资产、会话、自动化任务和微信通道做稳定化。
+- [[projects/auto-deploy-v2|auto-deploy-v2]]：维护静态网站统一部署服务和 CLI 发布流程。
+- [[projects/remotion-platform|Remotion Batch Video Platform]]：整理视频模板平台和批量渲染工作流。
+- 这个博客：用 Quartz + Obsidian Markdown 维护个人内容、项目记录和 AI 写作规则。
+
 ## 我在做的事
 
 - 用 AI Coding 独立开发和部署 Web 应用、自动化工具、知识库问答、RAG 应用和内容处理流程。
@@ -23,10 +40,8 @@ draft: false
 
 ## 背景
 
-- 浙江工业大学，本科，英语专业，2023-2027。
-- 英语 TEM-4 优秀，CET-6。
-- 曾在杭州天目躺云科技有限公司做产品/后端相关实习，参与 AI 工具、内容本地化、题库数据处理、爬虫同步、SCRM 业务开发和部署方案探索。
-- 曾被评为优秀实习生。
+- 浙江工业大学，英语专业本科
+- 在杭州天目躺云科技有限公司做产品+后端实习（2025-2026），参与 AI 工具开发、内部ai提效、数据抓取和处理、SCRM 业务前后端开发和ielt claw项目的开发。
 
 ## 技能关键词
 

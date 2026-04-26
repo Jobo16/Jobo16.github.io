@@ -39,8 +39,8 @@ draft: false
 
 ## Placement
 
-- Site-level pages remain at `content/index.md`, `content/now.md`, `content/about.md`, `content/contact.md`, `content/projects.md`, and `content/notes.md`.
-- Keep project summaries in `content/projects.md` by default.
-- Keep articles, shares, links, reading notes, and lightweight thoughts in `content/notes.md` by default.
-- Only create a subpage when a topic has enough long-lived content to justify its own page.
+- Site-level pages remain at `content/index.md`, `content/about.md`, and `content/contact.md`.
+- Project pages live under `content/projects/`, with `content/projects/index.md` as the project overview page.
+- Shared notes, essays, links, reading notes, and lightweight thoughts live under `content/notes/`, with `content/notes/index.md` as the notes overview page.
+- Each project or note should be one Markdown page.
 - Images and attachments should live under `content/assets/`.
