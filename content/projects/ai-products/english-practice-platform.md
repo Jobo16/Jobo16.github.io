@@ -11,8 +11,6 @@ aliases:
 draft: false
 ---
 
-# English Practice Platform
-
 English Practice Platform 是一个面向英语学习者的在线练习与题库管理平台。
 
 ## 核心功能

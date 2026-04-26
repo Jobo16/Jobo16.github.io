@@ -11,8 +11,6 @@ aliases:
 draft: false
 ---
 
-# Tangclaw v3
-
 Tangclaw v3 是我近期投入最多的项目之一。它不是普通聊天壳，而是围绕用户会话、学习资源、资产处理、自动化任务、运行时配置和外部通道交付构建的 AI SaaS 工作台。
 
 公开入口：<https://claw.jobo.asia>

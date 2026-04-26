@@ -11,8 +11,6 @@ aliases:
 draft: false
 ---
 
-# Word Video
-
 Word Video 是一个面向中文词汇学习短视频的 Remotion 项目。每条视频围绕一个词汇组织素材，包括图片、英文问题、中文词、拼音、例句和多段音频。
 
 ## 内容结构

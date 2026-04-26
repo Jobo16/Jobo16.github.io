@@ -32,7 +32,8 @@ draft: false
 
 - Write primarily in Chinese unless the user requests another language.
 - Keep titles clear and direct; avoid exaggerated marketing headlines.
-- Start the body with one H1 matching the page title, unless the local page already uses another established style.
+- Do not repeat the page title as a body H1. Quartz already renders the `title` from frontmatter at the top of the page.
+- Start the body directly with the introduction paragraph, an image, a callout, or an H2 section.
 - Use H2 and H3 for structure; avoid deeper nesting unless necessary.
 - Prefer concrete examples and concise sections over generic commentary.
 - Do not invent personal details, project claims, dates, metrics, or relationships.

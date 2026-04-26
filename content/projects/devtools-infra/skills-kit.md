@@ -11,8 +11,6 @@ aliases:
 draft: false
 ---
 
-# skills-kit
-
 skills-kit 是一个面向 Codex skills 的仓库，用来沉淀可复用的工作流规则。
 
 ## 当前 skills

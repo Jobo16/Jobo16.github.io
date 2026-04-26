@@ -27,4 +27,3 @@ scripts/sync-obsidian.sh
 - After syncing, run `npx quartz build`.
 - Review changed files before committing.
 - If syncing would delete many files from `content/`, stop and summarize the deletion list before proceeding unless the user already requested a destructive refresh.
-

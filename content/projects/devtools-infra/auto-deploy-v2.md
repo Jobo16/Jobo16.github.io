@@ -11,8 +11,6 @@ aliases:
 draft: false
 ---
 
-# auto-deploy-v2
-
 auto-deploy-v2 是一个用于统一管理静态网站部署的小工具。它接收 `dist.zip`，安全解压后生成项目访问地址，并支持后续更新和删除。
 
 健康检查：<http://deploy.sites.tzxys.cn/health>

@@ -11,8 +11,6 @@ aliases:
 draft: false
 ---
 
-# CLI-Anything 相关探索
-
 CLI-Anything 的核心想法是：把更多软件和源码仓库变成 AI Agent 可以稳定调用的 CLI。
 
 ## 我关注的方向

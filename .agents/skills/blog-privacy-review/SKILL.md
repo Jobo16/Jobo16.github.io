@@ -31,4 +31,3 @@ If a risk is found:
 ## Publishing Rule
 
 Do not publish questionable content by trying to partially redact it unless the user explicitly confirms the safe public version.
-

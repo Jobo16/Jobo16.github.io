@@ -11,8 +11,6 @@ aliases:
 draft: false
 ---
 
-# Remotion Batch Video Platform
-
 这是一个从单一 Remotion demo 演进出来的网页视频模板平台。
 
 ## 主要能力

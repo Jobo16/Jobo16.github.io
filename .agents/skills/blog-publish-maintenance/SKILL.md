@@ -42,6 +42,13 @@ draft:
 - `description` should be concise and suitable for previews.
 - Avoid duplicate or near-duplicate tags.
 
+## Body Heading Rules
+
+- Do not add a top-level `# Title` in the Markdown body when it repeats frontmatter `title`.
+- Quartz renders the page title automatically, so repeated body H1 headings create duplicate visible titles.
+- Body structure should start with an introduction paragraph, an image, a callout, or `##` sections.
+- Use `#` in the body only when there is a deliberate exception and it does not duplicate the page title.
+
 ## Pre-Publish Checks
 
 Before committing or deploying content changes:
