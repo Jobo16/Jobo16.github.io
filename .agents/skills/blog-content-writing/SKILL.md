@@ -1,54 +1,27 @@
 # Blog Content Writing
 
-Use this skill when creating, rewriting, expanding, or polishing public Markdown content for this Quartz blog.
+Use this skill when creating or editing public Quartz Markdown.
 
-## Goal
+## Source
 
-Turn ideas, rough notes, voice transcripts, drafts, and fragmented notes into publishable Markdown for the public blog.
+Personal facts come from the private knowledge base. This repository only owns concise public wording; never invent or silently change facts here.
 
-## Content Boundary
+## Structure
 
-- Public content lives in `content/`.
-- Do not read from or copy content out of private vault folders unless the user explicitly provides that content in the task.
-- Do not publish private journal entries, customer information, account credentials, internal plans, or unconfirmed commercial information.
-- If the source is ambiguous, keep the new page as `draft: true`.
+- `content/index.md`：首页。
+- `content/about.md`：介绍与联系方式。
+- `content/projects/*.md`：扁平的项目页。
+- `content/notes/*.md`：公开笔记。
+- `content/assets/`：公开图片。
 
-## Required Frontmatter
+## Frontmatter
 
-Every public Markdown page must include:
+Every page uses `title`, `description`, `date`, `tags`, and `draft`. Add `aliases` only when a published URL moved.
 
-```yaml
----
-title: "Title"
-description: "Short summary within 80 Chinese characters."
-date: YYYY-MM-DD
-tags:
-  - tag
-draft: false
----
-```
+## Writing
 
-## Writing Rules
-
-- Write primarily in Chinese unless the user requests another language.
-- Keep titles clear and direct; avoid exaggerated marketing headlines.
-- Do not repeat the page title as a body H1. Quartz already renders the `title` from frontmatter at the top of the page.
-- Start the body directly with the introduction paragraph, an image, a callout, or an H2 section.
-- Use H2 and H3 for structure; avoid deeper nesting unless necessary.
-- Prefer concrete examples and concise sections over generic commentary.
-- Do not invent personal details, project claims, dates, metrics, or relationships.
-
-## Placement
-
-- Site-level pages remain at `content/index.md`, `content/about.md`, and `content/contact.md`.
-- Project pages live under one of the project type folders below, with `content/projects/index.md` as the project overview page:
-  - `content/projects/ai-products/`
-  - `content/projects/automation-data/`
-  - `content/projects/content-video/`
-  - `content/projects/devtools-infra/`
-- Shared notes, essays, links, reading notes, and lightweight thoughts live under `content/notes/`, with `content/notes/index.md` as the notes overview page.
-- Each project or note should be one Markdown page.
-- Images and attachments should live under `content/assets/`.
-- When embedding images in Obsidian Markdown, set a display width unless the image is intentionally full-size, for example `![[image.png|320]]`.
-- QR codes and contact images should usually be displayed at 180-260px wide.
-- Prefer WebP or JPEG for photos and large illustrations; prefer PNG for QR codes, logos, screenshots with sharp UI text, and transparent images.
+- Write primarily in concise Chinese.
+- Do not repeat the frontmatter title as a body H1.
+- A project page contains only positioning, personal contribution, result, and public links.
+- External projects and research belong in `notes/`, not `projects/`.
+- Do not publish local paths, private repositories, internal domains, ports, credentials, customer data, or unconfirmed claims.

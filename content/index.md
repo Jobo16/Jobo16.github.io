@@ -1,25 +1,15 @@
 ---
 title: JOBO
-description: JOBO 的个人网站
+description: 周博的个人网站，记录代表项目和长期思考。
 date: 2026-04-26
-tags:
-  - home
+tags: [home]
 draft: false
 ---
 
-```
-第一性原理 | 学习方法论
-```
+我是周博，一名关注 AI 产品、软件开发和自动化的实践者。
 
-AI 技术的探索者和实践者，高强度使用 Codex、ChatGPT、Claude Code、Trae 等工具做产品原型、Web 应用、自动化脚本、内容工具和部署流程。
+我喜欢从真实问题出发，把需求变成可以运行、验证和持续改进的工具。
 
-我关注的是：怎样把想法快速变成可用的工具，怎样让 AI 参与真实项目开发，怎样把内容、代码、数据和自动化工作流连接起来，重构项目的工作流，创造出真实的价值。
-
-## 内容入口
-
-- 笔记入口：[[notes/index|笔记]]
-- 项目入口：[[projects/index|项目]]
-
-## 联系方式
-
-- [[contact]]
+- [[projects/index|项目]]
+- [[notes/index|笔记]]
+- [[about|关于我]]

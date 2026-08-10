@@ -1,12 +1,12 @@
 ---
-title: "笔记"
-description: "公开笔记、文章、分享和阶段性思考的统一入口。"
+title: 笔记
+description: 值得公开保留的实践记录和长期思考。
 date: 2026-04-26
-tags:
-  - note
+tags: [note]
 draft: false
 ---
 
-这里收集我想公开分享的 Markdown 文档，包括文章、工具记录、项目思考、链接整理和阶段性观察。
+这里只保留有个人实践、判断或长期价值的内容。
 
-下面的列表由 Quartz 自动生成，按创建时间倒序排列。
+- [[把人生调成低噪音模式]]
+- [[cli-anything|CLI-Anything：让软件更适合 Agent 调用]]

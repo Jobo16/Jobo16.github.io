@@ -11,7 +11,7 @@ const config: QuartzConfig = {
     pageTitle: "Jobo",
     pageTitleSuffix: "",
     enableSPA: true,
-    enablePopovers: true,
+    enablePopovers: false,
     analytics: null,
     locale: "zh-CN",
     baseUrl: "jobo.asia",
@@ -84,7 +84,6 @@ const config: QuartzConfig = {
       }),
       Plugin.Assets(),
       Plugin.Static(),
-      Plugin.Favicon(),
       Plugin.NotFoundPage(),
       // Comment out CustomOgImages to speed up build time
       Plugin.CustomOgImages(),
