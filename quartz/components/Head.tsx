@@ -1,5 +1,5 @@
 import { i18n } from "../i18n"
-import { FullSlug, getFileExtension, joinSegments, pathToRoot } from "../util/path"
+import { FullSlug, getFileExtension, joinSegments, pathToRoot, simplifySlug } from "../util/path"
 import { CSSResourceToStyleElement, JSResourceToScriptElement } from "../util/resources"
 import { googleFontHref, googleFontSubsetHref } from "../util/theme"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
@@ -22,14 +22,24 @@ export default (() => {
 
     const { css, js, additionalHead } = externalResources
 
-    const url = new URL(`https://${cfg.baseUrl ?? "example.com"}`)
-    const path = url.pathname as FullSlug
+    const siteUrl = new URL(`https://${cfg.baseUrl ?? "example.com"}`)
+    if (!siteUrl.pathname.endsWith("/")) {
+      siteUrl.pathname += "/"
+    }
+
+    const path = siteUrl.pathname as FullSlug
     const baseDir = fileData.slug === "404" ? path : pathToRoot(fileData.slug!)
     const iconPath = joinSegments(baseDir, "static/icon.svg")
 
-    // Url of current page
-    const socialUrl =
-      fileData.slug === "404" ? url.toString() : joinSegments(url.toString(), fileData.slug!)
+    const canonicalUrl =
+      cfg.baseUrl && fileData.slug !== "404"
+        ? new URL(
+            simplifySlug(fileData.slug!) === "/" ? "." : simplifySlug(fileData.slug!),
+            siteUrl,
+          )
+        : undefined
+    const socialUrl = canonicalUrl?.toString() ?? siteUrl.toString()
+    const isHomePage = simplifySlug(fileData.slug!) === "/"
 
     const usesCustomOgImage = ctx.cfg.plugins.emitters.some(
       (e) => e.name === CustomOgImagesEmitterName,
@@ -53,7 +63,7 @@ export default (() => {
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <meta name="og:site_name" content={cfg.pageTitle}></meta>
+        <meta property="og:site_name" content={cfg.pageTitle}></meta>
         <meta property="og:title" content={title} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -79,12 +89,27 @@ export default (() => {
             <meta property="twitter:domain" content={cfg.baseUrl}></meta>
             <meta property="og:url" content={socialUrl}></meta>
             <meta property="twitter:url" content={socialUrl}></meta>
+            {canonicalUrl && <link rel="canonical" href={canonicalUrl.toString()} />}
           </>
         )}
 
         <link rel="icon" href={iconPath} />
         <meta name="description" content={description} />
         <meta name="generator" content="Quartz" />
+        {fileData.slug === "404" && <meta name="robots" content="noindex" />}
+        {cfg.baseUrl && isHomePage && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                name: cfg.pageTitle,
+                url: socialUrl,
+              }),
+            }}
+          />
+        )}
 
         {css.map((resource) => CSSResourceToStyleElement(resource, true))}
         {js
