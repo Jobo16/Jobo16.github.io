@@ -40,11 +40,13 @@ export default (() => {
         : undefined
     const socialUrl = canonicalUrl?.toString() ?? siteUrl.toString()
     const isHomePage = simplifySlug(fileData.slug!) === "/"
+    const isArticle = fileData.slug?.startsWith("projects/") || fileData.slug?.startsWith("notes/")
+    const ogImageDefaultPath = `https://${cfg.baseUrl}/index-og-image.webp`
+    const ogImageType = (getFileExtension(ogImageDefaultPath) ?? "png").replace(/^\./, "")
 
     const usesCustomOgImage = ctx.cfg.plugins.emitters.some(
       (e) => e.name === CustomOgImagesEmitterName,
     )
-    const ogImageDefaultPath = `https://${cfg.baseUrl}/index-og-image.webp`
 
     return (
       <head>
@@ -60,27 +62,26 @@ export default (() => {
             )}
           </>
         )}
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <meta property="og:site_name" content={cfg.pageTitle}></meta>
         <meta property="og:title" content={title} />
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content={isArticle ? "article" : "website"} />
+        <meta property="og:locale" content="zh_CN" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
         <meta property="og:description" content={description} />
         <meta property="og:image:alt" content={description} />
+        <meta name="author" content="周博" />
+        <meta name="theme-color" content="#FAFAFA" />
 
         {!usesCustomOgImage && (
           <>
             <meta property="og:image" content={ogImageDefaultPath} />
             <meta property="og:image:url" content={ogImageDefaultPath} />
             <meta name="twitter:image" content={ogImageDefaultPath} />
-            <meta
-              property="og:image:type"
-              content={`image/${getFileExtension(ogImageDefaultPath) ?? "png"}`}
-            />
+            <meta property="og:image:type" content={`image/${ogImageType}`} />
           </>
         )}
 
@@ -103,9 +104,31 @@ export default (() => {
             dangerouslySetInnerHTML={{
               __html: JSON.stringify({
                 "@context": "https://schema.org",
-                "@type": "WebSite",
-                name: cfg.pageTitle,
-                url: socialUrl,
+                "@graph": [
+                  {
+                    "@type": "WebSite",
+                    "@id": `${socialUrl}#website`,
+                    name: cfg.pageTitle,
+                    description,
+                    url: socialUrl,
+                    inLanguage: "zh-CN",
+                    publisher: { "@id": `${siteUrl.toString()}#person` },
+                  },
+                  {
+                    "@type": "Person",
+                    "@id": `${siteUrl.toString()}#person`,
+                    name: "周博",
+                    alternateName: "JOBO",
+                    url: siteUrl.toString(),
+                    jobTitle: "AI 产品与全栈开发实践者",
+                    sameAs: [
+                      "https://github.com/Jobo16",
+                      "https://x.com/BJO221238954295",
+                      "https://xhslink.com/m/637xuspR4iI",
+                      "https://v.douyin.com/pRUDhpBqOrc/",
+                    ],
+                  },
+                ],
               }),
             }}
           />

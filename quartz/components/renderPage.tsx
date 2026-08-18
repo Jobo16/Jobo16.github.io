@@ -27,9 +27,6 @@ export function pageResources(
   baseDir: FullSlug | RelativeURL,
   staticResources: StaticResources,
 ): StaticResources {
-  const contentIndexPath = joinSegments(baseDir, "static/contentIndex.json")
-  const contentIndexScript = `const fetchData = fetch("${contentIndexPath}").then(data => data.json())`
-
   const resources: StaticResources = {
     css: [
       {
@@ -42,12 +39,6 @@ export function pageResources(
         src: joinSegments(baseDir, "prescript.js"),
         loadTime: "beforeDOMReady",
         contentType: "external",
-      },
-      {
-        loadTime: "beforeDOMReady",
-        contentType: "inline",
-        spaPreserve: true,
-        script: contentIndexScript,
       },
       ...staticResources.js,
     ],
@@ -257,16 +248,19 @@ export function renderPage(
     </div>
   )
 
-  const lang = componentData.fileData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
+  const lang = componentData.fileData.frontmatter?.lang ?? cfg.locale ?? "en"
   const direction = i18n(cfg.locale).direction ?? "ltr"
   const doc = (
     <html lang={lang} dir={direction}>
       <Head {...componentData} />
       <body data-slug={slug}>
+        <a class="skip-link" href="#main-content">
+          跳到主要内容
+        </a>
         <div id="quartz-root" class="page">
           <Body {...componentData}>
             {LeftComponent}
-            <div class="center">
+            <div class="center" id="main-content" tabIndex={-1}>
               <div class="page-header">
                 <Header {...componentData}>
                   {header.map((HeaderComponent) => (

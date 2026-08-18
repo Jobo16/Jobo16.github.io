@@ -1,19 +1,21 @@
 ---
 title: IELTS Buddy
-description: 将课程、练习、模考和学习计划收进同一个 AI 雅思学习工作台。
-date: 2026-08-10
+description: 上线一个月累计注册用户 600+ 的 AI 雅思学习工作台。
+date: 2026-08-14
 tags: [project, ai, education, agent]
 draft: false
 ---
 
-IELTS Buddy 是一个面向雅思备考用户的 AI 学习工作台。它不把 AI 单独放在聊天框里，而是让对话与课程、题库、练习、模考、资料和学习计划共享同一份学习上下文。
+IELTS Buddy 是一个面向雅思备考用户的 AI 学习工作台，上线一个月累计注册用户数达到 600+。它不把 AI 单独放在聊天框里，而是让对话与课程、题库、练习、模考、资料和学习计划共享同一份学习上下文。
 
 ## 我做了什么
 
 - 作为主力开发参与产品定义、需求拆解和全栈实现。
+- 基于 TypeScript Monorepo、Next.js、Hono、Drizzle ORM 和 PostgreSQL 建设 Web、API 与 Agent Service。
 - 建设以 AI 对话为协调入口、业务面板为操作界面的工作台。
 - 贯通课程路线、练习记录、模考结果、学习计划和个人足迹。
-- 整理网页 Agent、本地 Agent、MCP 数据接口和公开 Skill 之间的边界。
+- 建设公开 MCP 与 Agent 能力契约，让网页 Agent 和本地 Agent 能够读取课程、题库、练习记录、学习画像与计划数据。
+- 完成响应式 Web、微信小程序 WebView 外壳、实时语音对话、内容生产链路和生产部署迭代。
 
 ## 产品判断
 

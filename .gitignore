@@ -41,3 +41,6 @@ replit.nix
 *.db
 *.sqlite
 *.sqlite3
+!quartz/static/wechat-qr.jpg
+!quartz/static/douyin-qr.jpg
+!quartz/static/xiaohongshu-qr.jpg

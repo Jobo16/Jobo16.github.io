@@ -6,7 +6,7 @@ export default (() => {
     const year = new Date().getFullYear()
     return (
       <footer class={`${displayClass ?? ""}`}>
-        <p>© {year} Jobo</p>
+        <p>© {year} JOBO实验室</p>
       </footer>
     )
   }
