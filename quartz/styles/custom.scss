@@ -6,13 +6,18 @@ html {
   width: 100%;
   background: var(--light);
   color-scheme: light;
-  text-size-adjust: auto;
+  text-size-adjust: 100%;
 }
 
 body {
   background: var(--light);
+  font-family: "Inter", var(--bodyFont), "PingFang SC", "Microsoft YaHei", sans-serif;
   font-size: 1rem;
-  line-height: 1.65;
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 button,
@@ -69,7 +74,7 @@ a.internal {
 
 .page > #quartz-body {
   display: block;
-  width: min(100%, 1120px);
+  width: min(100%, 1152px);
   margin: 0 auto;
   padding: 0 clamp(1.25rem, 4vw, 4rem);
   box-sizing: border-box;
@@ -110,7 +115,8 @@ section[id] {
 
 .article-title {
   margin: 0 !important;
-  color: var(--dark);
+  color: var(--secondary);
+  font-family: "Inter", "Noto Sans SC", var(--headerFont), "PingFang SC", sans-serif;
   font-size: clamp(2.6rem, 7vw, 6rem) !important;
   font-weight: 700;
   letter-spacing: -0.07em;
@@ -210,45 +216,47 @@ body[data-slug="index"] .center > article {
 }
 
 .home-hero {
-  padding: clamp(6rem, 14vw, 10rem) 0 clamp(4rem, 9vw, 7rem);
+  padding: clamp(6.5rem, 11vw, 8.5rem) 0 clamp(4rem, 8vw, 6rem);
   border-bottom: 1px solid var(--lightgray);
 }
 
 .home-title {
-  max-width: 9ch;
+  max-width: 52rem;
   margin: 0;
-  color: var(--dark);
-  font-size: clamp(3.4rem, 10vw, 8.8rem);
+  color: var(--secondary);
+  font-family: "Inter", "Noto Sans SC", var(--headerFont), "PingFang SC", sans-serif;
+  font-size: clamp(3rem, 5.2vw, 5.4rem);
   font-weight: 700;
-  letter-spacing: -0.085em;
-  line-height: 0.94;
+  letter-spacing: -0.065em;
+  line-height: 1.04;
   text-wrap: balance;
 }
 
 .home-title em {
-  color: var(--secondary);
+  color: var(--dark);
   font-style: normal;
 }
 
 .home-lede {
-  max-width: 48ch;
-  margin: 2.25rem 0 0;
-  color: var(--darkgray);
-  font-size: clamp(1.05rem, 2vw, 1.3rem);
-  line-height: 1.6;
+  max-width: 44ch;
+  margin: 1.75rem 0 0;
+  color: var(--gray);
+  font-size: clamp(1rem, 1.6vw, 1.15rem);
+  line-height: 1.65;
 }
 
 .home-section {
-  padding: clamp(4rem, 9vw, 7rem) 0;
+  padding: clamp(4rem, 8vw, 6rem) 0;
   border-bottom: 1px solid var(--lightgray);
 }
 
 .home-section h2 {
   margin: 0;
   color: var(--dark);
-  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-family: "Inter", "Noto Sans SC", var(--headerFont), "PingFang SC", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
   font-weight: 700;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.065em;
   line-height: 1.1;
 }
 
@@ -272,47 +280,53 @@ body[data-slug="index"] .center > article {
 .home-card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
-  gap: 1rem;
-  margin-top: 2.5rem;
+  gap: 1.25rem;
+  margin-top: 2rem;
 }
 
 .home-card {
   display: block;
-  min-height: 10rem;
-  padding: 1.25rem;
-  border: 1px solid var(--lightgray);
-  background: var(--light);
+  min-height: 9.5rem;
+  padding: 1.75rem;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: var(--highlight);
   color: inherit;
   text-decoration: none;
   transition:
     border-color 180ms ease,
-    background-color 180ms ease;
+    background-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .home-card:hover {
-  border-color: var(--secondary);
+  border-color: var(--lightgray);
   background: var(--highlight);
+  box-shadow: 0 8px 24px rgb(60 60 67 / 8%);
 }
 
 .home-card h3 {
   margin: 0;
   color: var(--dark);
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-family: "Inter", "Noto Sans SC", var(--headerFont), "PingFang SC", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
   letter-spacing: -0.02em;
 }
 
 .home-card p {
-  margin: 0.75rem 0 0;
-  color: var(--darkgray);
+  max-width: 34ch;
+  margin: 0.7rem 0 0;
+  color: var(--gray);
+  line-height: 1.6;
 }
 
 .home-card-link {
   display: inline-block;
-  margin-top: 1.25rem;
+  margin-top: 1.1rem;
   color: var(--secondary);
-  font-family: var(--codeFont);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
 }
 
 /* About and project index */
@@ -513,12 +527,13 @@ body[data-slug^="projects/"]:not([data-slug="projects/index"]) .center > article
   }
 
   .home-hero {
-    padding-top: 5rem;
+    padding-top: 5.5rem;
   }
 
   .home-title {
-    max-width: 9ch;
-    font-size: clamp(3.2rem, 16vw, 5.25rem);
+    max-width: 100%;
+    font-size: clamp(2.9rem, 13vw, 4.6rem);
+    line-height: 1.06;
   }
 
   .home-section {

@@ -74,7 +74,7 @@ export default (() => {
         <meta property="og:description" content={description} />
         <meta property="og:image:alt" content={description} />
         <meta name="author" content="周博" />
-        <meta name="theme-color" content="#FAFAFA" />
+        <meta name="theme-color" content="#FFFFFF" />
 
         {!usesCustomOgImage && (
           <>

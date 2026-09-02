@@ -7,7 +7,7 @@
 ---
 
 **Project:** JOBO Lab
-**Generated:** 2026-08-18 15:52:32
+**Updated:** 2026-09-02
 **Category:** Portfolio/Personal
 **Design Dials:** Variance 2/10 (Centered / Minimal) | Motion 2/10 (Subtle) | Density 3/10 (Spacious)
 
@@ -19,31 +19,25 @@
 
 | Role        | Hex       | CSS Variable          |
 | ----------- | --------- | --------------------- |
-| Primary     | `#18181B` | `--color-primary`     |
+| Primary     | `#3C3C43` | `--color-primary`     |
 | On Primary  | `#FFFFFF` | `--color-on-primary`  |
-| Secondary   | `#3F3F46` | `--color-secondary`   |
-| Accent/CTA  | `#2563EB` | `--color-accent`      |
-| Background  | `#FAFAFA` | `--color-background`  |
-| Foreground  | `#09090B` | `--color-foreground`  |
-| Muted       | `#E8ECF0` | `--color-muted`       |
-| Border      | `#E4E4E7` | `--color-border`      |
+| Secondary   | `#67676C` | `--color-secondary`   |
+| Accent/CTA  | `#3451B2` | `--color-accent`      |
+| Background  | `#FFFFFF` | `--color-background`  |
+| Foreground  | `#3C3C43` | `--color-foreground`  |
+| Muted       | `#F6F6F7` | `--color-muted`       |
+| Border      | `#E2E2E3` | `--color-border`      |
 | Destructive | `#DC2626` | `--color-destructive` |
-| Ring        | `#18181B` | `--color-ring`        |
+| Ring        | `#3451B2` | `--color-ring`        |
 
-**Color Notes:** Monochrome + blue accent
+**Color Notes:** Reference-inspired documentation palette: white canvas, soft gray surfaces, restrained blue accent.
 
 ### Typography
 
-- **Heading Font:** Archivo
-- **Body Font:** Space Grotesk
-- **Mood:** minimal, portfolio, designer, creative, clean, artistic
-- **Google Fonts:** [Archivo + Space Grotesk](https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap)
-
-**CSS Import:**
-
-```css
-@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
-```
+- **Heading Font:** Inter, with Noto Sans SC and system fallbacks for Chinese
+- **Body Font:** Inter, with Noto Sans SC and system fallbacks for Chinese
+- **Mood:** restrained, editorial, clear, efficient
+- **Performance:** Use local/system font stacks; do not add a remote font import.
 
 ### Spacing Variables
 
@@ -77,7 +71,7 @@ _Density: 3/10 — Spacious_
 ```css
 /* Primary Button */
 .btn-primary {
-  background: #2563eb;
+  background: #3451b2;
   color: white;
   padding: 12px 24px;
   border-radius: 8px;
@@ -94,8 +88,8 @@ _Density: 3/10 — Spacious_
 /* Secondary Button */
 .btn-secondary {
   background: transparent;
-  color: #18181b;
-  border: 2px solid #18181b;
+  color: #3c3c43;
+  border: 1px solid #e2e2e3;
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 600;
@@ -108,17 +102,17 @@ _Density: 3/10 — Spacious_
 
 ```css
 .card {
-  background: #fafafa;
+  background: #f6f6f7;
   border-radius: 12px;
   padding: 24px;
-  box-shadow: var(--shadow-md);
+  box-shadow: none;
   transition: all 200ms ease;
   cursor: pointer;
 }
 
 .card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
+  border-color: #e2e2e3;
+  box-shadow: 0 8px 24px rgb(60 60 67 / 8%);
 }
 ```
 
@@ -127,16 +121,16 @@ _Density: 3/10 — Spacious_
 ```css
 .input {
   padding: 12px 16px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #e2e2e3;
   border-radius: 8px;
   font-size: 16px;
   transition: border-color 200ms ease;
 }
 
 .input:focus {
-  border-color: #18181b;
+  border-color: #3451b2;
   outline: none;
-  box-shadow: 0 0 0 3px #18181b20;
+  box-shadow: 0 0 0 3px #3451b220;
 }
 ```
 
@@ -162,21 +156,21 @@ _Density: 3/10 — Spacious_
 
 ## Style Guidelines
 
-**Style:** Exaggerated Minimalism
+**Style:** Restrained documentation minimalism
 
-**Keywords:** Bold minimalism, oversized typography, high contrast, negative space, loud minimal, statement design
+**Keywords:** White canvas, soft gray cards, blue accent, editorial type scale, useful whitespace
 
-**Best For:** Fashion, architecture, portfolios, agency landing pages, luxury brands, editorial
+**Best For:** Personal labs, documentation, product portfolios, small studios
 
-**Key Effects:** font-size: clamp(3rem 10vw 12rem), font-weight: 900, letter-spacing: -0.05em, massive whitespace
+**Key Effects:** Clear hierarchy, restrained contrast, rounded cards, no decorative UI
 
 ### Page Pattern
 
-**Pattern Name:** Portfolio Grid
+**Pattern Name:** Flat portfolio landing page
 
-- **Conversion Strategy:** Visuals first. Filter by category. Fast loading essential.
-- **CTA Placement:** Project Card Hover + Footer Contact
-- **Section Order:** 1. Hero (Name/Role), 2. Project Grid (Masonry), 3. About/Philosophy, 4. Contact
+- **Conversion Strategy:** State the work clearly, then expose the one relevant project and contact paths.
+- **CTA Placement:** External project link and fixed navigation contacts
+- **Section Order:** 1. Hero, 2. Project card, 3. Product/service cards
 
 ---
 
