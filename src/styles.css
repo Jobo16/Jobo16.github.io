@@ -11,15 +11,18 @@
 }
 
 :root {
+  /* 三色主题：黑 / 白 / 主题色（电光蓝） */
   --canvas: #ffffff;
   --surface: #f6f6f7;
   --line: #e2e2e3;
-  --line-strong: #d3d3d5;
-  --text: #3c3c43;
-  --muted: #67676c;
+  --text: #16161a;
+  --muted: #5a5a61;
   --faint: #8a8a90;
-  --accent: #3451b2;
-  --accent-hover: #3a5ccc;
+  --accent: #185fa5;
+  --accent-hover: #0c447c;
+  --accent-soft: #e6f1fb;
+  --accent-wash: #f3f8fd;
+  --accent-line: #b5d4f4;
   --shadow: 0 8px 24px rgb(60 60 67 / 8%);
   --shadow-pop: 0 12px 32px rgb(60 60 67 / 14%);
   --radius: 14px;
@@ -35,6 +38,11 @@
 
 * {
   box-sizing: border-box;
+}
+
+::selection {
+  background: var(--accent-soft);
+  color: var(--text);
 }
 
 html {
@@ -157,9 +165,13 @@ button:focus-visible {
     background-color 180ms ease;
 }
 
-.site-links > a:hover,
+.site-links > a:hover {
+  color: var(--accent);
+  background: var(--surface);
+}
+
 .language-toggle:hover {
-  color: var(--text);
+  color: var(--accent-hover);
   background: var(--surface);
 }
 
@@ -205,6 +217,11 @@ section[id] {
   font-weight: 760;
   letter-spacing: -0.05em;
   line-height: 1.06;
+}
+
+.hero-title::after {
+  content: ".";
+  color: var(--accent);
 }
 
 .hero-lede {
@@ -263,7 +280,7 @@ section[id] {
 }
 
 .project-row:hover {
-  background: var(--surface);
+  background: var(--accent-wash);
 }
 
 .project-row:focus-visible {
@@ -273,7 +290,7 @@ section[id] {
 
 .project-index {
   flex: none;
-  color: var(--faint);
+  color: var(--accent);
   font-size: 0.78rem;
   font-weight: 650;
   letter-spacing: 0.08em;
@@ -322,11 +339,11 @@ section[id] {
 }
 
 .project-row:hover .project-chevron {
-  color: var(--text);
+  color: var(--accent);
 }
 
 .project-item[open] .project-chevron {
-  color: var(--text);
+  color: var(--accent);
   transform: rotate(180deg);
 }
 
@@ -407,13 +424,13 @@ section[id] {
 }
 
 .product-card:hover {
-  border-color: var(--line-strong);
+  border-color: var(--accent-line);
   box-shadow: var(--shadow);
 }
 
 .card-index {
   margin-bottom: 1.5rem;
-  color: var(--faint);
+  color: var(--accent);
   font-size: 0.78rem;
   font-weight: 650;
   letter-spacing: 0.1em;
@@ -465,7 +482,7 @@ button.social-card {
 
 .social-card:hover,
 .social-card:focus-visible {
-  border-color: var(--line-strong);
+  border-color: var(--accent-line);
   box-shadow: var(--shadow);
 }
 
@@ -494,7 +511,7 @@ button.social-card {
 
 .social-card:hover .social-icon,
 .social-card:focus-visible .social-icon {
-  background: var(--text);
+  background: var(--accent);
   color: var(--canvas);
 }
 
@@ -536,7 +553,7 @@ button.social-card {
 }
 
 .social-card:hover .social-external {
-  color: var(--text);
+  color: var(--accent);
 }
 
 .social-qr {
@@ -621,7 +638,7 @@ button.social-card {
 }
 
 .footer-top:hover {
-  color: var(--text);
+  color: var(--accent);
 }
 
 .qr-dialog {

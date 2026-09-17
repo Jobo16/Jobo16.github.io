@@ -7,7 +7,7 @@
 ---
 
 **Project:** JOBO Lab
-**Updated:** 2026-09-02
+**Updated:** 2026-09-17
 **Category:** Portfolio/Personal
 **Design Dials:** Variance 2/10 (Centered / Minimal) | Motion 2/10 (Subtle) | Density 3/10 (Spacious)
 
@@ -17,20 +17,27 @@
 
 ### Color Palette
 
-| Role        | Hex       | CSS Variable          |
-| ----------- | --------- | --------------------- |
-| Primary     | `#3C3C43` | `--color-primary`     |
-| On Primary  | `#FFFFFF` | `--color-on-primary`  |
-| Secondary   | `#67676C` | `--color-secondary`   |
-| Accent/CTA  | `#3451B2` | `--color-accent`      |
-| Background  | `#FFFFFF` | `--color-background`  |
-| Foreground  | `#3C3C43` | `--color-foreground`  |
-| Muted       | `#F6F6F7` | `--color-muted`       |
-| Border      | `#E2E2E3` | `--color-border`      |
-| Destructive | `#DC2626` | `--color-destructive` |
-| Ring        | `#3451B2` | `--color-ring`        |
+三色主题：**黑 / 白 / 主题色（电光蓝）**。主题色只用于点睛，不铺面。
 
-**Color Notes:** Reference-inspired documentation palette: white canvas, soft gray surfaces, restrained blue accent.
+| Role             | Hex       | CSS Variable          |
+| ---------------- | --------- | --------------------- |
+| Primary（黑）    | `#16161A` | `--text`              |
+| On Primary       | `#FFFFFF` | `--canvas`            |
+| Secondary        | `#5A5A61` | `--muted`             |
+| Tertiary         | `#8A8A90` | `--faint`             |
+| Accent/CTA（蓝） | `#185FA5` | `--accent`            |
+| Accent Hover     | `#0C447C` | `--accent-hover`      |
+| Accent Soft      | `#E6F1FB` | `--accent-soft`       |
+| Accent Wash      | `#F3F8FD` | `--accent-wash`       |
+| Accent Line      | `#B5D4F4` | `--accent-line`       |
+| Background       | `#FFFFFF` | `--canvas`            |
+| Foreground       | `#16161A` | `--text`              |
+| Muted            | `#F6F6F7` | `--surface`           |
+| Border           | `#E2E2E3` | `--line`              |
+| Destructive      | `#DC2626` | `--color-destructive` |
+| Ring             | `#185FA5` | `--accent`            |
+
+**Color Notes:** 白底 + 近黑文字 + 电光蓝点睛。主题色的固定触点：焦点描边、语言切换、导航 hover、项目序号、产品卡 01/02/03、外链与箭头、社媒卡 hover（描边转蓝、图标底色转蓝）、页脚回到顶部。默认状态下其余元素一律黑 / 白 / 灰，主题色不参与大面积铺色。
 
 ### Typography
 
@@ -71,7 +78,7 @@ _Density: 3/10 — Spacious_
 ```css
 /* Primary Button */
 .btn-primary {
-  background: #3451b2;
+  background: #185fa5;
   color: white;
   padding: 12px 24px;
   border-radius: 8px;
@@ -128,9 +135,9 @@ _Density: 3/10 — Spacious_
 }
 
 .input:focus {
-  border-color: #3451b2;
+  border-color: #185fa5;
   outline: none;
-  box-shadow: 0 0 0 3px #3451b220;
+  box-shadow: 0 0 0 3px #185fa520;
 }
 ```
 
