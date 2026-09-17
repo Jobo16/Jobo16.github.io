@@ -11,3 +11,6 @@ mobile-preview.png
 .env
 .env.*
 !.env.example
+
+# WorkBuddy 本地工作目录（会话日志、临时产物）
+.workbuddy/
