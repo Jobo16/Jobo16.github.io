@@ -1,5 +1,3 @@
-import "./styles.css"
-
 import douyinQr from "./assets/douyin-qr.jpg"
 import wechatQr from "./assets/wechat-qr.jpg"
 import xiaohongshuQr from "./assets/xiaohongshu-qr.jpg"
