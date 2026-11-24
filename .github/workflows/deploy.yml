@@ -1,99 +1,55 @@
-name: Deploy JOBO Lab
+name: Deploy JOBO homepage
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: jobo-lab-production
+  group: jobo-ink-production
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Check and build Vite site
-        run: npm run check
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-
-  deploy-pages:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-  deploy-server:
-    needs: build
-    runs-on: ubuntu-24.04
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Vite site
-        run: npm run build
+      - name: Prepare static site
+        run: |
+          mkdir _site
+          cp index.html favicon.svg robots.txt sitemap.xml *-qr.jpg _site/
+          grep -q 'JOBO 周博' _site/index.html
+          if grep -Eq 'yourusername|your@email|Your Name|ICP备|公网安备' _site/index.html; then
+            echo 'Unexpected placeholder or removed footer text in index.html' >&2
+            exit 1
+          fi
 
       - name: Configure SSH
         env:
-          JOBO_SERVER_SSH_KEY: ${{ secrets.JOBO_SERVER_SSH_KEY }}
-          JOBO_SERVER_HOST: ${{ secrets.JOBO_SERVER_HOST }}
+          JOBO_INK_DEPLOY_KEY: ${{ secrets.JOBO_INK_DEPLOY_KEY }}
         run: |
-          mkdir -p ~/.ssh
-          chmod 700 ~/.ssh
-          printf '%s\n' "$JOBO_SERVER_SSH_KEY" > ~/.ssh/jobo_server_deploy
-          chmod 600 ~/.ssh/jobo_server_deploy
-          ssh-keyscan -H "$JOBO_SERVER_HOST" >> ~/.ssh/known_hosts
+          test -n "$JOBO_INK_DEPLOY_KEY"
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$JOBO_INK_DEPLOY_KEY" > ~/.ssh/jobo_ink_deploy
+          chmod 600 ~/.ssh/jobo_ink_deploy
+          cp deploy/known_hosts ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
 
-      - name: Deploy to jobo.asia server
-        env:
-          JOBO_SERVER_HOST: ${{ secrets.JOBO_SERVER_HOST }}
-          JOBO_SERVER_USER: ${{ secrets.JOBO_SERVER_USER }}
+      - name: Deploy to server
         run: |
-          rsync -az --delete -e "ssh -i ~/.ssh/jobo_server_deploy" dist/ "$JOBO_SERVER_USER@$JOBO_SERVER_HOST:/tmp/jobo-asia-dist/"
-          ssh -i ~/.ssh/jobo_server_deploy "$JOBO_SERVER_USER@$JOBO_SERVER_HOST" '
-            set -euo pipefail
-            sudo mkdir -p /srv/sites/jobo-asia
-            sudo rsync -a --delete /tmp/jobo-asia-dist/ /srv/sites/jobo-asia/
-            sudo chown -R caddy:caddy /srv/sites/jobo-asia
-            sudo find /srv/sites/jobo-asia -type d -exec chmod 755 {} \;
-            sudo find /srv/sites/jobo-asia -type f -exec chmod 644 {} \;
-          '
+          rsync -az --delete --chmod=D755,F644 \
+            -e 'ssh -i ~/.ssh/jobo_ink_deploy -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes' \
+            _site/ jobo-ink-deploy@119.28.238.248:/srv/sites/jobo-ink/
 
-      - name: Verify jobo.asia
+      - name: Verify published page
         run: |
-          html="$(curl --fail --silent --show-error --retry 5 --retry-delay 2 https://jobo.asia/)"
-          grep -Eq '/assets/style-[A-Za-z0-9_-]+\.css' <<< "$html"
-          grep -Eq '/assets/index-[A-Za-z0-9_-]+\.js' <<< "$html"
+          expected="$(sha256sum _site/index.html | cut -d' ' -f1)"
+          actual="$(ssh -i ~/.ssh/jobo_ink_deploy -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes \
+            jobo-ink-deploy@119.28.238.248 sha256sum /srv/sites/jobo-ink/index.html | cut -d' ' -f1)"
+          test "$expected" = "$actual"
+          curl --fail --silent --show-error --retry 5 --retry-delay 2 \
+            --resolve jobo.ink:443:119.28.238.248 https://jobo.ink/ | grep -q 'JOBO 周博'

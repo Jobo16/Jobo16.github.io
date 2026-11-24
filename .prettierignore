@@ -1,6 +1,0 @@
-public
-dist
-node_modules
-.quartz-cache
-.playwright-cli
-output/playwright

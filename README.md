@@ -1,29 +1,21 @@
-# JOBO实验室
+# JOBO 个人主页
 
-JOBO实验室的单页静态网站，使用 Vanilla Vite 构建。
+部署在 [jobo.ink](https://jobo.ink) 的单页个人网站。页面是一个 `index.html`，包含内联 CSS 和少量 JavaScript；无需安装依赖或运行构建工具。
 
-`content/` 仅作为本地内容归档，不参与网站构建，也不会生成公开页面。
+页面样式基于 [GeraldYa/portfolio-template](https://github.com/GeraldYa/portfolio-template) 修改，原项目使用 MIT 许可证。原许可证见 [LICENSE](./LICENSE)。个人介绍、项目和联系方式沿用 JOBO 已公开的内容。
 
-## 开发
+## 本地预览
 
-```bash
-npm install
-npm run dev
+直接打开 `index.html`，或在仓库目录运行：
+
+```sh
+python3 -m http.server 8000
 ```
 
-本地地址：`http://localhost:8081/`
+然后访问 `http://localhost:8000/`。修改个人信息、产品或链接时直接编辑 `index.html`。
 
-## 检查与构建
+## 发布
 
-```bash
-npm run check
-```
+推送到 `main` 后，GitHub Actions 把静态文件同步到首尔服务器 `/srv/sites/jobo-ink`。Caddy 为 `jobo.ink` 和 `www.jobo.ink` 提供 HTTPS。工作流使用仓库密钥 `JOBO_INK_DEPLOY_KEY` 和专用的 `jobo-ink-deploy` SSH 用户。
 
-生产文件输出到 `dist/`。Vite 会为 CSS、JavaScript、字体和二维码图片生成内容哈希文件名，浏览器不会在更新后继续复用旧资源。
-
-## 缓存策略
-
-- HTML：`Cache-Control: no-cache, max-age=0, must-revalidate`
-- `assets/`：`Cache-Control: public, max-age=31536000, immutable`
-
-推送到 `main` 后，GitHub Actions 自动部署到 GitHub Pages 和 jobo.asia 服务器。
+工作流只上传网页文件，不把仓库文档或 CI 配置发布到站点目录。`workflow_dispatch` 可手动重发当前 `main`。
