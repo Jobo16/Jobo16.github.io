@@ -14,6 +14,12 @@ python3 -m http.server 8000
 
 然后访问 `http://localhost:8000/`。修改个人信息、产品或链接时直接编辑 `index.html`。
 
+## 搜索收录
+
+首页提供静态可读的项目介绍、标题和描述、规范网址、Open Graph 信息，以及与页面内容一致的 `WebSite`、`Person`、`ItemList` 结构化数据。`robots.txt` 指向只收录首页的 `sitemap.xml`。
+
+更新项目名称或链接时，同步修改页面上的项目卡片和 `<head>` 中的 JSON-LD。站点地图地址是 `https://jobo.ink/sitemap.xml`。
+
 ## 发布
 
 推送到 `main` 后，GitHub Actions 把静态文件同步到首尔服务器 `/srv/sites/jobo-ink`。Caddy 为 `jobo.ink` 和 `www.jobo.ink` 提供 HTTPS。工作流使用仓库密钥 `JOBO_INK_DEPLOY_KEY` 和专用的 `jobo-ink-deploy` SSH 用户。
